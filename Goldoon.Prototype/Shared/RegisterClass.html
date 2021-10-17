@@ -1,0 +1,832 @@
+﻿<!DOCTYPE html>
+<!--
+BeyondAdmin - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.4
+Version: 1.4.1
+Purchase: http://wrapbootstrap.com
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Head -->
+<head>
+      <meta charset="utf-8" />
+    <title>ثبت نام در کلاس</title>
+
+    <meta name="description" content="Dashboard" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
+
+    <!--Basic Styles-->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link href="../assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../assets/css/weather-icons.min.css" rel="stylesheet" />
+
+    <!--Fonts-->
+    <style>
+        @font-face {
+            font-family: 'WYekan';
+            src: url('/assets/fonts/BYekan.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300" rel="stylesheet" type="text/css">
+
+    <!--Beyond styles-->
+    <link href="../assets/css/beyond-rtl.min.css" rel="stylesheet" />
+    <link href="../assets/css/4095-rtl.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/demo.min.css" rel="stylesheet" />
+    <link href="../assets/css/typicons.min.css" rel="stylesheet" />
+    <link href="../assets/css/animate.min.css" rel="stylesheet" />
+    <link id="skin_link" href="" rel="stylesheet" type="text/css" />
+
+    <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
+    <script src="../assets/js/skins.min.js"></script>
+    	<link href="../assets/css/Custom.css" rel="stylesheet" />
+</head>
+<!-- /Head -->
+<!-- Body -->
+<body>
+    <!-- Loading Container -->
+    <div class="loading-container">
+        <div class="loader"></div>
+    </div>
+    <!--  /Loading Container -->
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="navbar-container">
+                <!-- Navbar Barnd -->
+                <div class="navbar-header pull-right">
+                    <a href="#" class="navbar-brand">
+                        <small>
+                            <img src="../assets/img/logo-rtl.png" alt="" />
+                        </small>
+                    </a>
+                </div>
+                <!-- /Navbar Barnd -->
+                <!-- Sidebar Collapse -->
+                <div class="sidebar-collapse" id="sidebar-collapse">
+                    <i class="collapse-icon fa fa-bars"></i>
+                </div>
+                <!-- /Sidebar Collapse -->
+                <!-- Account Area and Settings --->
+                <div class="navbar-header pull-left">
+                    <div class="navbar-account">
+                        <ul class="account-area">
+                            <li>
+                                <a class=" dropdown-toggle" data-toggle="dropdown" title="Help" href="#">
+                                    <i class="icon fa fa-warning"></i>
+                                </a>
+                                <!--Notification Dropdown-->
+                                <ul class="pull-right dropdown-menu dropdown-arrow dropdown-notifications">
+                                    <li>
+                                        <a href="#">
+                                            <div class="clearfix">
+                                                <div class="notification-icon">
+                                                    <i class="fa fa-phone bg-themeprimary white"></i>
+                                                </div>
+                                                <div class="notification-body">
+                                                    <span class="title">ملاقات در اسکایپ با علی</span>
+                                                    <span class="description">01:00 بعد از ظهر</span>
+                                                </div>
+                                                <div class="notification-extra">
+                                                    <i class="fa fa-clock-o themeprimary"></i>
+                                                    <span class="description">دفتر</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="clearfix">
+                                                <div class="notification-icon">
+                                                    <i class="fa fa-check bg-darkorange white"></i>
+                                                </div>
+                                                <div class="notification-body">
+                                                    <span class="title">استراحت پیش بینی نشده</span>
+                                                    <span class="description">03:30 pm - 05:15 pm</span>
+                                                </div>
+                                                <div class="notification-extra">
+                                                    <i class="fa fa-clock-o darkorange"></i>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="clearfix">
+                                                <div class="notification-icon">
+                                                    <i class="fa fa-gift bg-warning white"></i>
+                                                </div>
+                                                <div class="notification-body">
+                                                    <span class="title">جلسه با مدیر</span>
+                                                    <span class="description">08:30 pm</span>
+                                                </div>
+                                                <div class="notification-extra">
+                                                    <i class="fa fa-calendar warning"></i>
+                                                    <i class="fa fa-clock-o warning"></i>
+                                                    <span class="description">خانه</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="clearfix">
+                                                <div class="notification-icon">
+                                                    <i class="fa fa-glass bg-success white"></i>
+                                                </div>
+                                                <div class="notification-body">
+                                                    <span class="title">شام با دوستان</span>
+                                                    <span class="description">10:30 pm</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-footer ">
+                                        <span>
+                                            امروز 12 مرداد ماه 1394
+                                        </span>
+                                        <span class="pull-left">
+                                            10°c
+                                            <i class="wi wi-cloudy"></i>
+                                        </span>
+                                    </li>
+                                </ul>
+                                <!--/Notification Dropdown-->
+                            </li>
+                            <li>
+                                <a class="dropdown-toggle" data-toggle="dropdown" title="Mails" href="#">
+                                    <i class="icon fa fa-envelope"></i>
+                                    <span class="badge">3</span>
+                                </a>
+                                <!--Messages Dropdown-->
+                                <ul class="pull-right dropdown-menu dropdown-arrow dropdown-messages">
+                                    <li>
+                                        <a href="#">
+                                            <img src="../assets/img/avatars/divyia.jpg" class="message-avatar" alt="محمد زمانی">
+                                            <div class="message">
+                                                <span class="message-sender">
+                                                    محمد زمانی
+                                                </span>
+                                                <span class="message-time">
+                                                    2 دقیقه پیش
+                                                </span>
+                                                <span class="message-subject">
+                                                    درخواست برای افزایش امکانات
+                                                </span>
+                                                <span class="message-body">
+                                                    خواهشمند است با توجه به افزایش تکنولوژی امکانات سایت را افزایش دهید
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <img src="../assets/img/avatars/divyia.jpg" class="message-avatar" alt="محمد رضوی">
+                                            <div class="message">
+                                                <span class="message-sender">
+                                                    محمد رضوی
+                                                </span>
+                                                <span class="message-time">
+                                                    دیروز
+                                                </span>
+                                                <span class="message-subject">
+                                                    منبع جدید
+                                                </span>
+                                                <span class="message-body">
+                                                    بنده قصد دارم به عنوان مدرس در سایت فعالیت نمایم
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-footer">
+                                        <a href="#">
+                                            مشاهده همه
+                                        </a>
+                                        <button class="btn btn-xs btn-default shiny darkorange icon-only pull-left"><i class="fa fa-check"></i></button>
+                                    </li>
+                                </ul>
+                                <!--/Messages Dropdown-->
+                            </li>
+                            <li>
+                                <a class="login-area dropdown-toggle" data-toggle="dropdown">
+                                    <div class="avatar" title="View your public profile">
+                                        <img src="../assets/img/avatars/John-Smith.jpg">
+                                    </div>
+                                    <section>
+                                        <h2><span class="profile"><span>حسن طالبی نژاد </span></span></h2>
+                                    </section>
+                                </a>
+                                <!--Login Area Dropdown-->
+                                <ul class="pull-right dropdown-menu dropdown-arrow dropdown-login-area">
+                                    <li class="username"><a>حسن طالبی نژاد</a></li>
+                                    <li class="email"><a>hasan.talebi@gmail.com</a></li>
+                                    <!--Avatar Area-->
+                                    <li>
+                                        <div class="avatar-area">
+                                            <img src="../assets/img/avatars/John-Smith.jpg" class="avatar">
+                                            <span class="caption">تغییر تصویر</span>
+                                        </div>
+                                    </li>
+                                    <!--Avatar Area-->
+                                    <li class="edit">
+                                        <a href="profile.html" class="pull-left">پروفایل</a>
+                                        <a href="#" class="pull-right">تنظیمات</a>
+                                    </li>
+                                    <!--Theme Selector Area-->
+                                    <li class="theme-area">
+                                        <ul class="colorpicker" id="skin-changer">
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#5DB2FF;" rel="../assets/css/skins/blue.min.css"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#2dc3e8;" rel="../assets/css/skins/azure.min.css"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#03B3B2;" rel="../assets/css/skins/teal.min.css"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#53a93f;" rel="../assets/css/skins/green.min.css"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#FF8F32;" rel="../assets/css/skins/orange.min.css"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#cc324b;" rel="../assets/css/skins/pink.min.css"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#AC193D;" rel="../assets/css/skins/darkred.min.css"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#8C0095;" rel="../assets/css/skins/purple.min.css"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#0072C6;" rel="../assets/css/skins/darkblue.min.css"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#585858;" rel="../assets/css/skins/gray.min.css"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#474544;" rel="../assets/css/skins/black.min.css"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#001940;" rel="../assets/css/skins/deepblue.min.css"></a></li>
+                                        </ul>
+                                    </li>
+                                    <!--/Theme Selector Area-->
+                                    <li class="dropdown-footer">
+                                        <a href="login.html">
+                                            خروج از سیستم
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!--/Login Area Dropdown-->
+                            </li>
+                            <!-- /Account Area -->
+                            <!--Note: notice that setting div must start right after account area list.
+                            no space must be between these elements-->
+                            <!-- Settings -->
+                        </ul><div class="setting">
+                            <a id="btn-setting" title="Setting" href="#">
+                                <i class="icon glyphicon glyphicon-cog"></i>
+                            </a>
+                        </div><div class="setting-container">
+                            <label>
+                                <input type="checkbox" id="checkbox_fixednavbar">
+                                <span class="text">نوار بالایی ثابت</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" id="checkbox_fixedsidebar">
+                                <span class="text">منوی کناری ثابت</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" id="checkbox_fixedbreadcrumbs">
+                                <span class="text">نوار بردکرامبز ثابت</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" id="checkbox_fixedheader">
+                                <span class="text">نوار میانی ثابت</span>
+                            </label>
+                        </div>
+                        <!-- Settings -->
+                    </div>
+                </div>
+                <!-- /Account Area and Settings -->
+            </div>
+        </div>
+    </div>
+    <!-- /Navbar -->
+    <!-- Main Container -->
+    <div class="main-container container-fluid">
+        <!-- Page Container -->
+        <div class="page-container">
+      <!-- Page Sidebar -->
+            <div class="page-sidebar" id="sidebar">
+                <!-- Page Sidebar Header-->
+                <div class="sidebar-header-wrapper">
+                    <input type="text" class="searchinput" />
+                    <i class="searchicon fa fa-search"></i>
+                    <div class="searchhelper">به جستجوی صفحات، گزارشات، پیام ها و ایمیل خود بپردازید</div>
+                </div>
+                <!-- /Page Sidebar Header -->
+                <!-- Sidebar Menu -->
+                <ul class="nav sidebar-menu">
+					<!--Service Elements-->
+                    <li>
+                        <a href="#" class="menu-dropdown">
+                            <i class="menu-icon fa fa-table"></i>
+                            <span class="menu-text"> صفجه شخصی </span>
+                            <i class="menu-expand"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="Student.html">
+                                    <span class="menu-text">دانش آموز</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Teacher.html">
+                                    <span class="menu-text">مدرس</span>
+                                </a>
+                            </li>
+                                  <li>
+                                <a href="Advisor.html">
+                                    <span class="menu-text">مشاور</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Controller.html">
+                                    <span class="menu-text">ناظر</span>
+                                </a>
+                            </li>													
+                        </ul>
+                    </li>                    
+                    <!--User Elements-->
+                    <li>
+                        <a href="#" class="menu-dropdown">
+                            <i class="menu-icon fa fa-picture-o"></i>
+                            <span class="menu-text">مدیریت بخش ها </span>
+                            <i class="menu-expand"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="Class.html">
+                                    <span class="menu-text">کلاس</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Source.html">
+                                    <span class="menu-text">منبع اطلاعاتی</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="Group.html">
+                                    <span class="menu-text">گروه</span>
+                                </a>
+                            </li>                                                
+                        </ul>
+                    </li>
+					<!--Account Elements-->
+                    <li>
+                        <a href="#" class="menu-dropdown">
+                            <i class="menu-icon fa fa-picture-o"></i>
+                            <span class="menu-text"> کاربری </span>
+                            <i class="menu-expand"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="Login.html">
+                                    <span class="menu-text">ورود</span>
+                                </a>
+                            </li>
+                             <li>
+                                <a href="Reset.html">
+                                    <span class="menu-text">بازیابی رمز عبور</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="ChangePassword.html">
+                                    <span class="menu-text">تغییر کلمه عبور</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>                
+                </ul>
+                <!-- /Sidebar Menu -->
+            </div>
+            <!-- /Page Sidebar -->
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="#">خانه</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="Class.html">کلاس</a>
+                        </li>
+                        <li class="active">ثبت نام</li>
+                    </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+                <!-- Page Header -->
+                <div class="page-header position-relative">
+                    <div class="header-title">
+                        <h1>
+                            ثبت نام در کلاس </h1>
+                    </div>
+                    <!--Header Buttons-->
+                    <div class="header-buttons">
+                        <a class="sidebar-toggler" href="#">
+                            <i class="fa fa-arrows-h"></i>
+                        </a>
+                        <a class="refresh" id="refresh-toggler" href="">
+                            <i class="glyphicon glyphicon-refresh"></i>
+                        </a>
+                        <a class="fullscreen" id="fullscreen-toggler" href="#">
+                            <i class="glyphicon glyphicon-fullscreen"></i>
+                        </a>
+                    </div>
+                    <!--Header Buttons End-->
+                </div>
+                <!-- /Page Header -->
+                <!-- Page Body -->
+                <div class="page-body">
+					<div class="row">
+                        <div class="col-lg-12 col-sm-12 col-xs-12">
+                            <h5 class="row-title before-themeprimary"><i class="fa fa-long-arrow-right themeprimary"></i>ثبت نام در کلاس فیزیک مقدماتی 1</h5>                            
+                            <div class="actions actions-footer" id="simplewizard-actions">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default btn-sm btn-prev" disabled="disabled"> <i class="fa fa-angle-right"></i>قبلی</button>
+                                    <button type="button" class="btn btn-default btn-sm btn-next" data-last="اتمام">بعدی<i class="fa fa-angle-left"></i></button>                                    
+                                </div>
+                            </div> 
+                            <div id="simplewizard" class="wizard" data-target="#simplewizard-steps">
+                                <ul class="steps">
+                                    <li data-target="#simplewizardstep1" class="active"><span class="step">1</span>مشخصات کلاس<span class="chevron"></span></li>
+                                    <li data-target="#simplewizardstep2" class=""><span class="step">2</span>پرداخت<span class="chevron"></span></li>
+                                    <li data-target="#simplewizardstep3" class=""><span class="step">3</span>اتمام ثبت نام<span class="chevron"></span></li>                                    
+                                </ul>
+                            </div>
+                            <div class="step-content" id="simplewizard-steps">
+                                <div class="step-pane active" id="simplewizardstep1">
+                                    <div class="row padding-10">
+                                        <div class="databox-top bg-green text-align-left padding-10">
+                                            <span class="databox-header white"><i class="glyphicon glyphicon-map-marker"></i> آموزش فیزیک مقدماتی2</span>
+                                        </div>
+                                        <div class="databox-bottom no-padding bg-green">
+                                            <div class="databox databox-mlg radius-bordered databox-shadowed">
+                                                <div class="databox-right bg-white">
+                                                    <img src="../assets/img/avatars/divyia.jpg" style="width:65px; height:65px;">
+                                                    <div class="databox-text darkgray"><a href="HomePage.aspx"> محمد علوی </a></div>
+                                                    <div class="databox-text darkgray">مدرس</div>
+                                                </div>
+                                                <div class="databox-left bordered-thick bordered-green bg-white">
+                                                    <span class="databox-number green"><i class="fa fa-user"></i>3</span>
+                                                    <div class="databox-text darkgray">30 روز گارانتی</div>
+                                                    <div class="databox-text darkgray">دوم دبیرستان ریاضی فیزیک</div>
+                                                    <div class="databox-text darkgray">آموزش مباحث ممختلف از فیزیک مقدماتی شامل بخش های زیر</div>
+                                                    <div class="databox-stat bg-green radius-bordered">
+                                                        <div class="stat-text">300000 تومان</div>
+                                                    </div>                                                                                                                                     
+                                                </div>
+                                                                                   
+                                            </div> 
+                                        </div>                           
+                                    </div>
+                                    <div class="horizontal-space"></div>
+                                    <div class="row">	                                                                
+                                        <div class="basictab-body">
+                                            <div class="col-lg-12">                                                                        
+												<div class="tabbable">
+                                                <ul class="nav nav-tabs tabs-flat  nav-justified" id="myTab11">										                                                                           
+                                                    <li class="tab-green">
+                                                        <a data-toggle="tab" href="#member-tab" aria-expanded="false">
+                                                            <i class="dropdown-icon fa fa-cloud-download"></i>
+                                                            اعضای کلاس
+                                                        </a>
+                                                    </li>                                                                                                                                                                 
+                                                    <li class="tab-green">
+                                                        <a data-toggle="tab" href="#schedular-tab" aria-expanded="false">
+                                                            <i class="dropdown-icon fa fa-cog"></i>
+                                                            زمانبندی برگزاری
+                                                        </a>
+                                                    </li>     
+                                                </ul>
+                                                <div class="tab-content tabs-flat">		
+                                                    <div class="tab-pane active">
+                                                    لطفا بخش مورد نظر را انتخاب نمایید</div>									                                                                          
+												    <!-- Member -->						
+                                                    <div id="member-tab" class="tab-pane animated fadeInDown">
+                                                        <div class="basic-container">
+											                <div class="basic-header">
+												                <ul class="header-buttons pull-right">																									                
+													                <!--<li>
+														                <a href="#" id="memberbootbox-confirm" class="tooltip-primary" data-toggle="tooltip" data-original-title="حذف" data-placement="bottom"><i class="glyphicon glyphicon-remove"></i></a>
+													                </li>                                                                  -->
+												                </ul>
+												                <ul class="header-buttons">
+													                <li>
+														                <a class="tooltip-primary" data-toggle="tooltip" data-original-title="بعدی" data-placement="bottom"><i class="fa fa-angle-left"></i></a>
+													                </li>
+													                <li>
+														                <a class="tooltip-primary" data-toggle="tooltip" data-original-title="قبلی" data-placement="bottom"><i class="fa fa-angle-right"></i></a>
+													                </li>
+													                <li class="search">
+														                <span class="input-icon">
+															                <input type="text" class="form-control input-sm" id="fontawsome-search" placeholder="نام و نام خانوادگی">
+															                <i class="glyphicon glyphicon-search lightgray"></i>
+														                </span>
+													                </li>
+												                </ul>	
+                                                                <div class="pages">
+                                                                    1-5 از 6 مورد
+                                                                </div>											
+											                </div>																							
+											            </div>
+                                                        <div class="row">																
+									                            <div class="dataTables_wrapper form-inline no-footer padding-20" id="editabledatatable_wrapper">
+                                                                    <table aria-describedby="editabledatatable_info" role="grid" class="table table-striped table-hover table-bordered dataTable no-footer" id="editabledatatable">
+                                                                        <thead class="bordered-primary">                                                                          
+                                                                            <tr role="row">
+                                                                                <!-- <th aria-label="عنوان: activate to sort column descending" aria-sort="ascending" style="width: 90px;" colspan="1" rowspan="1" aria-controls="editabledatatable" tabindex="0" class="sorting_asc">
+                                                                                    انتخاب
+                                                                                </th>-->
+                                                                                <th colspan="1" rowspan="1" aria-controls="editabledatatable" tabindex="0">
+                                                                                    تصویر
+                                                                                </th>
+                                                                                <th aria-sort="descending" aria-label="عنوان: activate to sort column ascending" colspan="1" rowspan="1" aria-controls="editabledatatable" tabindex="0" class="sorting_desc">
+                                                                                    نام و نام خانوادگی
+                                                                                </th>
+                                                                                <th aria-sort="descending" aria-label="عنوان: activate to sort column ascending" colspan="1" rowspan="1" aria-controls="editabledatatable" tabindex="0" class="sorting_desc">
+                                                                                    اطلاعات تحصیلی
+                                                                                </th>
+                                                                                <th aria-sort="descending" aria-label="عنوان: activate to sort column ascending" colspan="1" rowspan="1" aria-controls="editabledatatable" tabindex="0" class="sorting_desc">
+                                                                                    کد دانش آموزی
+                                                                                </th>                                                            
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr class="even" role="row">
+                                                                                <!-- <td>                                                                
+                                                                                    <div class="item-check">
+																	                    <label>
+																		                    <input type="checkbox">
+																		                    <span class="text"></span>
+																	                    </label>
+																                    </div>                                                                
+                                                                                </td>  -->
+                                                                                <td>
+                                                                                    <img src="../assets/img/avatars/Osvaldus-Valutis.jpg" style="width:75px; height:75px;" class="image-circular bordered-3 bordered-palegreen">
+                                                                                </td>
+                                                                                <td class="sorting_1">علی محمدی</td>
+                                                                                <td class="sorting_1">پنجم ابتدایی</td>
+                                                                                <td class="sorting_1">005233768768</td>                                                            
+                                                                            </tr>
+                                                                            <tr class="odd" role="row">
+                                                                                <!-- <td>                                                                
+                                                                                    <div class="item-check">
+																	                    <label>
+																		                    <input type="checkbox">
+																		                    <span class="text"></span>
+																	                    </label>
+																                    </div>                                                                
+                                                                                </td>  -->
+                                                                                <td>
+                                                                                    <img src="../assets/img/avatars/Osvaldus-Valutis.jpg" style="width:75px; height:75px;" class="image-circular bordered-3 bordered-palegreen">
+                                                                                </td>
+                                                                                <td class="sorting_1">محمد زمانی</td>
+                                                                                <td class="sorting_1">اول دبیرستان</td>
+                                                                                <td class="sorting_1">005233768768</td>                                                            
+
+                                                                            </tr>
+                                                                            <tr class="odd" role="row">
+                                                                                    <!-- <td>                                                                
+                                                                                    <div class="item-check">
+																	                    <label>
+																		                    <input type="checkbox">
+																		                    <span class="text"></span>
+																	                    </label>
+																                    </div>                                                                
+                                                                                </td>  -->
+                                                                                <td>
+                                                                                    <img src="../assets/img/avatars/Matt-Cheuvront.jpg" style="width:75px; height:75px;" class="image-circular bordered-3 bordered-palegreen">
+                                                                                </td>
+                                                                                <td class="sorting_1">حمید مزرعه</td>
+                                                                                <td class="sorting_1">چهارم دبیرستان</td>
+                                                                                <td class="sorting_1">005233768768</td>                                                            
+                                                                            </tr>
+                                                                            <tr class="even" role="row">
+                                                                            <!-- <td>                                                                
+                                                                                    <div class="item-check">
+																	                    <label>
+																		                    <input type="checkbox">
+																		                    <span class="text"></span>
+																	                    </label>
+																                    </div>                                                                
+                                                                                </td>  -->
+                                                                                <td>
+                                                                                    <img src="../assets/img/avatars/Osvaldus-Valutis.jpg" style="width:75px; height:75px;" class="image-circular bordered-3 bordered-palegreen">
+                                                                                </td>
+                                                                                <td class="sorting_1">علی عسگری</td>
+                                                                                <td class="sorting_1">اول هنرستان</td>
+                                                                                <td class="sorting_1">005233768768</td>                                                            
+                                                                            </tr>
+                                                                            <tr class="odd" role="row">
+                                                                                <!-- <td>                                                                
+                                                                                    <div class="item-check">
+																	                    <label>
+																		                    <input type="checkbox">
+																		                    <span class="text"></span>
+																	                    </label>
+																                    </div>                                                                
+                                                                                </td>  -->
+                                                                                <td>
+                                                                                    <img src="../assets/img/avatars/Osvaldus-Valutis.jpg" style="width:75px; height:75px;" class="image-circular bordered-3 bordered-palegreen">
+                                                                                </td>
+                                                                                <td class="sorting_1">فائزه غلامی</td>
+                                                                                <td class="sorting_1">دوم ابتدایی</td>
+                                                                                <td class="sorting_1">005233768768</td>                                                            
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>										
+		    												</div>
+												        </div>											
+												    <!-- End Member -->							
+                                                    <!-- Schedular-->
+                                                    <div id="schedular-tab" class="tab-pane animated fadeInDown">        
+                                                        <div class="basic-container">
+											                <div class="basic-header">
+												                <ul class="header-buttons">
+													                <li>
+														                <a class="tooltip-primary" data-toggle="tooltip" data-original-title="بعدی" data-placement="bottom"><i class="fa fa-angle-left"></i></a>
+													                </li>
+													                <li>
+														                <a class="tooltip-primary" data-toggle="tooltip" data-original-title="قبلی" data-placement="bottom"><i class="fa fa-angle-right"></i></a>
+													                </li>
+													                <li class="search">
+														                <span class="input-icon">
+															                <input type="text" class="form-control input-sm" id="fontawsome-search" placeholder="تاریخ برگزاری">
+															                <i class="glyphicon glyphicon-search lightgray"></i>
+														                </span>
+													                </li>
+												                </ul>	
+                                                                <div class="pages">
+                                                                    1-5 از 6 مورد
+                                                                </div>											
+											                </div>																							
+											            </div>
+                                                        <div class="row">																
+									                            <div class="dataTables_wrapper form-inline no-footer padding-20" id="editabledatatable_wrapper">
+                                                                    <table aria-describedby="editabledatatable_info" role="grid" class="table table-striped table-hover table-bordered dataTable no-footer" id="editabledatatable">
+                                                                        <thead class="bordered-primary">                                                                          
+                                                                            <tr role="row">
+                                                                                <th aria-sort="descending" aria-label="عنوان: activate to sort column ascending" colspan="1" rowspan="1" aria-controls="editabledatatable" tabindex="0" class="sorting_desc">
+                                                                                    تاریخ برگزاری
+                                                                                </th>
+                                                                                <th aria-sort="descending" aria-label="عنوان: activate to sort column ascending" colspan="1" rowspan="1" aria-controls="editabledatatable" tabindex="0" class="sorting_desc">
+                                                                                    ساعت شروع
+                                                                                </th>
+                                                                                <th aria-sort="descending" aria-label="عنوان: activate to sort column ascending" colspan="1" rowspan="1" aria-controls="editabledatatable" tabindex="0" class="sorting_desc">
+                                                                                    ساعت پایان
+                                                                                </th>                                                            
+                                                                                    <th aria-sort="descending" aria-label="عنوان: activate to sort column ascending" colspan="1" rowspan="1" aria-controls="editabledatatable" tabindex="0" class="sorting_desc">
+                                                                                    وضعیت برگزاری
+                                                                                </th>    
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr class="even" role="row">                                                                              
+                                                                                <td>سه شنبه 10 تیرماه 94</td>
+                                                                    <td class="sorting_1">
+                                                                        8:00
+                                                                    </td>
+                                                                    <td>
+                                                                        10:00
+                                                                    </td>
+                                                                    <td>
+                                                                        برگزار شده
+                                                                    </td>                                                           
+                                                                            </tr>
+                                                                            <tr class="odd" role="row">                                                                                 
+                                                                                <td>سه شنبه 10 تیرماه 94</td>
+                                                                    <td class="sorting_1">
+                                                                        8:00
+                                                                    </td>
+                                                                    <td>
+                                                                        10:00
+                                                                    </td>
+                                                                    <td>
+                                                                        منتظر برگزاری
+                                                                    </td>                                                    
+
+                                                                            </tr>
+                                                                            <tr class="odd" role="row">
+                                                                               
+                                                                                    <td>سه شنبه 10 تیرماه 94</td>
+                                                                    <td class="sorting_1">
+                                                                        8:00
+                                                                    </td>
+                                                                    <td>
+                                                                        10:00
+                                                                    </td>
+                                                                    <td>
+                                                                        منتظر برگزاری
+                                                                    </td>                                                        
+                                                                            </tr>
+                                                                            <tr class="even" role="row">
+                                                                               
+                                                                                <td>سه شنبه 10 تیرماه 94</td>
+                                                                    <td class="sorting_1">
+                                                                        8:00
+                                                                    </td>
+                                                                    <td>
+                                                                        10:00
+                                                                    </td>
+                                                                    <td>
+                                                                        منتظر برگزاری
+                                                                    </td>                                                            
+                                                                            </tr>
+                                                                            <tr class="odd" role="row">
+                                                                                
+                                                                                <td>سه شنبه 10 تیرماه 94</td>
+                                                                    <td class="sorting_1">
+                                                                        8:00
+                                                                    </td>
+                                                                    <td>
+                                                                        10:00
+                                                                    </td>
+                                                                    <td>
+                                                                        منتظر برگزاری
+                                                                    </td>                                                           
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>										
+		    												</div>                                                        
+                                                        </div>
+                                                    <!-- End Schedular-->
+                                                    </div>
+                                                </div>																		
+                                            </div>
+                                        </div>                                              
+                                    </div>
+                                </div>
+                                <div class="step-pane" id="simplewizardstep2">This is step 2</div>
+                                <div class="step-pane" id="simplewizardstep3">This is step 3</div>
+                            </div>                         
+                        </div>
+                    </div>
+				</div>
+                <!-- /Page Body -->
+            </div>
+            <!-- /Page Content -->
+        </div>
+        <!-- /Page Container -->
+        <!-- Main Container -->
+
+    </div>
+    <!--Basic Scripts-->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!--Beyond Scripts-->
+    <script src="../assets/js/skins.min.js"></script>
+    <script src="../assets/js/beyond.min.js"></script>
+    <script src="../assets/js/bootbox/bootbox.js"></script>   
+    <!--Beyond Scripts-->
+    <script src="../assets/js/beyond.min.js"></script>
+
+    <!--Basic Scripts-->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!--Page Treeview Related Scripts-->
+    <script src="../assets/js/fuelux/treeview/tree-custom.min.js"></script>
+    <script src="../assets/js/fuelux/treeview/treeview-init.js"></script>
+
+    <script>
+        jQuery(document).ready(function () {
+            UITree.init();
+        });
+    </script>
+
+    <!--Page Table Related Scripts-->
+    <script src="../assets/js/datatable/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/datatable/ZeroClipboard.js"></script>
+    <script src="../assets/js/datatable/dataTables.tableTools.min.js"></script>
+    <script src="../assets/js/datatable/dataTables.bootstrap.min.js"></script>
+    <script src="../assets/js/datatable/datatables-init.js"></script>
+
+    <!--Page Nested Related Scripts-->
+    <script src="../assets/js/nestable/jquery.nestable.min.js"></script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $('.dd').nestable();
+            $('.dd-handle a').on('mousedown', function (e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
+    <script src="../assets/js/fuelux/wizard/wizard-custom.js"></script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $('#simplewizardinwidget').wizard();
+            $('#simplewizard').wizard();
+            $('#tabbedwizard').wizard().on('finished', function (e) {
+                Notify('Thank You! All of your information saved successfully.', 'bottom-right', '5000', 'blue', 'fa-check', true);
+            });
+            $('#WiredWizard').wizard();
+        });
+    </script>    
+    <!--Page Related Scripts-->
+</body>
+<!--  /Body -->
+</html>

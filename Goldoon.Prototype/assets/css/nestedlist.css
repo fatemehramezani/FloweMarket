@@ -1,0 +1,30 @@
+﻿.dd {
+    max-width:100% !important;
+}
+.nestedlist-actions {
+    display: none;
+    position: absolute;
+    margin-top: 1px;
+    right: 4px;
+}
+
+ .nestedlist-item:hover .nestedlist-actions,
+ .nestedlist-folder-header:hover .nestedlist-actions {
+    display: inline-block;
+}
+
+ .nestedlist-actions > i {
+    font-weight: 300;
+    padding: 1px 3px;
+    text-align: center;
+    font-size: 14px;
+    color: @slate-gray;
+    margin-right: 6px;
+    margin-top: 0;
+    display: inline-block;
+}
+
+     .nestedlist-actions > i:hover {
+        font-weight: bold;
+    }
+

@@ -1,0 +1,29 @@
+﻿@model TreeViewModel<Goldoon.Models.Basic.EducationalGroup>
+
+@if (Model.Categories.Any(s => s.ParentId == Model.Seed))
+{
+    <ol class="dd-list shadowed">
+        @foreach (var node in Model.Categories)
+        {
+            if (node.ParentId == Model.Seed)
+            {
+                TreeViewModel<Goldoon.Models.Basic.EducationalGroup> inner = new TreeViewModel<Goldoon.Models.Basic.EducationalGroup>
+                {
+                    Seed = node.Id,
+                    Categories = Model.Categories
+                };
+                <li class="dd-item" data-id="@node.Id">
+                    <button data-action="collapse" type="button">-</button>
+                    <button data-action="expand" type="button" style="display: none;">+</button>
+                    <div class="dd-handle dd-nodrag" id="@node.Id" onclick="SelectEducationalGroup(@node.Id)">
+                        @*<input type="checkbox" value="@node.Id" />*@
+                        <span class="text" >@node.Title</span>
+                    </div>
+                    @Html.Partial("_EducationalGroups", inner)
+                </li>
+            }
+        }
+    </ol>
+}
+@*<li class="dd-item"> <div class="dd-handle dd-nodrag"><em class="badge pull-right"></em></div> </li>*@
+

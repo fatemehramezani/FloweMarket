@@ -1,0 +1,30 @@
+﻿@model TreeViewModel<Goldoon.Models.Basic.EducationalGroup>
+
+@if (Model.Categories.Any(s => s.ParentId == Model.Seed))
+{
+    <ol class="dd-list">
+        @foreach (var node in Model.Categories)
+        {
+            if (node.ParentId == Model.Seed)
+            {
+                TreeViewModel<Goldoon.Models.Basic.EducationalGroup> inner = new TreeViewModel<Goldoon.Models.Basic.EducationalGroup>
+                {
+                    Seed = node.Id,
+                    Categories = Model.Categories
+                };
+                <li class="dd-item dd2-item" data-id="3">
+                    <button data-action="collapse" type="button">-</button>
+                    <button data-action="expand" type="button" style="display: none;">+</button>
+                    <div class="dd-handle dd2-handle">
+                        <i class="normal-icon fa fa-android"></i>
+                        <i class="drag-icon fa fa-arrows-alt "></i>
+                    </div>
+                    <div class="dd-handle">
+                        <a href="?@node.Id">@node.Title</a>
+                    </div>
+                    @Html.Partial("_EducationalGroup", inner)
+                </li>
+            }
+        }
+    </ol>
+}

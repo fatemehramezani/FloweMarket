@@ -1,0 +1,24 @@
+﻿@model ELearning.Models.Service.ServiceSource
+<form action="@Url.Action("Create", "ServiceSource")" method="post" id="dataEntry">
+    @Html.Hidden("returnUrl",(string)ViewBag.returnUrl)
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @if (Model != null && Model.Id != 0)
+        {
+            @Html.HiddenFor(model => model.Id)
+        }
+        @Html.Hidden("ServiceId")
+        <div class="row">
+            @Html.Action("Index", "InformationSource")
+        </div>
+    </div>
+</form>
+<script>
+    var selectedServiceId = $("#selectedServiceId").val();
+    $('#ServiceId').val(selectedServiceId);
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,96 @@
+﻿@using Goldoon.Models.Basic
+
+<div class="dd shadowed" id="EducationalGroup">
+    
+</div>
+
+@{
+    var fileTypes = ((List<FileType>)(ViewBag.SourceTypes));
+}
+<h5 class="row-title">
+    <i class="typcn typcn-folder themeprimary"></i>عملیات منابع اطلاعاتی پایه اول راهنمایی
+</h5>
+@Html.Action("ShowFileTypesTabs", "FileType")
+
+<input id="selectedEducationalGroupId" type="hidden" name="selectedEducationalGroupId">
+<script>
+    function SelectEducationalGroup(id) {
+        var divName = "#" + id;
+        $(".dd-handle").removeClass('bg-success');
+        $(divName).addClass('bg-success');
+        $("#selectedEducationalGroupId").val(id);
+    };
+</script>
+
+<script>
+
+        $.ajax({
+            url: "/EducationalGroup/",
+            method: "GET",
+            success: function(result) {
+                $("#EducationalGroup").html(result);
+            },
+            error: function(xhr) {
+                try {
+                    var json = $.parseJSON(xhr.responseText);
+                    toastr.error(json.errorMessage, "", "");
+                } catch (e) {
+                    toastr.error("عملیات با خطا متوقف شد", "", "");
+                }
+            }
+        });
+
+
+</script>
+<script>
+    function OpenFileType(fileTypeId, fileTypeDivisionTitle) {
+        $("#selectedFileTypeId").val(fileTypeId);
+        if ($("#selectedEducationalGroupId").val() == "") {
+                toastr.warning("موردی برای نمایش انتخاب نشده", "", "");
+                return;
+        }
+        if (fileTypeId == "") {
+            toastr.warning("موردی برای نمایش انتخاب نشده", "", "");
+            return;
+        }      
+        var FileType = {
+            Id: fileTypeId
+        };
+
+        var divName = "#div_" + fileTypeDivisionTitle;
+        $.ajax({
+            contentType: 'application/json',
+            data: JSON.stringify({
+                searchCriteria: [{
+                    SearchTerm: $("#selectedEducationalGroupId").val(),
+                    Property: "EducationalGroupId",
+                    TargetTypeName: "Goldoon.Models.Basic.EducationalGroup, Goldoon.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                    ModelTypeName: "ELearning.Utility.Search.ForeignKeySearch, ELearning.Utility, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+                }],
+                selectedFileType: FileType
+            }),
+
+            method: 'Post',
+            url: "/InformationSource/GetByFileType",
+            success: function(result) {
+                $(divName).html(result);
+            },
+            error: function (xhr) {
+                try {
+                    var json = $.parseJSON(xhr.responseText);
+                    toastr.error(json.errorMessage, "", "");
+                }
+                catch (e) {
+                    toastr.error("عملیات با خطا متوقف شد", "", "");
+                }
+            }
+        });
+
+    }
+</script>
+
+@section Scripts
+{
+<script src="~/Theme/Scripts/TreeNodeFunctions.js"></script>
+
+}

@@ -1,0 +1,73 @@
+﻿
+<div class="widget-body animated fadeInDown">
+    <div class="basic-container">
+        <div class="basic-header">
+            <ul class="header-buttons pull-right">
+                <li>
+                    <a href="#" onclick="Create('EducationalGroup')" class="tooltip-primary" data-tooltip="tooltip" data-original-title="جدید" data-placement="bottom"><i class="glyphicon glyphicon-plus"></i></a>
+                </li>
+                <li>
+                    <a href="#" onclick="Update('EducationalGroup')" class="tooltip-primary" data-tooltip="tooltip" data-original-title="ویرایش" data-placement="bottom"><i class="glyphicon glyphicon-pencil"></i></a>
+                </li>
+                <li>
+                    <a href="#" onclick="DeleteTreeNode('EducationalGroup', $('#selectedEducationalGroupId').val())" class="tooltip-primary" data-toggle="tooltip" data-original-title="حذف" data-placement="bottom"><i class="glyphicon glyphicon-remove"></i></a>
+                </li>
+            </ul>
+            <div>
+                <ul class="header-buttons">
+                    <li class="search">
+                        @*<span class="input-icon tooltip-primary" data-toggle="tooltip" data-placement="bottom" data-original-title="جستجوی عنوان">
+                                @using (Html.BeginForm("Index", "EducationalGroupType", FormMethod.Get))
+                                    {
+                                        @Html.EditorFor(m => m.SearchCriteria, new { @class = "form-control input-sm", @placeholder = "عنوان" })
+                                    }
+                                <i class="glyphicon glyphicon-search lightgray"></i>
+                            </span>*@
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="dataTables_wrapper form-inline no-footer padding-20">
+        <div id="EducationalGroup">
+
+        </div>
+    </div>
+</div>
+<input type="hidden" name="selectedEducationalGroupId" id="selectedEducationalGroupId" value=" " />
+
+
+<script>
+
+    $.ajax({
+        url: "/EducationalGroup/",
+        method: "GET",
+        success: function (result) {
+            $("#EducationalGroup").html(result);
+        },
+        error: function (xhr) {
+            try {
+                var json = $.parseJSON(xhr.responseText);
+                toastr.error(json.errorMessage, "", "");
+            } catch (e) {
+                toastr.error("عملیات با خطا متوقف شد", "", "");
+            }
+        }
+    });
+</script>
+
+<script>
+    function SelectEducationalGroup(id) {
+        var divName = "#" + id;
+        $(".dd-handle").removeClass('bg-success');
+        $(divName).addClass('bg-success');
+        $("#selectedEducationalGroupId").val(id);
+    };
+</script>
+
+@section Scripts{
+    <script src="~/Theme/assets/js/nestable/jquery.nestable.min.js"></script>
+    <script src="~/Theme/assets/js/bootbox/bootbox.js"></script>
+
+    <script src="~/Theme/Scripts/TreeNodeFunctions.js"></script>
+}

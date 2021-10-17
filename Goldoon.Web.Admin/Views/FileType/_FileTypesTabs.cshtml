@@ -1,0 +1,39 @@
+﻿@model List<Goldoon.Models.Basic.FileType>
+<div class="row">
+    <div class="basictab-body">
+        <div class="col-lg-12">
+            <div class="tabbable">
+                <ul class="nav nav-tabs tabs-flat  nav-justified" id="myTab11">
+                    @if (Model != null)
+                    {
+                        foreach (var fileType in Model)
+                        {
+                            <li class="tab-pink" onclick="OpenFileType(@fileType.Id,'@fileType.EnglishTitle')">
+                                <a data-toggle="tab" href="@string.Concat("#div_",fileType.EnglishTitle)">
+                                    <i class="dropdown-icon fa fa-cloud-download"></i>
+                                    @fileType.Title
+                                </a>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="selectedFileTypeId"/>
+<div class="tab-content tabs-flat">
+    <div class="tab-pane active">لطفا عملیات مورد نظر را انتخاب نمایید</div>
+    <!-- Test -->
+    @if (Model != null)
+    {
+        foreach (var fileType in Model)
+        {
+            <div id="@string.Concat("div_", fileType.EnglishTitle)" class="tab-pane">
+                <div class="dataTables_wrapper form-inline no-footer" id="editabledatatable_wrapper">
+                    --Content
+                </div>
+            </div>
+        }
+    }
+</div>

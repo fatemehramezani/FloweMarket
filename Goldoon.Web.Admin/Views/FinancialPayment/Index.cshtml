@@ -1,0 +1,20 @@
+﻿@model PagedSearchViewModel<Goldoon.Models.Basic.FinancialPayment>
+<h5 class="row-title"><i class="typcn typcn-th-small"></i>مدیریت @ViewBag.Title</h5>
+<div class="row">
+    <div class="col-md-12">
+        <div class="basictab-container">
+            <div class="basictab-header row">
+                <div class="col-lg-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="widget">
+                            <div class="widget-header bordered-bottom bordered-themeprimary">
+                                <span class="widget-caption themeprimary">@ViewBag.Title</span>
+                            </div>
+                            @Html.Partial("_FinancialPayments", Model)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

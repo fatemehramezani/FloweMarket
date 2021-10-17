@@ -1,0 +1,24 @@
+﻿
+<tbody data-bind="foreach: students">
+    <tr role="row">
+        <td>
+            <div class="item-check">
+                <label>
+                    <input type="checkbox">
+                    <span class="text"></span>
+                </label>
+            </div>
+        </td>
+        <td>
+            <img data-bind="src: Avatar" style="width: 75px; height: 75px;" class="image-circular bordered-3 bordered-palegreen">
+
+        </td>
+        <td class="sorting_1" data-bind="text: FullName"></td>
+        <td class="sorting_1" data-bind="text: Age"></td>
+        <td class="sorting_1" data-bind="text: Gender"></td>
+        <td class="sorting_1" data-bind="text: Description"></td>
+        <td><input type="button" class="btn btn-danger btn-xs" value=" [x] delete " data-bind="click: $parent.removeStudent" /></td>
+        <td><input type="button" class="btn btn-info btn-xs" value=" [x] Select " data-bind="click: $parent.selectStudent" /></td>
+
+    </tr>
+</tbody>

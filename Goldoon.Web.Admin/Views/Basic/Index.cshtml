@@ -1,0 +1,212 @@
+﻿@{
+    ViewBag.Title = " مدیریت اطلاعات پایه";
+}
+@helper  icons(string tabName, string name)
+{
+    <i data-name="@tabName" class="glyphicon glyphicon-camera"></i>
+    @name
+}
+<div style="width:100%;display:block;min-height:300px">
+    <h5 class="row-title">
+        مدیریت اطلاعات پایه
+    </h5>
+    @using (var tabs = Html.Bootstrap().Begin(new Tabs("BasicTab").Position(Direction.Left)))
+    {
+        tabs.Tab(icons("EducationalGroupType", "نوع گروه تحصیلی").ToString(), BootstrapColors.Info);
+        tabs.Tab(icons("RelationType", "نوع دوستی").ToString(), BootstrapColors.Info);
+        tabs.Tab(icons("FileType", "نوع فایل").ToString(), BootstrapColors.Info);
+        tabs.Tab(icons("CustomRole", "نقش").ToString(), BootstrapColors.Info);
+        tabs.Tab(icons("LocationType", "نوع موقعیت جغرافیایی").ToString(), BootstrapColors.Info);
+        tabs.Tab(icons("SchedulerStatus", "وضعیت برنامه ی درسی").ToString(), BootstrapColors.Info);
+        tabs.Tab(icons("FinancialType", "نوع پرداخت").ToString(), BootstrapColors.Info);
+        using (tabs.BeginPanel())
+        {
+            <div id="EducationalGroupType">
+            </div>
+        }
+        using (tabs.BeginPanel())
+        {
+            <div id="RelationType"></div>
+        }
+        using (tabs.BeginPanel())
+        {
+            <div id="FileType">
+            </div>
+        }
+        using (tabs.BeginPanel())
+        {
+            <div id="CustomRole">
+            </div>
+        }
+        using (tabs.BeginPanel())
+        {
+            <div id="LocationType">
+            </div>
+        }
+        using (tabs.BeginPanel())
+        {
+            <div id="SchedulerStatus">
+            </div>
+        }
+        using (tabs.BeginPanel())
+        {
+            <div id="FinancialType">
+            </div>
+        }
+    }
+</div>
+@section Scripts{
+    <script src="~/Theme/assets/js/nestable/jquery.nestable.min.js"></script>
+    <script src="~/Theme/assets/js/bootbox/bootbox.js"></script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $('.dd').nestable();
+            $('.dd-handle a').on('mousedown', function (e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
+
+    <script>
+        $("#bootbox-regular").on('click', function () {
+            bootbox.prompt("What is your name?", function (result) {
+                if (result === null) {
+                    //Example.show("Prompt dismissed");
+                } else {
+                    //Example.show("Hi <b>"+result+"</b>");
+                }
+            });
+        });
+
+        $("#bootbox-confirm").on('click', function () {
+            bootbox.confirm("Are you sure?", function (result) {
+                if (result) {
+                    //
+                }
+            });
+        });
+
+        $("#bootbox-options").on('click', function () {
+            bootbox.dialog({
+                message: $("#myEmailModal").html(),
+                title: "New E-Mail",
+                className: "modal-darkorange",
+                buttons: {
+                    success: {
+                        label: "Send",
+                        className: "btn-blue",
+                        callback: function () { }
+                    },
+                    "Save as Draft": {
+                        className: "btn-danger",
+                        callback: function () { }
+                    }
+                }
+            });
+        });
+
+        $("#bootbox-success").on('click', function () {
+            bootbox.dialog({
+                message: $("#modal-success").html(),
+                title: "Success",
+                className: "",
+            });
+        });
+    </script>
+    <script src="~/Theme/assets/js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            loadEducationalGroupTypeTable();
+            loadFileTypeTable();
+            loadRelationTypeTable();
+            loadCustomRoleTable();
+            loadLocationTypeTable();
+            loadSchedulerStatusTable();
+            loadFinancialTypeTable();
+        });
+        function loadEducationalGroupTypeTable() {
+            $.ajax({
+                url: "/Basic/EducationalGroupType",
+                dataType: "HTML",
+                success: function (result) {
+                    $("#EducationalGroupType").html(result)
+                },
+                error: function (error) {
+                    toastr.error("خطا در سیستم", error, "");
+                }
+            })
+        }
+        function loadFileTypeTable() {
+            $.ajax({
+                url: "/Basic/FileType",
+                dataType: "HTML",
+                success: function (result) {
+                    $("#FileType").html(result)
+                },
+                error: function (error) {
+                    toastr.error("خطا در سیستم", error, "");
+                }
+            })
+        }
+        function loadRelationTypeTable() {
+            $.ajax({
+                url: "/Basic/RelationType",
+                dataType: "HTML",
+                success: function (result) {
+                    $("#RelationType").html(result);
+                },
+                error: function (error) {                    
+                    toastr.error("خطا در سیستم", error, "");
+                }
+            })
+        }
+        function loadCustomRoleTable() {
+            $.ajax({
+                url: "/Basic/CustomRole",
+                dataType: "HTML",
+                success: function (result) {
+                    $("#CustomRole").html(result);
+                },
+                error: function (error) {
+                    toastr.error("خطا در سیستم", error, "");
+                }
+            })
+        }
+        function loadLocationTypeTable() {
+            $.ajax({
+                url: "/Basic/LocationType",
+                dataType: "HTML",
+                success: function (result) {
+                    $("#LocationType").html(result)
+                },
+                error: function (error) {
+                    toastr.error("خطا در سیستم", error, "");
+                }
+            })
+        }
+        function loadSchedulerStatusTable() {
+            $.ajax({
+                url: "/Basic/SchedulerStatus",
+                dataType: "HTML",
+                success: function (result) {
+                    $("#SchedulerStatus").html(result)
+                },
+                error: function (error) {
+                    toastr.error("خطا در سیستم", error, "");
+                }
+            })
+        }
+        function loadFinancialTypeTable() {
+            $.ajax({
+                url: "/Basic/FinancialType",
+                dataType: "HTML",
+                success: function (result) {
+                    $("#FinancialType").html(result)
+                },
+                error: function (error) {
+                    toastr.error("خطا در سیستم", error, "");
+                }
+            })
+        }
+    </script>
+}

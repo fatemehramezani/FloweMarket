@@ -1,0 +1,184 @@
+﻿<ul class="nav sidebar-menu">
+    <!--Dashboard-->
+    <li>
+        <a href="/">
+            <i class="menu-icon glyphicon glyphicon-home"></i>
+            <span class="menu-text">داشبورد </span>
+        </a>
+    </li>
+    <!--Basic Elements-->
+    <li>
+        <a href="#" class="menu-dropdown">
+            <i class="menu-icon fa fa-table"></i>
+            <span class="menu-text">مدیریت اطلاعات پایه </span>
+            <i class="menu-expand"></i>
+        </a>
+        <ul class="submenu">
+            <li>
+                <a href="~/EducationalGroupType">
+                    <span class="menu-text">نوع گروه تحصیلی</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/EducationalGroup">
+                    <span class="menu-text">گروه های تحصیلی</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/RelationType">
+                    <span class="menu-text">نوع دوستی</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/FileType">
+                    <span class="menu-text">نوع فایل</span>
+                </a>
+            </li>
+            @*<li>
+                <a href="~/CustomRole">
+                    <span class="menu-text">نقش</span>
+                </a>
+            </li>*@
+            <li>
+                <a href="~/LocationType">
+                    <span class="menu-text">نوع موقعیت جغرافیایی</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/Location">
+                    <span class="menu-text"> موقعیت های جغرافیایی</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/SchedulerStatus">
+                    <span class="menu-text">وضعیت برنامه ی درسی</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/FinancialType">
+                    <span class="menu-text">نوع پرداخت</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    @*<li>
+            @*<a href="~/Basic">
+                    <i class="menu-icon glyphicon glyphicon-home"></i>
+                    <span class="menu-text">اطلاعات پایه </span>
+                </a>
+            <a href="~/Tree">
+                <i class="menu-icon glyphicon glyphicon-home"></i>
+                <span class="menu-text">اطلاعات ساختار درختی </span>
+            </a>
+        </li>*@
+
+    <!--Service Elements-->
+    <li>
+        <a href="#" class="menu-dropdown">
+            <i class="menu-icon fa fa-table"></i>
+            <span class="menu-text">مدیریت خدمات </span>
+            <i class="menu-expand"></i>
+        </a>
+        <ul class="submenu">
+            <li>
+                <a href="~/Service">
+                    <span class="menu-text">سرویس خدماتی</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/InformationSource/">
+                    <span class="menu-text">منبع اطلاعاتی</span>
+                </a>
+            </li>
+            <li>
+                <a href="/Group">
+                    <span class="menu-text">گروه</span>
+                </a>
+            </li>
+            <li>
+                <a href="/Class">
+                    <span class="menu-text">کلاس</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/Community">
+                    <span class="menu-text">اجتماع</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/Question">
+                    <span class="menu-text">دریاچه سوالات</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <!--ApplicationUser Elements-->
+    <li>
+        <a href="#" class="menu-dropdown">
+            <i class="menu-icon fa fa-picture-o"></i>
+            <span class="menu-text">مدیریت کاربران </span>
+            <i class="menu-expand"></i>
+        </a>
+        <ul class="submenu">
+            <li>
+                <a href="~/UserProfile/Student/Index">
+                    <span class="menu-text">دانش آموزان</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/UserProfile/Teacher/Index">
+                    <span class="menu-text">مدرسین</span>
+                </a>
+            </li>
+            <li>
+                <a href="~/UserProfile/Advisor/Index">
+                    <span class="menu-text">مشاورین</span>
+                </a>
+            </li>
+            <li>
+                <a href="ApplicationUser.aspx">
+                    <span class="menu-text"><s>کارشناسان</s></span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <!--Account Elements-->
+    <li>
+        <a href="#" class="menu-dropdown">
+            <i class="menu-icon fa fa-picture-o"></i>
+            <span class="menu-text">کاربری </span>
+            <i class="menu-expand"></i>
+        </a>
+        <ul class="submenu">
+            <li>
+                <a href="Profile.html">
+                    <span class="menu-text"><s>پروفایل</s></span>
+                </a>
+            </li>
+            <li>
+                <a href="ChangePassword.html">
+                    <span class="menu-text"><s>تغییر کلمه عبور</s></span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <!--Logout-->
+    <li>
+        <a href="javascript:document.getElementById('logoutForm').submit()">
+            <i class="menu-icon fa fa-picture-o"></i>
+            <span class="menu-text">خروج</span>
+        </a>
+                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                {
+                    @Html.AntiForgeryToken()
+                }
+    </li>
+    <li>
+        <a href="../shared/version.html">
+            <i class="menu-icon glyphicon glyphicon-fire themesecondary"></i>
+            <span class="menu-text">
+                نسخه شبکه اجتماعی
+            </span>
+        </a>
+    </li>
+</ul>

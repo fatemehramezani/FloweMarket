@@ -1,0 +1,25 @@
+﻿@model Goldoon.Models.Users.UserRelation
+<form action="@Url.Action("Create", "UserRelation")" method="post" id="dataEntry">
+
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @if (Model != null && Model.Id != 0)
+        {
+            @Html.HiddenFor(model => model.Id)
+        }
+        @Html.Hidden("UserId")
+        @Html.Action("DropDownList","UserRelationType",new {Name="RelationTypeId", SelectedId=1})
+
+        <div class="row">
+            @Html.Action("GetModalByUserRole", "UserProfile", new { UserRole = "Student"})
+        </div>
+    </div>
+</form>
+<script>
+    var selectedUserId = $("#selectedUserId").val();
+    $('#UserId').val(selectedUserId);
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

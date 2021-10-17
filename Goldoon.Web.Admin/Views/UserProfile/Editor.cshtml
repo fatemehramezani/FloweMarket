@@ -1,0 +1,228 @@
+﻿@model Goldoon.Models.Users.UserProfile
+
+<form action="@Url.Action("CreateUpdate","UserProfile")" method="post" id="dataEntry">
+    @Html.Hidden("returnUrl", (string)ViewBag.returnUrl)
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.UserId)
+
+    <div class="form-title">
+        اطلاعات شخصی
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(x => x.FirstName)</label>
+                <div class="col-sm-10">
+                    <span class="input-icon icon-right">
+                        <input class="form-control" placeholder="نام" type="text" value="@Model.FirstName" id="FirstName" name="FirstName">
+                        <i class="fa fa-user blue"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(x => x.LastName)</label>
+                <div class="col-sm-10">
+                    <span class="input-icon icon-right">
+                        <input class="form-control" placeholder="نام خانوادگی" type="text" value="@Model.LastName" id="LastName" name="LastName">
+                        <i class="fa fa-user orange"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(x => x.FatherFirstName)</label>
+                <div class="col-sm-10">
+                    <span class="input-icon icon-right">
+                        <input class="form-control" placeholder="نام پدر" type="text" value="@Model.FatherFirstName" id="FatherFirstName" name="FatherFirstName">
+                        <i class="fa fa-user blue"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                @*<label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(x => x.IsMale)</label>*@
+                <div class="col-sm-10">
+                    <span class="input-icon icon-right">
+                        <label>
+                            @Html.Bootstrap().CheckBoxFor(x => x.IsMale).HtmlAttributes(new { @class = "checkbox-slider  colored-blue" })
+                            @*<input class="checkbox-slider colored-blue" type="checkbox" value="@Model.IsMale" id="IsMale" name="IsMale">*@
+                            <span class="text">مذکر</span>
+                        </label>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(x => x.NationalCode)</label>
+                <div class="col-sm-10">
+                    <span class="input-icon icon-right">
+                        <input class="form-control" placeholder="کد ملی" type="text" value="@Model.NationalCode" id="NationalCode" name="NationalCode">
+                        <i class="fa fa-user orange"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(x => x.Serial)</label>
+                <div class="col-sm-10">
+                    <span class="input-icon icon-right">
+                        <input class="form-control" placeholder="شماره شناسنامه" type="text" value="@Model.Serial" id="Serial" name="Serial">
+                        <i class="fa fa-user blue"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="wide">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(x => x.Birthday)</label>
+                <div class="col-sm-10">
+                    <span class="input-icon icon-right">
+                        <input class="form-control date-picker" data-date-format="dd/mm/yyyy" placeholder="2012/12/30" type="text" value="@Model.Birthday" id="Birthday" name="Birthday">
+                        <i class="fa fa-calendar"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(x => x.BirthdayCityId)</label>
+                <div class="col-sm-10">
+                    <span class="input-icon icon-right">
+                        <input class="form-control" placeholder="محل تولد" type="text" value="@Model.BirthdayCityId" id="BirthdayCityId" name="BirthdayCityId">
+                        <i class="fa fa-globe"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(x => x.Score)</label>
+            <div class="col-sm-10">
+                <span class="input-icon icon-right">
+                        <input class="form-control" placeholder="شماره دانش آموزی" type="text" value="@Model.Code" id="Code" name="Code">
+                        <i class="fa fa-globe"></i>
+                    </span>
+            </div>
+        </div>
+    </div>
+        </div>
+        <hr class="wide">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(x => x.Score)</label>
+                    <div class="col-sm-10">
+                        <span class="input-icon icon-right">
+                            <input class="form-control" placeholder="امتیاز کسب شده" type="text" value="@Model.Score" id="Score" name="Score">
+                            <i class="fa fa-globe"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(x => x.Credit)</label>
+                    <div class="col-sm-10">
+                        <span class="input-icon icon-right">
+                            <input class="form-control" placeholder="اعتبار موجود" type="text" value="@Model.Credit" id="Credit" name="Credit">
+                            <i class="fa fa-globe"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-title">
+            اطلاعات تماس
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(x => x.Phone)</label>
+                    <div class="col-sm-10">
+                        <span class="input-icon icon-right">
+                            <input class="form-control" placeholder="تلفن ثابت" type="text" value="@Model.Phone" id="Phone" name="Phone">
+                            <i class="glyphicon glyphicon-earphone yellow"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(x => x.Mobile)</label>
+                    <div class="col-sm-10">
+                        <span class="input-icon icon-right">
+                            <input class="form-control" placeholder="موبایل" type="text" value="@Model.Mobile" id="Mobile" name="Mobile">
+                            <i class="glyphicon glyphicon-phone palegreen"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(x => x.Address)</label>
+                    <div class="col-sm-10">
+                        <span class="input-icon icon-right">
+                            <input class="form-control" placeholder="آدرس" type="text" value="@Model.Address" id="Address" name="Address">
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(x => x.ZipCode)</label>
+                    <div class="col-sm-10">
+                        <span class="input-icon icon-right">
+                            <input class="form-control" placeholder="کدپستی" type="text" value="@Model.ZipCode" id="ZipCode" name="ZipCode">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label no-padding-right">@Html.DisplayNameFor(x => x.Email)</label>
+                    <div class="col-sm-10">
+                        <span class="input-icon icon-right">
+                            <input class="form-control" placeholder="ایمیل" type="text" value="@Model.Email" id="Email" name="Email">
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <button type="submit" class="btn btn-primary">ویرایش پروفایل</button>
+</form>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+@*<script>
+        var selectedUserProfileId = $("#selectedUserProfileId").val();
+        $('#Id').val(selectedUserProfileId);
+    </script>*@
+@*<script>
+        var selectedUserId = $("#selectedUserId").val();
+        $('#dataEntry #UserId').val(selectedUserId);
+        alert(selectedUserId);
+    </script>*@

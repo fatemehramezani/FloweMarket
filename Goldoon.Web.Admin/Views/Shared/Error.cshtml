@@ -1,0 +1,4 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+<h1 class="text-danger">خطایی در بارگزاری رخ داده است</h1>
+<h2 class="text-danger">Error.@Model.Exception.Message</h2>
+@Html.ActionLink("بازگشت به قبل", @Model.ActionName, @Model.ControllerName)

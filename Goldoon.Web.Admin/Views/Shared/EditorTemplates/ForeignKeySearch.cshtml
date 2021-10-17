@@ -1,0 +1,6 @@
+﻿@model ELearning.Utility.Search.ForeignKeySearch
+
+@Html.HiddenFor(m => m.SearchTerm, new { @class = "form-control input-sm" })
+@Html.HiddenFor(m => m.Property)
+@Html.HiddenFor(m => m.TargetTypeName)
+@Html.Hidden("ModelTypeName", this.Model.GetType().AssemblyQualifiedName)

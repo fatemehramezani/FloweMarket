@@ -1,0 +1,118 @@
+﻿@model Goldoon.Models.Student.StudentSchool
+<form action="@Url.Action("CreateUpdate", "StudentSchool")" method="post" id="dataEntry">
+    @Html.Hidden("returnUrl", (string)ViewBag.returnUrl)
+
+
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @if (Model != null && Model.Id != 0)
+        {
+            @Html.HiddenFor(model => model.Id)
+        }
+        @Html.Hidden("UserId")
+        <div class="row">
+            <div class="col-sm-10 col-lg-push-1">
+                <div class="form-group">
+                    <span class="input-icon icon-right">
+                        @Html.Bootstrap().TextBoxFor(x => x.EducationPlaceTitle).Placeholder("عنوان").Size(InputSize.BlockLevel).AppendIcon(FontAwesome.User).AppendIconStyle("blue")
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-sm-10 col-lg-push-1">
+                <div class="form-group">
+                    <span class="input-icon icon-right">
+                        @Html.Bootstrap().TextBoxFor(x => x.Grade).Placeholder("معدل").Size(InputSize.BlockLevel).AppendIcon(FontAwesome.User).AppendIconStyle("orange")
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-sm-10 col-lg-push-1">
+                <div class="form-group">
+                    <span class="input-icon icon-right">
+                        @Html.Bootstrap().TextBoxFor(x => x.StudentCode).Placeholder("شماره دانش آموزی").Size(InputSize.BlockLevel).AppendIcon(FontAwesome.User).AppendIconStyle("orange")
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.EducationalLevelId, htmlAttributes: new {@class = "control-label col-md-4"})
+            <div class="col-md-8">
+                @if (Model != null)
+                {
+                    @Html.Action("DropDownList", "EducationalLevel", new {Name = "EducationalLevelId", SelectedId = Model.EducationalLevelId})
+                }
+                else
+                {
+                    @Html.Action("DropDownList", "EducationalLevel", new {Name = "EducationalLevelId"})
+                }
+                @Html.ValidationMessageFor(model => model.EducationalLevelId, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FieldStudyId, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @if (Model != null)
+                {
+                    @Html.Action("DropDownList", "EducationalGroup", new { Name = "FieldStudyId", SelectedId = Model.FieldStudyId })
+                }
+                else
+                {
+                    @Html.Action("DropDownList", "EducationalGroup", new { Name = "FieldStudyId" })
+                }
+                @Html.ValidationMessageFor(model => model.EducationalLevelId, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StartYear, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.StartYear, new { htmlAttributes = new { @class = "form-control", placeholder = "2012/10/30" } })
+                @Html.ValidationMessageFor(model => model.StartYear, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EndYear, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EndYear, new { htmlAttributes = new { @class = "form-control", placeholder = "2012/10/30" } })
+                @Html.ValidationMessageFor(model => model.EndYear, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EducationPlaceTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EducationPlaceTitle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EducationPlaceTitle, "", new { @class = "text-danger"})
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.InstituteId, htmlAttributes: new {@class = "control-label col-md-4"})
+            <div class="col-md-8">
+                @if (Model != null)
+                {
+                    @Html.Action("DropDownList", "Institute", new {Name = "InstituteId", SelectedId = Model.InstituteId })
+                }
+                else
+                {
+                    @Html.Action("DropDownList", "Institute", new {Name = "InstituteId" })
+                }
+                @Html.ValidationMessageFor(model => model.InstituteId, "", new {@class = "text-danger"})
+            </div>
+        </div>*@
+
+    </div>
+</form>
+<script>
+    var selectedStudentId = $("#selectedUserId").val();
+    $('#UserId').val(selectedStudentId);
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

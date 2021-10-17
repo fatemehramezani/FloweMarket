@@ -1,0 +1,23 @@
+﻿@model Goldoon.Models.Group.GroupMember
+<form action="@Url.Action("Create", "GroupMember")" method="post" id="dataEntry">
+    @Html.Hidden("returnUrl", (string)ViewBag.returnUrl)
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @if (Model != null && Model.Id != 0)
+        {
+            @Html.HiddenFor(model => model.Id)
+        }
+        @Html.Hidden("GroupId")
+        <div class="row">
+            <div id="Div_UserProfiles">
+            @Html.Action("GetModalByUserRole", "UserProfile", new {UserRole = "Student"})
+                
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    var selectedGroupId = $("#selectedGroupId").val();
+    $('#GroupId').val(selectedGroupId);
+</script>

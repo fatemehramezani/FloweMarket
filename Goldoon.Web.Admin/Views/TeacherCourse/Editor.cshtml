@@ -1,0 +1,44 @@
+﻿@model Goldoon.Models.Basic.TeacherCourse
+
+<form action="@Url.Action("CreateUpdate","TeacherCourse")" method="post" id="dataEntry">
+    @Html.Hidden("returnUrl", (string)ViewBag.returnUrl)
+
+    @Html.AntiForgeryToken()
+    @Html.Hidden("UserId")
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @if (Model != null && Model.Id != 0)
+        {
+            @Html.HiddenFor(model => model.Id)
+        }
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CourseId, htmlAttributes: new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @{
+                    if (Model != null)
+                    {
+                        @Html.Action("DropDownList", "EducationalGroup", new { Name = "CourseId", SelectedId = Model.CourseId })
+                    }
+                    else
+                    {
+                        @Html.Action("DropDownList", "EducationalGroup", new { Name = "CourseId" })
+                    }
+
+                }
+
+                @Html.ValidationMessageFor(model => model.CourseId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<script>
+    var selectedUserId = $("#selectedUserId").val();
+    $('#UserId').val(selectedUserId);
+
+</script>
+
+

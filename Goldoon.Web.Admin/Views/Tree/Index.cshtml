@@ -1,0 +1,261 @@
+﻿@{
+    ViewBag.Title = " مدیریت اطلاعات درختی";
+}
+@helper  icons(string tabName, string name)
+{
+    <i data-name="@tabName" class="glyphicon glyphicon-camera"></i>
+    @name
+}
+
+<div style="width:100%;display:block;min-height:300px">
+    <h5 class="row-title">
+        مدیریت اطلاعات ساختار درختی
+    </h5>
+    @using (var tabs = Html.Bootstrap().Begin(new Tabs("HierarchyTab").Position(Direction.Left)))
+    {
+        tabs.Tab(icons("EducationalGroup", "گروه تحصیلی").ToString(), BootstrapColors.Info);
+        tabs.Tab(icons("Location", "موقعیت جغرافیایی").ToString(), BootstrapColors.Info);
+        using (tabs.BeginPanel())
+        {
+            <div class="animated fadeInDown">
+                <div>
+                    <button class="btn btn-circle  btn-xs" data-container="body" data-placement="right" data-title="ویرایش" data-toggle="modal" type="button" data-target="#InsertLocationModal"><i class="glyphicon glyphicon-plus"></i></button>
+                    @Html.Bootstrap().Button().Color(BootstrapColors.Default).Text("").Size(ButtonSize.Mini).Circular().IconPrepend(GlyphIcons.Remove).Tooltip(new Tooltip("حذف")).Id("DeleteEducationalGroup")
+                    <div class="pull-left basic-header">
+                        <ul class="header-buttons">
+                            <li class="search">
+                                <span class="input-icon tooltip-primary" data-tooltip="tooltip" data-placement="bottom" data-original-title="جستجوی عنوان">
+                                    <input type="text" class="form-control input-sm" id="title-search" placeholder="عنوان">
+                                    <i class="glyphicon glyphicon-search lightgray">
+                                    </i>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <br />
+                <ul class="dd-list">
+                    <div id="EducationalGroup" class="dd">
+                    </div>
+                </ul>
+            </div>
+        }
+        using (tabs.BeginPanel())
+        {
+            <div class="animated fadeInDown">
+                <div>
+                    <button class="btn btn-circle  btn-xs" data-container="body" data-placement="right" data-title="ویرایش" data-toggle="modal" type="button" data-target="#InsertLocationModal"><i class="glyphicon glyphicon-plus"></i></button>
+                    @Html.Bootstrap().Button().Color(BootstrapColors.Default).Text("").Size(ButtonSize.Mini).Circular().IconPrepend(GlyphIcons.Remove).Tooltip(new Tooltip("حذف")).Id("DeleteLocation")
+                    <div class="pull-left basic-header">
+                        <ul class="header-buttons">
+                            <li class="search">
+                                <span class="input-icon tooltip-primary" data-tooltip="tooltip" data-placement="bottom" data-original-title="جستجوی عنوان">
+                                    <input type="text" class="form-control input-sm" id="title-search" placeholder="عنوان">
+                                    <i class="glyphicon glyphicon-search lightgray">
+                                    </i>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <br />
+                <ul class="dd-list">
+                    <div id="Location" class="dd">
+                    </div>
+                </ul>
+            </div>
+        }
+    }
+</div>
+@section Scripts{
+    <script src="~/Theme/assets/js/nestable/jquery.nestable.min.js"></script>
+    <script src="~/Theme/assets/js/bootbox/bootbox.js"></script>
+
+    <script type="text/javascript">
+        jQuery(function($) {
+            $('.dd').nestable();
+            $('.dd-handle a').on('mousedown', function(e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
+<script src="~/Theme/assets/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            loadLocationTable();
+            loadEducationalGroupTable();
+        });
+
+        function loadLocationTable() {
+            $.ajax({
+                url: "/Tree/Location",
+                dataType: "HTML",
+                success: function(result) {
+                    $("#Location").html(result);
+                },
+                error: function(error) {
+                    toastr.error("خطا در سیستم", error, "");
+                }
+            })
+        }
+
+        function loadEducationalGroupTable() {
+            $.ajax({
+                url: "/Tree/EducationalGroup",
+                dataType: "HTML",
+                success: function(result) {
+                    $("#EducationalGroup").html(result)
+                },
+                error: function(error) {
+                    toastr.error("خطا در سیستم", error, "");
+                }
+            })
+        }
+    </script>
+}
+@using (var modal = Html.Bootstrap().Begin(new Modal().Id("InsertLocationModal").Closeable().Color(BootstrapColors.Primary).Size(BootstrapSizes.Normal)))
+{
+    using (var header = modal.BeginHeader())
+    {
+        <h4 class="modal-title" id="myLargeModalLabel">ایجاد موقعیت جغرافیایی</h4>
+    }
+    using (var body = modal.BeginBody())
+    {
+        <div class="form-group">
+            <label for="definpu">عنوان موقعیت جغرافیایی</label>
+            @Html.TextBox("InsertLocationTitle")
+        </div>
+            <div class="form-group">
+                <label for="definpu">نوع موقعیت جغرافیایی</label>
+                @*@Html.DropDownListFor("LocationType", Repository<LocationType>.Get)*@
+                @*@AdDropDownListFor("LocationTypeSelect", listItems)*@
+            </div>
+            <div id="InsertLocationParentVisibility" class="form-group" style="display: none">
+                <label for="definpu">عنوان سطح بالاتر</label>
+                @*@Html.Hidden("InsertLocationParentIdHiddenField")
+                    @Html.Lable("InsertLocationParentTitle")*@
+            </div>
+    }
+    using (modal.BeginFooter())
+    {
+        <div class="form-group">
+            <button class="btn bt-info" onclick="InsertLocation()">ایجاد</button>
+        </div>
+    }
+}
+
+@using (var modal = Html.Bootstrap().Begin(new Modal().Id("EditLocationModal").Closeable().Color(BootstrapColors.Primary).Size(BootstrapSizes.Normal)))
+{
+
+    using (var header = modal.BeginHeader())
+    {
+        <h4 class="modal-title" id="myLargeModalLabel">ویرایش اطلاعات</h4>
+    }
+    using (var body = modal.BeginBody())
+    {
+        @Html.Hidden("EditLocationId")
+        <div class="form-group">
+            <label for="definpu">عنوان موقعیت جغرافیایی</label>
+            @Html.TextBox("EditLocationTitle")
+        </div>
+    }
+    using (modal.BeginFooter())
+    {
+        <div class="form-group">
+            <button class="btn bt-info" onclick="EditLocation()">ویرایش</button>
+        </div>
+    }
+}
+
+<script>
+    $("#DeleteLocation").click(function () {
+        var Ids = "";
+        $('#Location ol li').find('input[type="checkbox"]:checked').each(function (value) {
+            Ids += $(this).val() + ","
+        });
+        if (Ids == "") {
+            toastr.warning("موردی برای حدف انتخاب نشده", "", "")
+        } else
+            $.ajax({
+                url: "/Basic/DeletLocationItem",
+                Type: "Post",
+                data: { Ids: Ids },
+                success: function (result) {
+                    $("#Location").html(result)
+                    toastr.success("عملیات با موفقیت انجام شد", "", "");
+                },
+                error: function () {
+                    toastr.error("خطا در سیستم", "", "")
+                }
+            })
+    })
+
+    function PrepareInsertLocation(data) {
+        $("#InsertLocationParentIdHiddenField").val(data.value);
+        $("#InsertLocationParentTitle").val(data.name).prop("readonly", true);
+        $("#InsertLocationParentVisibility").css({ "display": "block" });
+    }
+
+    function InsertLocation() {
+        debugger
+        var title = $("#InsertLocationTitle").val();
+        var typeId = $('select#LocationTypeSelect option:selected').val();
+        var parentId = $("#InsertLocationParentIdHiddenField").val();
+        if (title == "" || typeId == "") {
+            toastr.warning("مقدار فیلد ها اجباری می باشد", "", "")
+        } else
+            $.ajax({
+                url: "/Basic/InsertLocation",
+                Type: "Post",
+                data: { Title: title, ParentId: parentId, LocationTypeId: typeId },
+                success: function (result) {
+                    $("#Location").html(result)
+                    $(".modal-backdrop").hide()
+                    toastr.success("عملیات با موفقیت انجام شد", "", "");
+                },
+                error: function () {
+                    toastr.error("خطا در سیستم", "", "")
+                }
+            })
+    }
+
+    function PrepareEditLocation(data) {
+        $("#EditLocationId").val(data.value)
+        $("#EditLocationTitle").val(data.name)
+        $('#EditLocationTypeSelect option[value=' + data.title + ']').prop('selected', true)
+    }
+
+    function EditLocation() {
+        debugger
+        var title = $("#EditLocationTitle").val();
+        if (title == "" || typeId == "") {
+            toastr.warning("مقدار فیلد ها اجباری می باشد", "", "")
+        } else
+            $.ajax({
+                url: "/Basic/UpdateLocation",
+                Type: "Post",
+                data: { Title: title, Id: $("#EditLocationId").val(), LocationTypeId: typeId },
+                success: function (result) {
+                    $("#Location").html(result);
+                    $(".modal-backdrop").hide();
+                    toastr.success("عملیات با موفقیت انجام شد", "", "");
+                },
+                error: function () {
+                    toastr.error("خطا در سیستم", "", "");
+                }
+            });
+    }
+
+    //----SEARCH
+    $(function () {
+        $('#Location input[type="text"]').keyup(function () {
+            var searchText = $(this).val();
+            $('#Location .dd-list  > li').each(function () {
+                var currentLiText = $(this).text(),
+                    showCurrentLi = currentLiText.indexOf(searchText) !== -1;
+                $(this).toggle(showCurrentLi);
+            });
+        });
+    });
+    //----/SEARCH
+</script>

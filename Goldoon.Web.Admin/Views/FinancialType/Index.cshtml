@@ -1,0 +1,59 @@
+﻿@model PagedSearchViewModel<Goldoon.Models.Basic.FinancialType>
+
+<h5 class="row-title"><i class="typcn typcn-th-small"></i>مدیریت @ViewBag.Title</h5>
+<div class="row">
+    <div class="col-md-12">
+        <div class="basictab-container">
+            <div class="basictab-header row">
+                <div class="col-lg-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="widget">
+                            <div class="widget-header bordered-bottom bordered-themeprimary">
+                                <span class="widget-caption themeprimary">@ViewBag.Title</span>
+                            </div>
+                            <div id="Div_FinancialTypes">
+
+                            @Html.Partial("_FinancialTypes",Model)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/Theme/assets/js/jqueryval/jquery.validate.min.js"></script>
+    
+}
+
+
+<script>
+    ///FinancialTypeMember/Index?sortColumn=Id&sortDirection=Ascending&pageIndex=1
+
+    function Page(name, extendedUrl) {
+        var SelectedFinancialTypeId = $("#selectedFinancialTypeId").val();
+        var selectedFinancialType = { Id: SelectedFinancialTypeId };
+        var divName = "#Div_" + name + "s";
+        $.ajax({
+            contentType: 'application/json',
+            data: JSON.stringify(selectedFinancialType),
+            method: 'Post',
+            url: extendedUrl,
+            success: function (result) {
+                $(divName).html(result);
+            },
+            error: function (xhr) {
+                try {
+                    var json = $.parseJSON(xhr.responseText);
+                    toastr.error(json.errorMessage, "", "");
+                }
+                catch (e) {
+                    toastr.error("عملیات با خطا متوقف شد", "", "");
+                }
+            }
+        });
+    }
+</script>

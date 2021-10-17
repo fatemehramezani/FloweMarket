@@ -1,0 +1,55 @@
+﻿@model LoginViewModel
+
+@{
+    ViewBag.Title = "ورود";
+    ViewBag.Description = "صفحه ورود کاربران";
+    Layout = "~/Views/Shared/_Empty.cshtml";
+}
+
+<div class="login-container animated fadeIn">
+    <div class="loginbox bg-white">
+        <div class="loginbox-title">ورود</div>
+        @*<div class="loginbox-social">
+
+            <div class="social-buttons">
+                <a href="" class="button-facebook">
+                    <i class="social-icon fa fa-facebook"></i>
+                </a>
+                <a href="" class="button-twitter">
+                    <i class="social-icon fa fa-twitter"></i>
+                </a>
+                <a href="" class="button-google">
+                    <i class="social-icon fa fa-google-plus"></i>
+                </a>
+            </div>
+        </div>*@
+        <div class="loginbox-or">
+            <div class="or-line"></div>
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.AntiForgeryToken()
+            <div class="loginbox-textbox">
+                @Html.TextBoxFor(t => t.UserName, new { Placeholder = "نام کاربری", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+            </div>
+            <div class="loginbox-textbox">
+                @Html.PasswordFor(t => t.Password, new { Placeholder = "کلمه عبور", @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            </div>
+            <div class="loginbox-forgot">
+                <a href="">بازیابی کلمه عبور؟</a>
+            </div>
+            <div class="loginbox-forgot">
+                <a href="@Url.Action("Register")">ثبت نام</a>
+            </div>
+            <div class="loginbox-submit">
+                <input type="submit" class="btn btn-primary btn-block" value="Login">
+            </div>
+        }
+    </div>
+</div>
+@section PageScripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

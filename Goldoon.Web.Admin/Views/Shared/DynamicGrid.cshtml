@@ -1,0 +1,77 @@
+﻿@model IEnumerable<object>
+@using System.ComponentModel.DataAnnotations;
+
+<h2>DynamicGrid</h2>
+
+@{
+    List<string> PropertyTypes = new List<string>();
+    List<string> TypeNames = new List<string>();
+    List<string> TypeDisplayNames = new List<string>();
+
+    Type ObjectType = Model.GetType().GenericTypeArguments.First();
+
+    List<DynamicGridColumn> Columns = new List<DynamicGridColumn>();
+
+    var Properties = ObjectType.GetProperties();
+    var tempgt = Model.GetType().FullName;
+    var gt = Type.GetType(tempgt);
+    foreach (var item in Properties)
+    {
+
+        var FieldName = item.Name;
+        var FieldType = item.PropertyType.Name;
+        string FieldDisplayName = FieldName;
+        try
+        {
+            FieldDisplayName = ((DisplayAttribute)(typeof(gt).GetProperty(FieldName).GetCustomAttributes(typeof(DisplayAttribute), true)[0])).Name;
+        }
+        catch (Exception ex)
+        {
+
+
+        }
+
+        Columns.Add(new DynamicGridColumn { Fieldname = FieldName, FieldType = FieldType, FieldDisplayName = FieldDisplayName });
+    }
+
+
+    var a = "sss";
+
+}
+@foreach (var item in Columns)
+{
+
+    <div>
+        <p>@item.Fieldname</p>
+        <p>@item.FieldType</p>
+        <p>@item.FieldDisplayName</p>
+    </div>
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+
+            @foreach (var item in Columns)
+            {
+                <td>
+                    @item.FieldDisplayName
+                </td>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @foreach (var DataColumn in Columns)
+                {
+                <td>
+                    @item.GetType().GetProperty(DataColumn.Fieldname).GetValue(item)
+
+                </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

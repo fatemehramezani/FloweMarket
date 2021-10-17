@@ -1,0 +1,26 @@
+﻿@model Goldoon.Models.Class.ClassMember
+<form action="@Url.Action("Create", "ClassMember")" method="post" id="dataEntry">
+    @Html.Hidden("returnUrl", (string)ViewBag.returnUrl)
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @if (Model != null && Model.Id != 0)
+        {
+            @Html.HiddenFor(model => model.Id)
+        }
+        @Html.Hidden("ClassId")
+        <div class="row">
+            <div id="Div_UserProfiles">
+            @Html.Action("GetModalByUserRole", "UserProfile", new {UserRole = "Student"})
+                
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    var selectedClassId = $("#selectedClassId").val();
+    $('#ClassId').val(selectedClassId);
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

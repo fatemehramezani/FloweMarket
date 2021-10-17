@@ -1,0 +1,7 @@
+﻿@model ELearning.Utility.Search.TextSearch
+
+    @Html.TextBoxFor(m => m.SearchTerm, new { @class = "form-control input-sm" })
+    @Html.HiddenFor(m => m.Property)
+    @Html.HiddenFor(m => m.TargetTypeName)
+    @Html.Hidden("ModelTypeName", this.Model.GetType().AssemblyQualifiedName)
+@*<input type="text" class="form-control input-sm" id="fontawsome-search" placeholder="عنوان کلاس">*@

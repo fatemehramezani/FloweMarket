@@ -1,0 +1,555 @@
+﻿<%@ Master Language="C#" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <!-- Head -->
+    <meta charset="utf-8" />
+    <title>مدیریت صفحه کاربران</title>
+
+    <meta name="description" content="Dashboard" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
+
+    <!--Basic Styles-->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link href="../assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../assets/css/weather-icons.min.css" rel="stylesheet" />
+
+    <!--Fonts-->
+    <style>
+        @font-face {
+            font-family: 'WYekan';
+            src: url('/assets/fonts/BYekan.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300" rel="stylesheet" type="text/css" />
+
+    <!--Beyond styles-->
+    <link href="../assets/css/beyond-rtl.min.css" rel="stylesheet" />
+    <link href="../assets/css/4095-rtl.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/demo.min.css" rel="stylesheet" />
+    <link href="../assets/css/typicons.min.css" rel="stylesheet" />
+    <link href="../assets/css/animate.min.css" rel="stylesheet" />
+    <%--<link id="skin_link" href="" rel="stylesheet" type="text/css" />--%>
+
+    <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
+    <script src="../assets/js/skins.min.js"></script>
+    <!--Beyond Scripts-->
+    <script src="../assets/js/skins.min.js"></script>
+    <script src="../assets/js/beyond.min.js"></script>
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="../assets/js/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="../assets/js/bootbox/bootbox.js"></script>
+
+    <!--Beyond Scripts-->
+    <script src="../assets/js/skins.min.js"></script>
+    <script src="../assets/js/beyond.min.js"></script>
+
+
+    <!--Page Related Scripts-->
+    <!--Sparkline Charts Needed Scripts-->
+    <script src="../assets/js/charts/sparkline/jquery.sparkline.js"></script>
+    <script src="../assets/js/charts/sparkline/sparkline-init.js"></script>
+
+    <!--Easy Pie Charts Needed Scripts-->
+    <script src="../assets/js/charts/easypiechart/jquery.easypiechart.js"></script>
+    <script src="../assets/js/charts/easypiechart/easypiechart-init.js"></script>
+
+    <!--Flot Charts Needed Scripts-->
+    <script src="../assets/js/charts/flot/jquery.flot.js"></script>
+    <script src="../assets/js/charts/flot/jquery.flot.resize.js"></script>
+    <script src="../assets/js/charts/flot/jquery.flot.pie.js"></script>
+    <script src="../assets/js/charts/flot/jquery.flot.tooltip.js"></script>
+    <script src="../assets/js/charts/flot/jquery.flot.orderBars.js"></script>
+
+    <!--Page Related Scripts-->
+    <!--Sparkline Charts Needed Scripts-->
+    <script src="../assets/js/charts/sparkline/jquery.sparkline.js"></script>
+    <script src="../assets/js/charts/sparkline/sparkline-init.js"></script>
+
+    <!--Easy Pie Charts Needed Scripts-->
+    <script src="../assets/js/charts/easypiechart/jquery.easypiechart.js"></script>
+    <script src="../assets/js/charts/easypiechart/easypiechart-init.js"></script>
+
+    <!--Flot Charts Needed Scripts-->
+    <script src="../assets/js/charts/flot/jquery.flot.js"></script>
+    <script src="../assets/js/charts/flot/jquery.flot.resize.js"></script>
+    <script src="../assets/js/charts/flot/jquery.flot.pie.js"></script>
+    <script src="../assets/js/charts/flot/jquery.flot.tooltip.js"></script>
+    <script src="../assets/js/charts/flot/jquery.flot.orderBars.js"></script>
+
+    <!--Page Related Scripts-->
+    <asp:ContentPlaceHolder ID="headContentPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../assets/css/Custom.css" rel="stylesheet" />
+</head>
+<!-- /Head -->
+
+<!-- Body -->
+<body>
+    <form id="form1" runat="server">
+
+        <!-- Loading Container -->
+        <div class="loading-container">
+            <div class="loader"></div>
+        </div>
+        <!--  /Loading Container -->
+        <!-- Navbar -->
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="navbar-container">
+                    <!-- Navbar Barnd -->
+                    <div class="navbar-header pull-right">
+                        <a href="#" class="navbar-brand">
+                            <small>
+                                <img src="../assets/img/logo-rtl.png" alt="" />
+                            </small>
+                        </a>
+                    </div>
+                    <!-- /Navbar Barnd -->
+                    <!-- Sidebar Collapse -->
+                    <div class="sidebar-collapse" id="sidebar-collapse">
+                        <i class="collapse-icon fa fa-bars"></i>
+                    </div>
+                    <!-- /Sidebar Collapse -->
+                    <!-- Account Area and Settings --->
+                    <div class="navbar-header pull-left">
+                        <div class="navbar-account">
+                            <ul class="account-area">
+                                <li>
+                                    <a class=" dropdown-toggle" data-toggle="dropdown" title="Help" href="#">
+                                        <i class="icon fa fa-warning"></i>
+                                    </a>
+                                    <!--Notification Dropdown-->
+                                    <ul class="pull-right dropdown-menu dropdown-arrow dropdown-notifications">
+                                        <li>
+                                            <a href="#">
+                                                <div class="clearfix">
+                                                    <div class="notification-icon">
+                                                        <i class="fa fa-phone bg-themeprimary white"></i>
+                                                    </div>
+                                                    <div class="notification-body">
+                                                        <span class="title">ملاقات در اسکایپ با علی</span>
+                                                        <span class="description">01:00 بعد از ظهر</span>
+                                                    </div>
+                                                    <div class="notification-extra">
+                                                        <i class="fa fa-clock-o themeprimary"></i>
+                                                        <span class="description">دفتر</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="clearfix">
+                                                    <div class="notification-icon">
+                                                        <i class="fa fa-check bg-darkorange white"></i>
+                                                    </div>
+                                                    <div class="notification-body">
+                                                        <span class="title">استراحت پیش بینی نشده</span>
+                                                        <span class="description">03:30 pm - 05:15 pm</span>
+                                                    </div>
+                                                    <div class="notification-extra">
+                                                        <i class="fa fa-clock-o darkorange"></i>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="clearfix">
+                                                    <div class="notification-icon">
+                                                        <i class="fa fa-gift bg-warning white"></i>
+                                                    </div>
+                                                    <div class="notification-body">
+                                                        <span class="title">جلسه با مدیر</span>
+                                                        <span class="description">08:30 pm</span>
+                                                    </div>
+                                                    <div class="notification-extra">
+                                                        <i class="fa fa-calendar warning"></i>
+                                                        <i class="fa fa-clock-o warning"></i>
+                                                        <span class="description">خانه</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="clearfix">
+                                                    <div class="notification-icon">
+                                                        <i class="fa fa-glass bg-success white"></i>
+                                                    </div>
+                                                    <div class="notification-body">
+                                                        <span class="title">شام با دوستان</span>
+                                                        <span class="description">10:30 pm</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-footer ">
+                                            <span>امروز 12 مرداد ماه 1394
+                                            </span>
+                                            <span class="pull-left">10°c
+                                            <i class="wi wi-cloudy"></i>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <!--/Notification Dropdown-->
+                                </li>
+                                <li>
+                                    <a class="dropdown-toggle" data-toggle="dropdown" title="Mails" href="#">
+                                        <i class="icon fa fa-envelope"></i>
+                                        <span class="badge">3</span>
+                                    </a>
+                                    <!--Messages Dropdown-->
+                                    <ul class="pull-right dropdown-menu dropdown-arrow dropdown-messages">
+                                        <li>
+                                            <a href="#">
+                                                <img src="../assets/img/avatars/divyia.jpg" class="message-avatar" alt="محمد زمانی">
+                                                <div class="message">
+                                                    <span class="message-sender">محمد زمانی
+                                                    </span>
+                                                    <span class="message-time">2 دقیقه پیش
+                                                    </span>
+                                                    <span class="message-subject">درخواست برای افزایش امکانات
+                                                    </span>
+                                                    <span class="message-body">خواهشمند است با توجه به افزایش تکنولوژی امکانات سایت را افزایش دهید
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <img src="../assets/img/avatars/divyia.jpg" class="message-avatar" alt="محمد رضوی">
+                                                <div class="message">
+                                                    <span class="message-sender">محمد رضوی
+                                                    </span>
+                                                    <span class="message-time">دیروز
+                                                    </span>
+                                                    <span class="message-subject">منبع جدید
+                                                    </span>
+                                                    <span class="message-body">بنده قصد دارم به عنوان مدرس در سایت فعالیت نمایم
+                                                    </span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-footer">
+                                            <a href="#">مشاهده همه
+                                            </a>
+                                            <button class="btn btn-xs btn-default shiny darkorange icon-only pull-left"><i class="fa fa-check"></i></button>
+                                        </li>
+                                    </ul>
+                                    <!--/Messages Dropdown-->
+                                </li>
+                                <li>
+                                    <a class="login-area dropdown-toggle" data-toggle="dropdown">
+                                        <div class="avatar" title="View your public profile">
+                                            <img src="../assets/img/avatars/John-Smith.jpg">
+                                        </div>
+                                        <section>
+                                            <h2><span class="profile"><span>حسن طالبی نژاد </span></span></h2>
+                                        </section>
+                                    </a>
+                                    <!--Login Area Dropdown-->
+                                    <ul class="pull-right dropdown-menu dropdown-arrow dropdown-login-area">
+                                        <li class="username"><a>حسن طالبی نژاد</a></li>
+                                        <li class="email"><a>hasan.talebi@gmail.com</a></li>
+                                        <!--Avatar Area-->
+                                        <li>
+                                            <div class="avatar-area">
+                                                <img src="../assets/img/avatars/John-Smith.jpg" class="avatar">
+                                                <span class="caption">تغییر تصویر</span>
+                                            </div>
+                                        </li>
+                                        <!--Avatar Area-->
+                                        <li class="edit">
+                                            <a href="profile.html" class="pull-left">پروفایل</a>
+                                            <a href="#" class="pull-right">تنظیمات</a>
+                                        </li>
+                                        <!--Theme Selector Area-->
+                                        <li class="theme-area">
+                                            <ul class="colorpicker" id="skin-changer">
+                                                <li><a class="colorpick-btn" href="#" style="background-color: #5DB2FF;" rel="../assets/css/skins/blue.min.css"></a></li>
+                                                <li><a class="colorpick-btn" href="#" style="background-color: #2dc3e8;" rel="../assets/css/skins/azure.min.css"></a></li>
+                                                <li><a class="colorpick-btn" href="#" style="background-color: #03B3B2;" rel="../assets/css/skins/teal.min.css"></a></li>
+                                                <li><a class="colorpick-btn" href="#" style="background-color: #53a93f;" rel="../assets/css/skins/green.min.css"></a></li>
+                                                <li><a class="colorpick-btn" href="#" style="background-color: #FF8F32;" rel="../assets/css/skins/orange.min.css"></a></li>
+                                                <li><a class="colorpick-btn" href="#" style="background-color: #cc324b;" rel="../assets/css/skins/pink.min.css"></a></li>
+                                                <li><a class="colorpick-btn" href="#" style="background-color: #AC193D;" rel="../assets/css/skins/darkred.min.css"></a></li>
+                                                <li><a class="colorpick-btn" href="#" style="background-color: #8C0095;" rel="../assets/css/skins/purple.min.css"></a></li>
+                                                <li><a class="colorpick-btn" href="#" style="background-color: #0072C6;" rel="../assets/css/skins/darkblue.min.css"></a></li>
+                                                <li><a class="colorpick-btn" href="#" style="background-color: #585858;" rel="../assets/css/skins/gray.min.css"></a></li>
+                                                <li><a class="colorpick-btn" href="#" style="background-color: #474544;" rel="../assets/css/skins/black.min.css"></a></li>
+                                                <li><a class="colorpick-btn" href="#" style="background-color: #001940;" rel="../assets/css/skins/deepblue.min.css"></a></li>
+                                            </ul>
+                                        </li>
+                                        <!--/Theme Selector Area-->
+                                        <li class="dropdown-footer">
+                                            <a href="login.html">خروج از سیستم
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!--/Login Area Dropdown-->
+                                </li>
+                                <!-- /Account Area -->
+                                <!--Note: notice that setting div must start right after account area list.
+                            no space must be between these elements-->
+                                <!-- Settings -->
+                            </ul>
+                            <div class="setting">
+                                <a id="btn-setting" title="Setting" href="#">
+                                    <i class="icon glyphicon glyphicon-cog"></i>
+                                </a>
+                            </div>
+                            <div class="setting-container">
+                                <label>
+                                    <input type="checkbox" id="checkbox_fixednavbar">
+                                    <span class="text">نوار بالایی ثابت</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" id="checkbox_fixedsidebar">
+                                    <span class="text">منوی کناری ثابت</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" id="checkbox_fixedbreadcrumbs">
+                                    <span class="text">نوار بردکرامبز ثابت</span>
+                                </label>
+                                <label>
+                                    <input type="checkbox" id="checkbox_fixedheader">
+                                    <span class="text">نوار میانی ثابت</span>
+                                </label>
+                            </div>
+                            <!-- Settings -->
+                        </div>
+                    </div>
+                    <!-- /Account Area and Settings -->
+                </div>
+            </div>
+        </div>
+        <!-- /Navbar -->
+        <!-- Main Container -->
+        <div class="main-container container-fluid">
+            <!-- Page Container -->
+            <div class="page-container">
+                <!-- Page Sidebar -->
+                <div class="page-sidebar" id="sidebar">
+                    <!-- Page Sidebar Header-->
+                    <div class="sidebar-header-wrapper">
+                        <input type="text" class="searchinput" />
+                        <i class="searchicon fa fa-search"></i>
+                        <div class="searchhelper">به جستجوی صفحات، گزارشات، پیام ها و ایمیل خود بپردازید</div>
+                    </div>
+                    <!-- /Page Sidebar Header -->
+                    <!-- Sidebar Menu -->
+                    <ul class="nav sidebar-menu">
+                        <!--Dashboard-->
+                        <li>
+                            <a href="index.html">
+                                <i class="menu-icon glyphicon glyphicon-home"></i>
+                                <span class="menu-text">داشبورد </span>
+                            </a>
+                        </li>
+                        <!--Class Elements-->
+                        <li>
+                            <a href="Profile.aspx">
+                                <i class="menu-icon fa fa-picture-o"></i>
+                                <span class="menu-text">پروفایل</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="HomePage.aspx">
+                                <i class="menu-icon fa fa-picture-o"></i>
+                                <span class="menu-text">صفحه شخصی</span>
+                            </a>
+                        </li>
+                        <!--Logout-->
+                        <li>
+                            <a href="profile.html">
+                                <i class="menu-icon fa fa-picture-o"></i>
+                                <span class="menu-text">خروج</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../shared/version.html">
+                                <i class="menu-icon glyphicon glyphicon-fire themesecondary"></i>
+                                <span class="menu-text">نسخه شبکه اجتماعی
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /Sidebar Menu -->
+                </div>
+                <!-- /Page Sidebar -->
+                <!-- Page Content -->
+                <div class="page-content">
+                    <!-- Page Breadcrumb -->
+                    <asp:ContentPlaceHolder ID="BreadCrumbContentPlaceHolder" runat="server">
+                    </asp:ContentPlaceHolder>
+
+                    <!-- /Page Breadcrumb -->
+                    <!-- Page Header -->
+                    <div class="page-header position-relative">
+                        <div class="header-title">
+                            <h1>مدیریت اطلاعات پایه
+                            </h1>
+                        </div>
+                        <!--Header Buttons-->
+                        <div class="header-buttons">
+                            <a class="sidebar-toggler" href="#">
+                                <i class="fa fa-arrows-h"></i>
+                            </a>
+                            <a class="refresh" id="refresh-toggler" href="">
+                                <i class="glyphicon glyphicon-refresh"></i>
+                            </a>
+                            <a class="fullscreen" id="fullscreen-toggler" href="#">
+                                <i class="glyphicon glyphicon-fullscreen"></i>
+                            </a>
+                        </div>
+                        <!--Header Buttons End-->
+                    </div>
+                    <!-- /Page Header -->
+                    <!-- Page Body -->
+                    <div class="page-body">
+                        <asp:ContentPlaceHolder ID="PageContentPlaceHolder" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    <!-- /Page Body -->
+                </div>
+                <!-- /Page Content -->
+            </div>
+            <!-- /Page Container -->
+            <!-- Main Container -->
+
+        </div>
+    </form>
+</body>
+<script type="text/javascript">
+    $('[data-tooltip="tooltip"]').tooltip();
+    $(document).ready(function () {
+        tooltip();
+    });
+    //Delete Confirm
+    $("#coursebootbox-confirm").on('click', function () {
+        bootbox.confirm("آیا از حذف درس برای محمد زمانی اطمینان دارید؟", function (result) {
+            if (result) {
+                //
+            }
+        });
+    });
+    //Delete Confirm
+    $(".removerelationbootbox-confirm").on('click', function () {
+        bootbox.confirm("آیا از حذف این دوستی اطمینان دارید؟", function (result) {
+            if (result) {
+                //
+            }
+        });
+    });
+    //Delete Confirm
+    $(".plusrelationbootbox-confirm").on('click', function () {
+        bootbox.confirm("آیا از پذیرش این درخواست دوستی اطمینان دارید؟", function (result) {
+            if (result) {
+                //
+            }
+        });
+    });
+    //Delete Confirm
+    $(".bootbox-confirm").on('click', function () {
+        bootbox.confirm("آیا از حذف این گروه اطمینان دارید؟", function (result) {
+            if (result) {
+                //
+            }
+        });
+    });
+    //Delete Confirm
+    $(".memberbootbox-confirm").on('click', function () {
+        bootbox.confirm("آیا از حذف این عضویت از این گروه اطمینان دارید؟", function (result) {
+            if (result) {
+                //
+            }
+        });
+    });
+
+    //Delete Class Confirm
+    $(".classdeleteconfirm").on('click', function () {
+        bootbox.confirm("آیا از حذف این کلاس اطمینان دارید؟", function (result) {
+            if (result) {
+                //
+            }
+        });
+    });
+
+    //Delete Course Confirm
+    $(".filedeleteconfirm").on('click', function () {
+        bootbox.confirm("آیا از حذف این فایل از لیست فایل های آپلود شده خود اطمینان دارید؟", function (result) {
+            if (result) {
+                //
+            }
+        });
+    });
+    //Delete Confirm
+    $(".removegroupconfirm").on('click', function () {
+        bootbox.confirm("آیا از حذف عضویت از این گروه اطمینان دارید؟", function (result) {
+            if (result) {
+                //
+            }
+        });
+    });
+    //Delete Confirm
+    $(".groupdeleteconfirm").on('click', function () {
+        bootbox.confirm("آیا از حذف این گروه اطمینان دارید؟", function (result) {
+            if (result) {
+                //
+            }
+        });
+    });
+    //Delete Confirm
+    $(".removerelationconfirm").on('click', function () {
+        bootbox.confirm("آیا از حذف این دوستی اطمینان دارید؟", function (result) {
+            if (result) {
+                //
+            }
+        });
+    });
+    //Delete Confirm
+    $(".removerequestconfirm").on('click', function () {
+        bootbox.confirm("آیا از حذف این درخواست عضویت در گروه اطمینان دارید؟", function (result) {
+            if (result) {
+                //
+            }
+        });
+    });
+    //Delete Confirm
+    $(".messagedeleteconfirm").on('click', function () {
+        bootbox.confirm("آیا از حذف این پیام اطمینان دارید؟", function (result) {
+            if (result) {
+                //
+            }
+        });
+    });
+    //Delete Class Confirm
+    $(".questiondeleteconfirm").on('click', function () {
+        bootbox.confirm("آیا از حذف این سوال اطمینان دارید؟", function (result) {
+            if (result) {
+                //
+            }
+        });
+    });
+    //Delete Class Confirm
+    $(".topicdeleteconfirm").on('click', function () {
+        bootbox.confirm("آیا از حذف این مبحث اجتماع اطمینان دارید؟", function (result) {
+            if (result) {
+                //
+            }
+        });
+    });
+</script>
+<!--  /Body -->
+</html>

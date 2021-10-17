@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+
+  <mvcSiteMapNode title="داشبورد" controller="Home" action="Index" imageUrl="glyphicon glyphicon-home" description="dashboard">
+    <mvcSiteMapNode title="اطلاعات پایه" controller="Basic" action="Index" imageUrl="glyphicon glyphicon-tasks" description="beyond containers"/>
+    <mvcSiteMapNode title="مدیریت خدمات" controller="Home" action="Widgets" imageUrl="fa fa-th" description="flexible containers">
+      <mvcSiteMapNode title="سرویس خدماتی" controller="Service" action="Index" description="Basics"/>
+      <mvcSiteMapNode title="منابع اطلاعاتی" controller="Source" action="Index" description="Basics"/>
+      <mvcSiteMapNode title="گروه" controller="Group" action="Index" description="Basics"/>
+      <mvcSiteMapNode title="کلاس" controller="Class" action="Index" description="Basics"/>
+      <mvcSiteMapNode title="اجتماع" controller="Community" action="Index" description="Basics"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="مدیریت کاربران" url="/0" imageUrl="fa fa-desktop" description="elements">
+      <mvcSiteMapNode title="دانش آموزان" controller="Home" action="Elements" description="Basics"/>
+      <mvcSiteMapNode title="مدرسین" controller="Home" action="Elements" description="Basics"/>
+      <mvcSiteMapNode title="مشاورین" controller="Home" action="Elements" description="Basics"/>
+      <mvcSiteMapNode title="کارشناسان" controller="Home" action="Elements" description="Basics"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="کاربران" url="11" imageUrl="fa fa-table" description="">
+      <mvcSiteMapNode title="پروفایل" controller="Home" action="SimpleTables" description="simple and responsive tables"/>
+      <mvcSiteMapNode title="تغییر رمز عبور" controller="Home" action="DataTables" description="jquery plugin for data management"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="خروج" controller="Home" action="FormLayouts" description="Layouts" imageUrl="typcn typcn-power-outline"/>
+
+  </mvcSiteMapNode>
+
+</mvcSiteMap>

@@ -1,0 +1,175 @@
+﻿@model Goldoon.Models.Users.UserProfile
+<form action="@Url.Action(MVC.Profile.CreateUpdate())" method="post" id="dataEntry">
+    @Html.Hidden("returnUrl", (string)ViewBag.returnUrl)
+
+
+    @Html.AntiForgeryToken()
+    @if (Model != null && Model.Id != 0)
+    {
+        @Html.HiddenFor(model => model.Id)
+    }
+    <div class="form-title">
+        اطلاعات شخصی
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <span class="input-icon icon-right">
+                    @Html.Bootstrap().TextBoxFor(x => x.FirstName).Placeholder("نام").Size(InputSize.BlockLevel).AppendIcon(FontAwesome.User).AppendIconStyle("blue")
+                </span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <span class="input-icon icon-right">
+                    @Html.Bootstrap().TextBoxFor(x => x.LastName).Placeholder("نام خانوادگی").Size(InputSize.BlockLevel).AppendIcon(FontAwesome.User).AppendIconStyle("orange")
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <span class="input-icon icon-right">
+                    @Html.Bootstrap().TextBoxFor(x => x.FatherFirstName).Placeholder("نام پدر").Size(InputSize.BlockLevel).AppendIcon(FontAwesome.User).AppendIconStyle("blue")
+                    <i class="fa fa-user blue"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <span class="input-icon icon-right">
+                    <label>
+                        @*@Html.CheckBoxFor(x => x.IsMale, new { @class = "checkbox-slider colored-blue", placeholder = "مذکر" })*@
+                        @Html.Bootstrap().CheckBoxFor(x => x.IsMale).HtmlAttributes(new {@class = "checkbox-slider  colored-blue"})
+                    </label>
+                    <span class="text">مذکر</span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <span class="input-icon icon-right">
+                    @Html.Bootstrap().TextBoxFor(x => x.NationalCode).Placeholder("کد ملی").Size(InputSize.BlockLevel).AppendIcon(FontAwesome.User).AppendIconStyle("orange")
+                    <i class="fa fa-user orange"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <span class="input-icon icon-right">
+                    @Html.Bootstrap().TextBoxFor(x => x.Certificate).Placeholder("شماره شناسنامه").Size(InputSize.BlockLevel).AppendIcon(FontAwesome.User).AppendIconStyle("blue")
+                    <i class="fa fa-user blue"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <hr class="wide">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <span class="input-icon icon-right">
+                    @Html.EditorFor(x => x.Birthday, new { @class = "form-control date-picker", placeholder = "تاریخ تولد", data_date_format = "dd-mm-yyyy" })
+                    <i class="fa fa-calendar"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <span class="input-icon icon-right">
+                    @Html.Bootstrap().TextBoxFor(x => x.BirthdayCityId).Placeholder("محل تولد").Size(InputSize.BlockLevel).AppendIcon(FontAwesome.Globe)
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <span class="input-icon icon-right">
+---
+
+                    <i class="fa fa-globe"></i>
+                </span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <span class="input-icon icon-right">
+                    @Html.Bootstrap().TextBoxFor(x=>x.HabitanceCityId).Placeholder("محل سکونت").Size(InputSize.BlockLevel).AppendIcon(FontAwesome.Globe)
+                </span>
+            </div>
+        </div>
+    </div>
+    <hr class="wide">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <span class="input-icon icon-right">
+                    @Html.Bootstrap().TextBoxFor(x => x.Score).Placeholder("امتیاز کسب شده").Size(InputSize.BlockLevel).AppendIcon(FontAwesome.Globe)
+                </span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <span class="input-icon icon-right">
+                    @Html.Bootstrap().TextBoxFor(x => x.Credit).Placeholder("اعتبار موجود").Size(InputSize.BlockLevel).AppendIcon(FontAwesome.Globe)
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="form-title">
+        اطلاعات تماس
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <span class="input-icon icon-right">
+                    @Html.Bootstrap().TextBoxFor(x => x.Phone).Placeholder("تلفن").Size(InputSize.BlockLevel).AppendIcon(GlyphIcons.Headphones).AppendIconStyle("yellow")
+                </span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <span class="input-icon icon-right">
+                    @Html.Bootstrap().TextBoxFor(x => x.Mobile).Placeholder("موبایل").Size(InputSize.BlockLevel).AppendIcon(GlyphIcons.Pencil).AppendIconStyle("palegreen")
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <span class="input-icon icon-right">
+                    @Html.Bootstrap().TextBoxFor(x => x.Address).Placeholder("آدرس").Size(InputSize.BlockLevel).AppendIcon(FontAwesome.Globe)
+                </span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <span class="input-icon icon-right">
+                    @Html.Bootstrap().TextBoxFor(x => x.ZipCode).Placeholder("کد پستی").Size(InputSize.BlockLevel).AppendIcon(FontAwesome.Globe)
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form-group">
+                <span class="input-icon icon-right">
+                    @Html.Bootstrap().TextBoxFor(x => x.Email).Placeholder("ایمیل").Size(InputSize.BlockLevel).AppendIcon(FontAwesome.Globe)
+                </span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">ویرایش پروفایل</button>
+</form>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

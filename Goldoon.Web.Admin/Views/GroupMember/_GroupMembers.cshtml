@@ -1,0 +1,55 @@
+﻿@model PagedSearchViewModel<Goldoon.Models.Group.GroupMember>
+
+<div class="widget-body">
+    <div class="basic-container">
+        <div class="basic-header">
+            <ul class="header-buttons pull-right">
+                <li>
+                    <a href="#" onclick="CreateMember('Group', 'GroupMember')" class="tooltip-primary" data-tooltip="tooltip" data-original-title="جدید" data-placement="bottom"><i class="glyphicon glyphicon-plus"></i></a>
+                </li>
+                <li>
+                    <a href="#" onclick="Delete('GroupMember')" id="DeleteGroupMemberButton" class="tooltip-primary" data-toggle="tooltip" data-original-title="حذف" data-placement="bottom"><i class="glyphicon glyphicon-remove"></i></a>
+                </li>
+            </ul>
+            <div>
+                @Html.GetPager(this.Model.Entities, this.Request.RawUrl)
+                <ul class="header-buttons">
+                    <li class="search">
+                        <span class="input-icon tooltip-primary" data-toggle="tooltip" data-placement="bottom" data-original-title="جستجوی عنوان">
+                            @using (Html.BeginForm("Index", "GroupMember", FormMethod.Get, new {id = "formid"}))
+                            {
+                                @Html.EditorFor(m => m.SearchCriteria, new {@class = "form-control input-sm", @placeholder = "عنوان"})
+                                ;
+                                <input type="submit" value="Upload" class="save" id="btnid" />
+                            }
+                            <i class="glyphicon glyphicon-search lightgray"></i>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="pages">
+                @((Model.Entities.Paging.PageIndex)*@Model.Entities.Paging.PageSize + 1) - @(Math.Min(Model.Entities.TotalNumberOfItems, (Model.Entities.Paging.PageIndex + 1)*@Model.Entities.Paging.PageSize)) از @Model.Entities.TotalNumberOfItems مورد
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="dataTables_wrapper form-inline no-footer padding-20" id="editabledatatable_wrapper">
+            @if (this.Model.Entities != null && this.Model.Entities.Any())
+            {
+                @Html.AutoColumn(this.Model.Entities, this.Request.RawUrl)
+                ;
+            }
+        </div>
+    </div>
+</div>
+<script>
+    $(document).on("click", "#btnid", function (event) {
+        //event.preventDefault();
+        //var fileOptions = {
+        //    success: res,
+        //    dataType: "json"
+        //}
+        $("#formid").ajaxSubmit();//fileOptions);
+    });
+</script>
+

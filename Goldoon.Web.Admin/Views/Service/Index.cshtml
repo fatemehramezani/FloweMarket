@@ -1,0 +1,126 @@
+﻿@model PagedSearchViewModel<Goldoon.Models.Basic.Service>
+
+
+<h5 class="row-title"><i class="typcn typcn-th-small"></i>مدیریت @ViewBag.Title</h5>
+<div class="row">
+    <div class="col-md-12">
+        <div class="basictab-container">
+            <div class="basictab-header row">
+                <div class="col-lg-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="widget">
+                            <div class="widget-header bordered-bottom bordered-themeprimary">
+                                <span class="widget-caption themeprimary">@ViewBag.Title</span>
+                            </div>
+                            <div id="Div_Services">
+                                @Html.Partial("_Services", Model)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/Theme/assets/js/jqueryval/jquery.validate.min.js"></script>
+    
+}
+
+
+<h5 class="row-title"><i class="typcn typcn-folder themeprimary"></i>عملیات @ViewBag.Title</h5>
+<div class="row">
+    <div class="basictab-body">
+        <div class="col-lg-12">
+            <div class="tabbable">
+                <ul class="nav nav-tabs tabs-flat  nav-justified" id="myTab11">
+                    <li class="tab-pink">
+                        <a data-toggle="tab" href="#servicemember-tab" onclick="Page('ServiceMember','/ServiceMember/Index')">
+                            <i class="dropdown-icon fa fa-cog"></i>
+                            دانش آموزان استفاده کننده
+                        </a>
+                    </li>
+                    <li class="tab-red">
+                        <a data-toggle="tab" href="#ServiceEducationalGroup" onclick="Page('ServiceEducationalGroup','/ServiceEducationalGroup/Index')">
+                            <i class="dropdown-icon fa fa-cloud-download"></i>
+                            گروه تحصیلی مخاطب
+                        </a>
+                    </li>
+                    <li class="tab-palegreen">
+                        <a data-toggle="tab" id="contacttab" href="#servicesource-tab" onclick="Page('ServiceSource','/ServiceSource/Index')">
+                            <i class="dropdown-icon fa fa-camera"></i>
+                            منابع اطلاعاتی
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content tabs-flat">
+                    <div class="tab-pane active">
+                        لطفا عملیات مورد نظر را انتخاب نمایید
+                    </div>
+                    <!-- Student -->
+                    <div id="servicemember-tab" class="tab-pane animated fadeInDown">
+                        <div id="Div_ServiceMembers">
+                            <!-- استفاده کنندگان این سرویس در این قسمت به نمایش در می آیند.-->
+                        </div>
+                    </div>
+                    <!-- End Student -->
+                    <!-- EducationalGroup -->
+                    <div id="ServiceEducationalGroup" class="tab-pane animated fadeInDown">
+                        <div id="Div_ServiceEducationalGroups">
+
+                        </div>
+                    </div>
+                    <!-- End EducationalGroup -->
+                    <!-- Resource -->
+                    <div id="servicesource-tab" class="tab-pane animated fadeInDown">
+                        <div id="Div_ServiceSources">
+                            <!-- منابع اطلاعاتی این سرویس در این قسمت به نمایش در می آیند.-->
+                        </div>
+                    </div>
+                    <!-- End Resource-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Script-->
+<script>
+    function Page(name, extendedUrl) {
+        var Criterias;
+        if (name == 'ServiceMember' || name == 'ServiceEducationalGroup' || name == 'ServiceSource') {
+            if ($("#selectedServiceId").val() == "") {
+                toastr.warning("موردی برای نمایش انتخاب نشده", "", "");
+                return;
+            }
+            Criterias = {
+                searchCriteria: [{
+                    SearchTerm: $("#selectedServiceId").val(),
+                    Property: "ServiceId",
+                    TargetTypeName: "Goldoon.Models.Service." + name + ", Goldoon.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                    ModelTypeName: "ELearning.Utility.Search.ForeignKeySearch, ELearning.Utility, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+                }]
+            };
+        }
+        var divName = "#Div_" + name + "s";
+        $.ajax({
+            contentType: 'application/json',
+            data: JSON.stringify(Criterias),
+            method: 'Post',
+            url: extendedUrl,
+            success: function (result) {
+                $(divName).html(result);
+            },
+            error: function (xhr) {
+                try {
+                    var json = $.parseJSON(xhr.responseText);
+                    toastr.error(json.errorMessage, "", "");
+                }
+                catch (e) {
+                    toastr.error("عملیات با خطا متوقف شد", "", "");
+                }
+            }
+        });
+    }
+</script>

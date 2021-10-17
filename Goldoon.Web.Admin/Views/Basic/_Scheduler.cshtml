@@ -1,0 +1,178 @@
+﻿@model IEnumerable<Goldoon.Models.Basic.SchedulerStatus>
+@using ELearning.Utility;
+<div class="animated fadeInDown">
+    <div>
+        <button class="btn btn-circle  btn-xs" data-container="body" data-placement="right" data-toggle="modal" type="button" data-target="#InsertSchedulerStatuslargeModal"><i class="glyphicon glyphicon-plus"></i></button>
+        @Html.Bootstrap().Button().Color(BootstrapColors.Default).Text("").Size(ButtonSize.Mini).Circular().IconPrepend(GlyphIcons.Remove).Tooltip(new Tooltip("حذف")).Id("SchedulerStatusDeleteButton")
+        <div class="pull-left basic-header">
+            <ul class="header-buttons">
+                <li class="search">
+                    <span class="input-icon tooltip-primary" data-tooltip="tooltip" data-placement="bottom" data-original-title="جستجوی عنوان">
+                        <input type="text" class="form-control input-sm" id="title-search" placeholder="عنوان">
+                        <i class="glyphicon glyphicon-search lightgray">
+                        </i>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <br />
+    <ul class="dd-list">
+        @foreach (var item in Model)
+        {
+            <li class="dd-item">
+                <div class="item-check dd-list dd-handle ">
+                    <label>
+                        <input type="checkbox" value="@item.Id">
+                        <span class="text"></span>
+                    </label>
+                    <a class="text" data-id="@item.Id" data-title="@item.Title" style="cursor:pointer" onclick="SchedulerStatusEdit(this)" data-target="#EditSchedulerStatuslargeModal" data-toggle="modal">@item.Title</a>
+                    <div class="pull-left"><a class="btn btn-circle btn-xs tooltip-primary" onclick="SchedulerStatusEdit(this)" data-toggle="modal" data-target="#EditSchedulerStatuslargeModal" data-id="@item.Id" data-title="@item.Title"><i class="glyphicon glyphicon-edit"></i></a></div>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+
+
+
+@using (var modal = Html.Bootstrap().Begin(new Modal().Id("InsertSchedulerStatuslargeModal").Closeable().Color(BootstrapColors.Primary).Size(BootstrapSizes.Normal)))
+{
+
+    using (var header = modal.BeginHeader())
+    {
+        <h4 class="modal-title" id="myLargeModalLabel">ایجاد اطلاعات</h4>
+    }
+    using (var body = modal.BeginBody())
+    {
+
+        <div class="form-group">
+            <label for="definpu">عنوان</label>
+            @Html.TextBox("SchedulerStatusTitle")
+            @Html.ValidationMessage("SchedulerStatusTitle", "*")
+        </div>
+
+    }
+    using (modal.BeginFooter())
+    {
+        <div class="form-group">
+            <button class="btn bt-info" onclick="InsertSchedulerStatusItem()">ایجاد</button>
+        </div>
+    }
+}
+
+
+@using (var modal = Html.Bootstrap().Begin(new Modal().Id("EditSchedulerStatuslargeModal").Closeable().Color(BootstrapColors.Primary).Size(BootstrapSizes.Normal)))
+{
+
+    using (var header = modal.BeginHeader())
+    {
+        <h4 class="modal-title" id="myLargeModalLabel">ویرایش اطلاعات</h4>
+    }
+    using (var body = modal.BeginBody())
+    {
+
+        <div class="form-group">
+            <label for="definpu">عنوان</label>
+            @Html.Hidden("EditSchedulerStatusId")
+            @Html.TextBox("EditSchedulerStatusTitle")
+        </div>
+
+    }
+    using (modal.BeginFooter())
+    {
+        <div class="form-group">
+            <button class="btn bt-info" onclick="EditSchedulerStatusItem()">ویرایش</button>
+        </div>
+    }
+}
+<script src="~/Theme/assets/js/jqueryval/jquery.validate.min.js"></script>
+<script>
+    //----insert
+    function InsertSchedulerStatusItem() {
+        var title = $("#SchedulerStatusTitle").val()
+        if (title == "") {
+            toastr.warning("مقدار فیلد اجباری می باشد", "", "")
+        }
+        else
+            $.ajax({
+                url: "/Basic/InsertSchedulerStatus",
+                Type: "Post",
+                data: { Title: title },
+                success: function (result) {
+                    $("#SchedulerStatus").html(result)
+                    $(".modal-backdrop").hide()
+                    toastr.success("عملیات با موفقیت انجام شد", "", "");
+                },
+                error: function () {
+                    toastr.error("خطا در سیستم", "", "")
+                }
+            })
+    }
+    //----/insert
+
+    //----delete
+    $("#SchedulerStatusDeleteButton").click(function () {
+        var Ids = "";
+        $('#SchedulerStatus table').find('input[type="checkbox"]:checked').each(function (value) {
+            Ids += $(this).val() + ","
+        });
+        if (Ids == "") {
+            toastr.warning("موردی برای حدف انتخاب نشده", "", "")
+        }
+        else
+            $.ajax({
+                url: "/Basic/DeleteSchedulerStatus",
+                Type: "Post",
+                data: { Ids: Ids },
+                success: function (result) {
+                    $("#SchedulerStatus").html(result)
+                    toastr.success("عملیات با موفقیت انجام شد", "", "");
+                },
+                error: function () {
+                    toastr.error("خطا در سیستم", "", "")
+                }
+            })
+    })
+    //----/delete
+
+    //----Edit
+    function SchedulerStatusEdit(data) {
+        $("#EditSchedulerStatusId").val($(data).data("id"))
+        $("#EditSchedulerStatusTitle").val($(data).data("title"))
+    }
+    function EditSchedulerStatusItem() {
+        var title = $("#EditSchedulerStatusTitle").val()
+        if (title == "") {
+            toastr.warning("مقدار فیلد اجباری می باشد", "", "")
+        }
+        else
+            $.ajax({
+                url: "/Basic/UpdateSchedulerStatus",
+                Type: "Post",
+                data: { Title: title, Id: $("#EditSchedulerStatusId").val() },
+                success: function (result) {
+                    $("#SchedulerStatus").html(result)
+                    $(".modal-backdrop").hide()
+                    toastr.success("عملیات با موفقیت انجام شد", "", "");
+                },
+                error: function () {
+                    toastr.error("خطا در سیستم", "", "")
+                }
+            })
+    }
+    //----/Edit
+    //----SEARCH
+    $(function () {
+        $('#SchedulerStatus input[type="text"]').keyup(function () {
+            var searchText = $(this).val();
+            $('#SchedulerStatus  .dd-list  > li').each(function () {
+                var currentLiText = $(this).text(),
+                    showCurrentLi = currentLiText.indexOf(searchText) !== -1;
+                $(this).toggle(showCurrentLi);
+            });
+        });
+    });
+    //----/SEARCH
+</script>
+<script src="~/Theme/assets/js/toastr/toastr.js"></script>

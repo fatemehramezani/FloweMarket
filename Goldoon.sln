@@ -1,0 +1,126 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{9D0EEC94-8B37-41BA-92C0-5B139BD614D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataLayer", "DataLayer", "{C18DF947-69B2-4621-9B42-19830BF01D38}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Prototype", "Prototype", "{8986CE6D-4BBD-4956-951D-783F21C23876}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{33388093-FE0B-4C09-8B01-2ADA325A329A}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Goldoon.Database", "Goldoon.Database\Goldoon.Database.sqlproj", "{FA54AF94-5668-49FF-A20F-5CB15F78ECA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goldoon.Models", "Goldoon.Models\Goldoon.Models.csproj", "{648D56B5-6552-4524-B23C-B20593185D6E}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Goldoon.Prototype", "Goldoon.Prototype\", "{EC075221-8627-4FC7-95E2-EF88FF510A6A}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "SAK"
+		SccAuxPath = "SAK"
+		SccLocalPath = "SAK"
+		SccProvider = "SAK"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		ProjectReferences = "{648d56b5-6552-4524-b23c-b20593185d6e}|Goldoon.Models.dll;{2CF6E5BD-0B04-4BA3-B303-76BF58DC39FF}|Goldoon.Resources.dll;{935D6646-1B79-409F-A09F-64D88810AA2C}|Goldoon.Utility.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_50204"
+		Debug.AspNetCompiler.PhysicalPath = "Goldoon.Prototype\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50204\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_50204"
+		Release.AspNetCompiler.PhysicalPath = "Goldoon.Prototype\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50204\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "50204"
+		SlnRelativePath = "Goldoon.Prototype\"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goldoon.Repository", "Goldoon.Repository\Goldoon.Repository.csproj", "{35184C47-09A2-4FBE-8DF8-4B1A1E7AE291}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goldoon.Repository.Interface", "Goldoon.Repository.Interface\Goldoon.Repository.Interface.csproj", "{33431E47-C729-444A-8C75-C2B44338C242}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goldoon.Web.ViewModels", "Goldoon.Web.ViewModels\Goldoon.Web.ViewModels.csproj", "{B466FF5B-76ED-4E14-BF67-29ABA240C583}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goldoon.Resources", "Goldoon.Resources\Goldoon.Resources.csproj", "{2CF6E5BD-0B04-4BA3-B303-76BF58DC39FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goldoon.Utility", "Goldoon.Utility\Goldoon.Utility.csproj", "{935D6646-1B79-409F-A09F-64D88810AA2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goldoon.Web.Admin", "Goldoon.Web.Admin\Goldoon.Web.Admin.csproj", "{EEE083EC-367F-4425-9BDF-4675EC690269}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goldoon.Web.User", "Goldoon.Web.User\Goldoon.Web.User.csproj", "{640B8C19-7C28-4766-99E9-D602E85CCCC0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA54AF94-5668-49FF-A20F-5CB15F78ECA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA54AF94-5668-49FF-A20F-5CB15F78ECA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA54AF94-5668-49FF-A20F-5CB15F78ECA3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FA54AF94-5668-49FF-A20F-5CB15F78ECA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA54AF94-5668-49FF-A20F-5CB15F78ECA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA54AF94-5668-49FF-A20F-5CB15F78ECA3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{648D56B5-6552-4524-B23C-B20593185D6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{648D56B5-6552-4524-B23C-B20593185D6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{648D56B5-6552-4524-B23C-B20593185D6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{648D56B5-6552-4524-B23C-B20593185D6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC075221-8627-4FC7-95E2-EF88FF510A6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC075221-8627-4FC7-95E2-EF88FF510A6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC075221-8627-4FC7-95E2-EF88FF510A6A}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC075221-8627-4FC7-95E2-EF88FF510A6A}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{35184C47-09A2-4FBE-8DF8-4B1A1E7AE291}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35184C47-09A2-4FBE-8DF8-4B1A1E7AE291}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35184C47-09A2-4FBE-8DF8-4B1A1E7AE291}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35184C47-09A2-4FBE-8DF8-4B1A1E7AE291}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33431E47-C729-444A-8C75-C2B44338C242}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33431E47-C729-444A-8C75-C2B44338C242}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33431E47-C729-444A-8C75-C2B44338C242}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33431E47-C729-444A-8C75-C2B44338C242}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B466FF5B-76ED-4E14-BF67-29ABA240C583}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B466FF5B-76ED-4E14-BF67-29ABA240C583}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B466FF5B-76ED-4E14-BF67-29ABA240C583}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B466FF5B-76ED-4E14-BF67-29ABA240C583}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CF6E5BD-0B04-4BA3-B303-76BF58DC39FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CF6E5BD-0B04-4BA3-B303-76BF58DC39FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CF6E5BD-0B04-4BA3-B303-76BF58DC39FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CF6E5BD-0B04-4BA3-B303-76BF58DC39FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{935D6646-1B79-409F-A09F-64D88810AA2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{935D6646-1B79-409F-A09F-64D88810AA2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{935D6646-1B79-409F-A09F-64D88810AA2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{935D6646-1B79-409F-A09F-64D88810AA2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEE083EC-367F-4425-9BDF-4675EC690269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEE083EC-367F-4425-9BDF-4675EC690269}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEE083EC-367F-4425-9BDF-4675EC690269}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEE083EC-367F-4425-9BDF-4675EC690269}.Release|Any CPU.Build.0 = Release|Any CPU
+		{640B8C19-7C28-4766-99E9-D602E85CCCC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{640B8C19-7C28-4766-99E9-D602E85CCCC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{640B8C19-7C28-4766-99E9-D602E85CCCC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{640B8C19-7C28-4766-99E9-D602E85CCCC0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FA54AF94-5668-49FF-A20F-5CB15F78ECA3} = {C18DF947-69B2-4621-9B42-19830BF01D38}
+		{648D56B5-6552-4524-B23C-B20593185D6E} = {C18DF947-69B2-4621-9B42-19830BF01D38}
+		{EC075221-8627-4FC7-95E2-EF88FF510A6A} = {8986CE6D-4BBD-4956-951D-783F21C23876}
+		{35184C47-09A2-4FBE-8DF8-4B1A1E7AE291} = {33388093-FE0B-4C09-8B01-2ADA325A329A}
+		{33431E47-C729-444A-8C75-C2B44338C242} = {33388093-FE0B-4C09-8B01-2ADA325A329A}
+		{B466FF5B-76ED-4E14-BF67-29ABA240C583} = {9D0EEC94-8B37-41BA-92C0-5B139BD614D7}
+		{EEE083EC-367F-4425-9BDF-4675EC690269} = {9D0EEC94-8B37-41BA-92C0-5B139BD614D7}
+		{640B8C19-7C28-4766-99E9-D602E85CCCC0} = {9D0EEC94-8B37-41BA-92C0-5B139BD614D7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {602F075B-439F-472F-97FB-263A56122097}
+	EndGlobalSection
+	GlobalSection(CodealikeProperties) = postSolution
+		SolutionGuid = 2eb62a9b-8ad1-44da-a09d-cc217bfa8e5a
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,133 @@
+﻿@using Goldoon.Models.Basic
+
+<div class="dd shadowed" id="EducationalGroup">
+
+</div>
+
+<h5 class="row-title">
+    <i class="typcn typcn-folder themeprimary"></i>عملیات شاخه انتخابی
+</h5>
+
+<div class="row">
+    <div class="basictab-body">
+        <div class="col-lg-12">
+            <div class="tabbable">
+                <ul class="nav nav-tabs tabs-flat  nav-justified">
+                    <li class="tab-pink active">
+                        <a data-toggle="tab" href="#groupmember-tab" aria-expanded="false">
+                            <i class="dropdown-icon fa fa-cloud-download"></i>
+                            سوالات این شاخه
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content tabs-flat">
+                    <div id="defaultgrouptab" class="tab-pane">لطفا عملیات مورد نظر را انتخاب نمایید</div>
+                    <!-- Member -->
+                    <div id="groupmember-tab" class="tab-pane animated fadeInDown active">
+
+                        <div id="Div_Questions">
+                            <!-- اعضای این گروه در این قسمت به نمایش در می آیند.-->
+                        </div>
+                    </div>
+                    <!-- End Member -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input id="selectedEducationalGroupId" type="hidden" name="selectedEducationalGroupId">
+<script>
+    function SelectEducationalGroup(id) {
+        var divName = "#" + id;
+        $(".dd-handle").removeClass('bg-success');
+        $(divName).addClass('bg-success');
+        $("#selectedEducationalGroupId").val(id);
+        Page('Question', 'Question/Index');
+    };
+</script>
+
+<script>
+
+    $.ajax({
+        url: "/EducationalGroup/",
+        method: "GET",
+        success: function (result) {
+            $("#EducationalGroup").html(result);
+        },
+        error: function (xhr) {
+            try {
+                var json = $.parseJSON(xhr.responseText);
+                toastr.error(json.errorMessage, "", "");
+            } catch (e) {
+                toastr.error("عملیات با خطا متوقف شد", "", "");
+            }
+        }
+    });
+
+
+</script>
+
+<script>
+    function Page(name, extendedUrl) {
+        var Criterias;
+        if (name == 'Question') {
+            if ($("#selectedEducationalGroupId").val() == "") {
+                toastr.warning("موردی برای نمایش انتخاب نشده", "", "");
+                return;
+            }
+            Criterias = {
+                searchCriteria: [{
+                    SearchTerm: $("#selectedEducationalGroupId").val(),
+                    Property: "EducationalGroupId",
+                    TargetTypeName: "Goldoon.Models.General." + name + ", Goldoon.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                    ModelTypeName: "ELearning.Utility.Search.ForeignKeySearch, ELearning.Utility, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+                }
+                ]
+            };
+        }
+        var divName = "#Div_" + name + "s";
+        $.ajax({
+            contentType: 'application/json',
+            data: JSON.stringify(Criterias),
+            method: 'Post',
+            url: extendedUrl,
+            success: function (result) {
+                $(divName).html(result);
+            },
+            error: function (xhr) {
+                try {
+                    var json = $.parseJSON(xhr.responseText);
+                    toastr.error(json.errorMessage, "", "");
+                }
+                catch (e) {
+                    toastr.error("عملیات با خطا متوقف شد", "", "");
+                }
+            }
+        });
+    }
+</script>
+
+@section Scripts
+{
+    <!--Page Related Scripts-->
+    <script src="~/Theme/assets/js/nestable/jquery.nestable.min.js"></script>
+    <script>
+        $(".dd-nodrag").on("mousedown", function (event) { // mousedown prevent nestable click
+            event.preventDefault();
+            return false;
+        });
+
+        $(".dd-nodrag").on("click", function (event) { // click event
+            event.preventDefault();
+            return false;
+        });
+
+        jQuery(function ($) {
+            $('.dd').nestable();
+        });
+
+
+    </script>
+}

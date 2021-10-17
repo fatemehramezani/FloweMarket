@@ -1,0 +1,26 @@
+﻿@*@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}*@
+<div class="row">
+    <div class="col-md-12">
+        <div class="basictab-container">
+            <div class="basictab-header row">
+                <div class="col-lg-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="widget">
+                            <div class="widget-header bordered-bottom bordered-themeprimary">
+                                <span class="widget-caption themeprimary">
+                                    @RenderSection("WidgetHeader", required: false)
+                                </span>
+                            </div>
+                            <div class="widget-body animated fadeInDown">
+                                @RenderSection("WidgetBody", required: false)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,92 @@
+﻿@model ELearning.Web.ViewModels.PagedSearchViewModel<Goldoon.Models.Users.UserProfile>
+
+@{
+    ViewBag.Title = "مدیریت مدرسین";
+}
+<h5 class="row-title"><i class="typcn typcn-th-small"></i>مدیریت @ViewBag.Title</h5>
+<div class="row">
+    <div class="col-md-12">
+        <div class="basictab-container">
+            <div class="basictab-header row">
+                <div class="col-lg-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="widget">
+                            <div class="widget-header bordered-bottom bordered-themeprimary">
+                                <span class="widget-caption themeprimary">@ViewBag.Title</span>
+                            </div>
+                            <div id="Div_UserProfiles">
+                                @Html.Partial("_UserProfiles", Model)
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h5 class="row-title">
+    <i class="typcn typcn-folder themeprimary"></i>عملیات
+</h5>
+<div class="row">
+    <div class="basictab-body">
+        <div class="col-lg-12">
+            <div class="tabbable">
+                <ul class="nav nav-tabs tabs-flat  nav-justified" id="myTab11">
+                    <li class="tab-pink">
+                        <a data-toggle="tab" href="#edit-tab" onclick="UserInfo('UserProfile')">
+                            <i class="dropdown-icon fa fa-cloud-download"></i>
+                            ویرایش اطلاعات پروفایل مدرس
+                        </a>
+                    </li>
+                    <li class="tab-pink">
+                        <a data-toggle="tab" href="#security-tab" onclick="UserInfo('User')">
+                            <i class="dropdown-icon fa fa-cog"></i>
+                            ویرایش اطلاعات کاربری
+                        </a>
+                    </li>
+
+                    <li class="tab-red">
+                        <a data-toggle="tab" href="#teachercourse-tab" onclick="Page('TeacherCourse', '/TeacherCourse/Index')">
+                            <i class="dropdown-icon fa fa-cloud-download"></i>
+                            دروس تخصصی
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content tabs-flat">
+                    <div class="tab-pane active">
+                        لطفا عملیات مورد نظر را انتخاب نمایید
+                    </div>
+                    <!-- Edit -->
+                    <div id="edit-tab" class="tab-pane">
+                        <div id="profile-tab" class="tab-pane">
+                            <div class="dataTables_wrapper form-inline no-footer" id="UserProfile">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ApplicationUser -->
+                    <div id="security-tab" class="tab-pane">
+                        <div class="dataTables_wrapper form-inline no-footer" id="User">
+
+                        </div>
+                    </div>
+
+                    <!-- TeacherCourse -->
+                    <div id="teachercourse-tab" class="tab-pane">
+                        <div class="dataTables_wrapper form-inline no-footer" id="Div_TeacherCourses">
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Theme/assets/js/jqueryval/jquery.validate.min.js"></script>
+<script src="~/Theme/assets/js/toastr/toastr.js"></script>
+<script src="~/Theme/Scripts/User.js"></script>
+

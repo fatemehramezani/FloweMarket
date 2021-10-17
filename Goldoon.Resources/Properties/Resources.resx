@@ -1,0 +1,1362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BasicClassEducationalGroupId" xml:space="preserve">
+    <value>شناسه گروه تحصیلی مخاطب کلاس</value>
+  </data>
+  <data name="BasicClassEndTime" xml:space="preserve">
+    <value>ساعت پایان کلاس</value>
+  </data>
+  <data name="BasicClassGarranty" xml:space="preserve">
+    <value>مدت زمان گارانتی و پشتیبانی کلاس</value>
+  </data>
+  <data name="BasicClassHoldingStatusId" xml:space="preserve">
+    <value> شناسه وضعیت برگزاری کلاس</value>
+  </data>
+  <data name="BasicClassPrice" xml:space="preserve">
+    <value>هزینه شرکت در کلاس</value>
+  </data>
+  <data name="BasicClassStartTime" xml:space="preserve">
+    <value>ساعت شروع کلاس</value>
+  </data>
+  <data name="BasicClassSystemObjectId" xml:space="preserve">
+    <value> شناسه شی سیستمی کلاس</value>
+  </data>
+  <data name="BasicClassTeacherId" xml:space="preserve">
+    <value> شناسه کاربری مدرس کلاس</value>
+  </data>
+  <data name="BasicClassTitle" xml:space="preserve">
+    <value> عنوان کلاس</value>
+  </data>
+  <data name="BasicEducationalGroupCreateDate" xml:space="preserve">
+    <value>تاریخ اعلام بخشنامه جدید برای شروع</value>
+  </data>
+  <data name="BasicEducationalGroupDescription" xml:space="preserve">
+    <value> توضیحات</value>
+  </data>
+  <data name="BasicEducationalGroupExpireDate" xml:space="preserve">
+    <value> تاریخ اتمام اعتبار</value>
+  </data>
+  <data name="BasicEducationalGroupParentId" xml:space="preserve">
+    <value>شناسه والد</value>
+  </data>
+  <data name="BasicEducationalGroupTitle" xml:space="preserve">
+    <value>عنوان گروه تحصیلی</value>
+  </data>
+  <data name="BasicExamEducationalGroupId" xml:space="preserve">
+    <value>شناسه گروه تحصیلی مخاطب کلاس</value>
+  </data>
+  <data name="BasicExamEndDate" xml:space="preserve">
+    <value>تاریخ پایان آزمون</value>
+  </data>
+  <data name="BasicExamHoldingStatusId" xml:space="preserve">
+    <value> شناسه وضعیت برگزاری آزمون</value>
+  </data>
+  <data name="BasicExamIsOnline" xml:space="preserve">
+    <value>برگزاری آنلاین؟</value>
+  </data>
+  <data name="BasicExamPrice" xml:space="preserve">
+    <value>هزینه شرکت در کلاس</value>
+  </data>
+  <data name="BasicExamStartDate" xml:space="preserve">
+    <value>تاریخ شروع آزمون</value>
+  </data>
+  <data name="BasicExamSystemObjectId" xml:space="preserve">
+    <value>شناسه شی سیستمی آزمون</value>
+  </data>
+  <data name="BasicExamTitle" xml:space="preserve">
+    <value> عنوان آزمون</value>
+  </data>
+  <data name="BasicGroupCreateDate" xml:space="preserve">
+    <value>تاریخ ایجاد گروه</value>
+  </data>
+  <data name="BasicGroupManagerId" xml:space="preserve">
+    <value>شناسه کاربری مدیر گروه</value>
+  </data>
+  <data name="BasicGroupTitle" xml:space="preserve">
+    <value> عنوان گروه</value>
+  </data>
+  <data name="BasicInformationSourceFileId" xml:space="preserve">
+    <value>شناسه  فایل منبع اطلاعاتی</value>
+  </data>
+  <data name="BasicInformationSourceTeacherId" xml:space="preserve">
+    <value> گوینده فیلم/صوت/نویسنده</value>
+  </data>
+  <data name="BasicInstituteTitle" xml:space="preserve">
+    <value>عنوان موسسه</value>
+  </data>
+  <data name="BasicLocationLocationTypeId" xml:space="preserve">
+    <value>شناسه  نوع موقیت جغرافیایی</value>
+  </data>
+  <data name="BasicLocationParentId" xml:space="preserve">
+    <value>کد والد</value>
+  </data>
+  <data name="BasicLocationTitle" xml:space="preserve">
+    <value> عنوان موقعیت جغرافیایی</value>
+  </data>
+  <data name="BasicMedalEducationalGroupId" xml:space="preserve">
+    <value> گروه تحصیلی مخاطب که می توانند این مدال را دریافت کنند</value>
+  </data>
+  <data name="BasicMedalIcon" xml:space="preserve">
+    <value>آیکن مدال</value>
+  </data>
+  <data name="BasicMedalMedalTypeId" xml:space="preserve">
+    <value>در صورتی که یک باشد یعنی مدال بر حسب امتیاز است</value>
+  </data>
+  <data name="BasicMedalRoleId" xml:space="preserve">
+    <value> نقش دارنده مدال</value>
+  </data>
+  <data name="BasicMedalTitle" xml:space="preserve">
+    <value>عنوان مدال</value>
+  </data>
+  <data name="BasicMedalValue" xml:space="preserve">
+    <value> حداکثر امتیاز برای کسب مدال</value>
+  </data>
+  <data name="BasicMobileOperatorTitle" xml:space="preserve">
+    <value>عنوان اپراتور تلفن همراه</value>
+  </data>
+  <data name="BasicNotificationAlarmDate" xml:space="preserve">
+    <value>زمان نمایش هشدار</value>
+  </data>
+  <data name="BasicNotificationIsViewed" xml:space="preserve">
+    <value>مشاهده شده؟</value>
+  </data>
+  <data name="BasicNotificationMessage" xml:space="preserve">
+    <value>متن هشدار که باید به کاربر در صفحه شخصی وی نشان داده شود</value>
+  </data>
+  <data name="BasicNotificationNotificationTypeId" xml:space="preserve">
+    <value>عنوان نوع هشدار</value>
+  </data>
+  <data name="BasicNotificationUserId" xml:space="preserve">
+    <value> شناسه کاربر مشاهده کننده پیام که باید پیام را ببیند</value>
+  </data>
+  <data name="BasicScoreCreateDate" xml:space="preserve">
+    <value>تاریخ درج و اعمال امتیاز جدید</value>
+  </data>
+  <data name="BasicScoreScoreTypeId" xml:space="preserve">
+    <value>نوع امتیاز</value>
+  </data>
+  <data name="BasicScoreValue" xml:space="preserve">
+    <value>مقدار امتیاز</value>
+  </data>
+  <data name="BasicServiceEducationalGroupId" xml:space="preserve">
+    <value>گروه تحصیلی مخاطب این سرویس آموزشی</value>
+  </data>
+  <data name="BasicServiceExpireDay" xml:space="preserve">
+    <value>مهلت زمانی</value>
+  </data>
+  <data name="BasicServicePrice" xml:space="preserve">
+    <value>قیمت و هزینه سرویس برای پرداخت</value>
+  </data>
+  <data name="BasicServiceTitle" xml:space="preserve">
+    <value>عنوان سرویس خدماتی</value>
+  </data>
+  <data name="BasicServiceUserId" xml:space="preserve">
+    <value> شناسه کاربر ایجاد کننده</value>
+  </data>
+  <data name="BasicSystemObjectCreateDate" xml:space="preserve">
+    <value>تاریخ ایجاد شی سیستمی</value>
+  </data>
+  <data name="BasicSystemObjectName" xml:space="preserve">
+    <value> جدول حاوی این شی سیستمی</value>
+  </data>
+  <data name="BasicSystemObjectUserId" xml:space="preserve">
+    <value>شناسه کاربری ایجاد کننده</value>
+  </data>
+  <data name="BasicTagCount" xml:space="preserve">
+    <value> تعداد تکرار هر تگ</value>
+  </data>
+  <data name="BasicTagTitle" xml:space="preserve">
+    <value>عنوان تگ</value>
+  </data>
+  <data name="BasicTagUserId" xml:space="preserve">
+    <value> شناسه کاربر درج کننده تگ</value>
+  </data>
+  <data name="ClassMemberClassId" xml:space="preserve">
+    <value> شناسه کلاس</value>
+  </data>
+  <data name="ClassMemberCreateDate" xml:space="preserve">
+    <value>تاریخ عضویت در کلاس</value>
+  </data>
+  <data name="ClassMemberMemberId" xml:space="preserve">
+    <value>عضو کلاس</value>
+  </data>
+  <data name="ClassMemberPrice" xml:space="preserve">
+    <value> مبلغ پرداختی بابت هزینه کلاس</value>
+  </data>
+  <data name="ClassMessageClassId" xml:space="preserve">
+    <value>شناسه کلاس</value>
+  </data>
+  <data name="ClassMessageMessageId" xml:space="preserve">
+    <value>شناسه پیام کلاس</value>
+  </data>
+  <data name="ClassQuestionClassId" xml:space="preserve">
+    <value> شناسه کلاس</value>
+  </data>
+  <data name="ClassQuestionQuestionId" xml:space="preserve">
+    <value>شناسه سوال کلاس</value>
+  </data>
+  <data name="ClassSchedulerClassId" xml:space="preserve">
+    <value> شناسه کلاس</value>
+  </data>
+  <data name="ClassSchedulerEndTime" xml:space="preserve">
+    <value>ساعت پایان کلاس</value>
+  </data>
+  <data name="ClassSchedulerHoldingStatusId" xml:space="preserve">
+    <value> وضعیت برگزاری کلاس</value>
+  </data>
+  <data name="ClassSchedulerStartTime" xml:space="preserve">
+    <value> ساعت شروع کلاس</value>
+  </data>
+  <data name="ClassTeacherAssistantClassId" xml:space="preserve">
+    <value>شناسه کلاس</value>
+  </data>
+  <data name="ClassTeacherAssistantStudentId" xml:space="preserve">
+    <value>شناسه دانش آموز TA</value>
+  </data>
+  <data name="CommunityTopicEducationalGroupId" xml:space="preserve">
+    <value> شناسه گروه تحصیلی</value>
+  </data>
+  <data name="CommunityTopicMessageCommunityTopicId" xml:space="preserve">
+    <value> شناسه مبحث اجتماع</value>
+  </data>
+  <data name="CommunityTopicMessageMessageId" xml:space="preserve">
+    <value> شناسه کاربری فرد پیام دهنده مبحث</value>
+  </data>
+  <data name="CommunityTopicSubject" xml:space="preserve">
+    <value>عنوان مبحث</value>
+  </data>
+  <data name="CommunityTopicSystemObjectId" xml:space="preserve">
+    <value> شناسه شی سیستمی مبحث اجتماع</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>تاییدیه کلمه عبور</value>
+  </data>
+  <data name="ConfirmPasswordError" xml:space="preserve">
+    <value>کلمه عبور و تاییدیه آن باید مشابه باشند</value>
+  </data>
+  <data name="DuplicateName" xml:space="preserve">
+    <value>این نام کاربری قبلا ثبت شده است.</value>
+  </data>
+  <data name="EducationalGroupTypeTitle" xml:space="preserve">
+    <value>عنوان نوع گروه تحصیلی</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>آدرس الکترونیکی</value>
+  </data>
+  <data name="EmailAddressError" xml:space="preserve">
+    <value>آدرس الکترونیکی معتبر نیست</value>
+  </data>
+  <data name="ExamTestAnswerExamMemberId" xml:space="preserve">
+    <value>شناسه شرکت کننده آزمون</value>
+  </data>
+  <data name="ExamTestAnswerExamTestId" xml:space="preserve">
+    <value> شناسه  تست</value>
+  </data>
+  <data name="ExamTestAnswerOption" xml:space="preserve">
+    <value>پاسخ داده شده به تست توسط کاربر</value>
+  </data>
+  <data name="ExamTestCurrentOption" xml:space="preserve">
+    <value>گزینه صحیح از بین 4 گزینه</value>
+  </data>
+  <data name="ExamTestExamId" xml:space="preserve">
+    <value>شناسه آزمون</value>
+  </data>
+  <data name="ExamTestOptions" xml:space="preserve">
+    <value>ترتیب گزینه های برای نمایش</value>
+  </data>
+  <data name="ExamTestRaw" xml:space="preserve">
+    <value>ردیف تست در دفترچه آزمون</value>
+  </data>
+  <data name="ExamTestTestId" xml:space="preserve">
+    <value>شناسه تست</value>
+  </data>
+  <data name="FatherName" xml:space="preserve">
+    <value>نام پدر</value>
+  </data>
+  <data name="FieldMustBeDate" xml:space="preserve">
+    <value>{0} باید تاریخ باشد.</value>
+  </data>
+  <data name="FieldMustBeNumeric" xml:space="preserve">
+    <value>{0} باید عدد باشد.</value>
+  </data>
+  <data name="FileTypeIcon" xml:space="preserve">
+    <value>آیکن نوع فایل آپلود شده</value>
+  </data>
+  <data name="FileTypeTitle" xml:space="preserve">
+    <value>عنوان نوع فایل</value>
+  </data>
+  <data name="FileTypeValidExtention" xml:space="preserve">
+    <value> پسوند فایل</value>
+  </data>
+  <data name="FinancialCreditCreateDate" xml:space="preserve">
+    <value> تاریخ تغییر اعتبار</value>
+  </data>
+  <data name="FinancialCreditUserId" xml:space="preserve">
+    <value> کد دانش آموز صاحب اعتبار</value>
+  </data>
+  <data name="FinancialCreditValue" xml:space="preserve">
+    <value> مقدار اعتبار</value>
+  </data>
+  <data name="FinancialPaymentCreateDate" xml:space="preserve">
+    <value> تاریخ پرداخت</value>
+  </data>
+  <data name="FinancialPaymentFinancialTypeId" xml:space="preserve">
+    <value> کد نوع پرداخت</value>
+  </data>
+  <data name="FinancialPaymentUserId" xml:space="preserve">
+    <value> کد دانش آموز پرداخت کننده</value>
+  </data>
+  <data name="FinancialPaymentValue" xml:space="preserve">
+    <value> مقدار پرداختی</value>
+  </data>
+  <data name="FinancialTypeTitle" xml:space="preserve">
+    <value>عنواع نوع پرداخت</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="GeneralAnswerContent" xml:space="preserve">
+    <value>متن پاسخ</value>
+  </data>
+  <data name="GeneralAnswerControlDate" xml:space="preserve">
+    <value> تاریخ نهایی شدن پاسخ سوال</value>
+  </data>
+  <data name="GeneralAnswerControllerId" xml:space="preserve">
+    <value>شناسه فرد نهایی کننده پاسخ</value>
+  </data>
+  <data name="GeneralAnswerIsAnswer" xml:space="preserve">
+    <value>پاسخ داده شده؟</value>
+  </data>
+  <data name="GeneralAnswerQuestionId" xml:space="preserve">
+    <value>شناسه سوال</value>
+  </data>
+  <data name="GeneralAnswerSystemObjectId" xml:space="preserve">
+    <value> شناسه شی سیستمی پاسخ</value>
+  </data>
+  <data name="GeneralFollowFollowerId" xml:space="preserve">
+    <value>شناسه کاربر پیگیری کننده</value>
+  </data>
+  <data name="GeneralFollowSystemObjectId" xml:space="preserve">
+    <value> شناسه شی سیستمی پیگیری</value>
+  </data>
+  <data name="GeneralMessageContent" xml:space="preserve">
+    <value>متن نظر</value>
+  </data>
+  <data name="GeneralMessageSystemObjectId" xml:space="preserve">
+    <value>شناسه شی سیستمی</value>
+  </data>
+  <data name="GeneralQuestionContent" xml:space="preserve">
+    <value>متن سوال</value>
+  </data>
+  <data name="GeneralQuestionSubject" xml:space="preserve">
+    <value>عنوان سوال</value>
+  </data>
+  <data name="GeneralQuestionSystemObjectId" xml:space="preserve">
+    <value> شناسه شی سیستمی سوال</value>
+  </data>
+  <data name="GroupMeetingGroupId" xml:space="preserve">
+    <value> شناسه قرار ملاقات گروه</value>
+  </data>
+  <data name="GroupMeetingHoldlingStatusId" xml:space="preserve">
+    <value>شناسه وضعیت برگزاری قرار ملاقات</value>
+  </data>
+  <data name="GroupMeetingMeetingDate" xml:space="preserve">
+    <value>تاریخ و ساعت برگزاری قرار ملاقات</value>
+  </data>
+  <data name="GroupMeetingSystemObjectId" xml:space="preserve">
+    <value> شناسه شی سیستمی قرار ملاقات گروه</value>
+  </data>
+  <data name="GroupMemberCreateDate" xml:space="preserve">
+    <value>تاریخ عضویت</value>
+  </data>
+  <data name="GroupMemberGroupId" xml:space="preserve">
+    <value> شناسه گروه</value>
+  </data>
+  <data name="GroupMemberMemberId" xml:space="preserve">
+    <value> عضو گروه</value>
+  </data>
+  <data name="GroupMemberRelativeId" xml:space="preserve">
+    <value>خویشاوندی که کنترل عضویت گروه را انجام داده است</value>
+  </data>
+  <data name="GroupMemberRequestStatusId" xml:space="preserve">
+    <value> شناسه وضعیت درخواست عضویت</value>
+  </data>
+  <data name="GroupMessageGroupId" xml:space="preserve">
+    <value> شناسه گروه</value>
+  </data>
+  <data name="GroupMessageMessageId" xml:space="preserve">
+    <value> شناسه کاربری فرد پیام دهنده گروه</value>
+  </data>
+  <data name="HoldingStatusTitle" xml:space="preserve">
+    <value>عنوان وضعیت برگزاری</value>
+  </data>
+  <data name="InformationSourceDownloadDownloadDate" xml:space="preserve">
+    <value>تاریخ دانلود نمودن فایل</value>
+  </data>
+  <data name="InformationSourceDownloadInformationSourceId" xml:space="preserve">
+    <value>شناسه منبع</value>
+  </data>
+  <data name="InformationSourceDownloadPaymentId" xml:space="preserve">
+    <value> شناسه سند پرداخت هزینه برای منبع</value>
+  </data>
+  <data name="InformationSourceDownloadPrice" xml:space="preserve">
+    <value> مبلغ پرداختی بابت هزینه منبع </value>
+  </data>
+  <data name="InformationSourceDownloadUserId" xml:space="preserve">
+    <value>شناسه کاربر دانلود کننده فایل</value>
+  </data>
+  <data name="InformationSourceRequestAddress" xml:space="preserve">
+    <value> آدرس پستی</value>
+  </data>
+  <data name="InformationSourceRequestPackageInformationSourceId" xml:space="preserve">
+    <value>شناسه منبع اطلاعاتی سفارش داده شده</value>
+  </data>
+  <data name="InformationSourceRequestPackagePrice" xml:space="preserve">
+    <value>قیمت منبع هنگام دریافت سفارش پستی پرداخت شده</value>
+  </data>
+  <data name="InformationSourceRequestPackageRequestId" xml:space="preserve">
+    <value>شناسه  درخواست پستی</value>
+  </data>
+  <data name="InformationSourceRequestPaymentId" xml:space="preserve">
+    <value> شناسه سند پرداخت هزینه برای درخواست بسته پستی</value>
+  </data>
+  <data name="InformationSourceRequestPhone" xml:space="preserve">
+    <value>شماره تلفن تماس</value>
+  </data>
+  <data name="InformationSourceRequestPrice" xml:space="preserve">
+    <value>مبلغ پرداختی بابت هزینه درخواست پستی</value>
+  </data>
+  <data name="InformationSourceRequestRequestDate" xml:space="preserve">
+    <value> تاریخ ثبت سفارش</value>
+  </data>
+  <data name="InformationSourceRequestUserId" xml:space="preserve">
+    <value>شناسه  کاربر سفارش دهنده</value>
+  </data>
+  <data name="InformationSourceRequestZipCode" xml:space="preserve">
+    <value> کد پستی</value>
+  </data>
+  <data name="InstituteUserInstituteId" xml:space="preserve">
+    <value>شناسه موسسه</value>
+  </data>
+  <data name="InstituteUserUserId" xml:space="preserve">
+    <value>شناسه کاربر</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>آدرس ایمیل معتبر نمی باشد.</value>
+  </data>
+  <data name="InvalidUserName" xml:space="preserve">
+    <value>نام کاربری باید شاما اعداد و حروف باشد.</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>نام خانوادگی</value>
+  </data>
+  <data name="LocationTypeTitle" xml:space="preserve">
+    <value> عنوان نوع موقعیت جغرافیایی</value>
+  </data>
+  <data name="LockoutTypeTitle" xml:space="preserve">
+    <value>عنوان نوع مسدودیت</value>
+  </data>
+  <data name="LotteryTypeTitle" xml:space="preserve">
+    <value>عنوان نوع قرعه کشی</value>
+  </data>
+  <data name="MedalTypeTitle" xml:space="preserve">
+    <value>عنوان نوع مدال</value>
+  </data>
+  <data name="MeetingMemberCreateDate" xml:space="preserve">
+    <value>تاریخ ارسال دعوت نامه شرکت در قرار ملاقات</value>
+  </data>
+  <data name="MeetingMemberGroupMeetingId" xml:space="preserve">
+    <value>شناسه قرار ملاقات</value>
+  </data>
+  <data name="MeetingMemberMemberId" xml:space="preserve">
+    <value>شناسه عضو قرار ملاقات گروه</value>
+  </data>
+  <data name="MeetingMemberRelativeId" xml:space="preserve">
+    <value> خویشاوندی که کنترل قرار ملاقات را انجام داده است</value>
+  </data>
+  <data name="MeetingMemberRequestStatusId" xml:space="preserve">
+    <value> شناسه وضعیت درخواست شرکت در قرار ملاقات</value>
+  </data>
+  <data name="MessageSubjectTitle" xml:space="preserve">
+    <value>عنوان موضوع پیام</value>
+  </data>
+  <data name="Mobile" xml:space="preserve">
+    <value>تلفن همراه</value>
+  </data>
+  <data name="NotificationTypeDescription" xml:space="preserve">
+    <value>متن توضیحی اینکه این نوع هشدار برای چه استفاده می شود است.</value>
+  </data>
+  <data name="NotificationTypeMessage" xml:space="preserve">
+    <value> متن هشدار</value>
+  </data>
+  <data name="NotificationTypeTitle" xml:space="preserve">
+    <value>عنوان نوع هشدار</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>کلمه عبور</value>
+  </data>
+  <data name="PasswordConfrim" xml:space="preserve">
+    <value>رمز عبور و تکرار رمز عبور با هم یکسان نمی باشد</value>
+  </data>
+  <data name="PasswordRequireDigit" xml:space="preserve">
+    <value>رمز عبور حداقل باید دارای یک کارکتر عددی باشد.</value>
+  </data>
+  <data name="PasswordRequireLower" xml:space="preserve">
+    <value>رمز عبور حداقل باید دارای یک حرف کوچک باشد.</value>
+  </data>
+  <data name="PasswordRequireNonLetterOrDigit" xml:space="preserve">
+    <value>رمز عبور حداقل باید دارای یک کارکتر غیر حرفی یا عددی باشد.</value>
+  </data>
+  <data name="PasswordRequireUpper" xml:space="preserve">
+    <value>رمز عبور حداقل باید دارای یک حرف بزرگ باشد.</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>شماره تلفن</value>
+  </data>
+  <data name="PropertyTooShort" xml:space="preserve">
+    <value>طول {0} حداقل باید {2} کارکتر باشد.</value>
+  </data>
+  <data name="PropertyValueInvalid" xml:space="preserve">
+    <value>مقدار '{0}' برای برای {1} معتبر نمی باشد.</value>
+  </data>
+  <data name="PropertyValueRequired" xml:space="preserve">
+    <value>پر کردن فیلد اجباری است.</value>
+  </data>
+  <data name="RelationTypeTitle" xml:space="preserve">
+    <value>عنوان نوع خویشاوندی</value>
+  </data>
+  <data name="RequestStatusTitle" xml:space="preserve">
+    <value>عنوان وضعیت درخواست</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>پر کردن {0} اجباری است.</value>
+  </data>
+  <data name="RequiredError" xml:space="preserve">
+    <value>فیلد {0} اجباری است</value>
+  </data>
+  <data name="SchedulerStatusTitle" xml:space="preserve">
+    <value>عنوان وضعیت برگزاری</value>
+  </data>
+  <data name="ScoreTypeTitle" xml:space="preserve">
+    <value> عنوان نوع امتیاز</value>
+  </data>
+  <data name="SecurityRoleTitle" xml:space="preserve">
+    <value>عنوان نقش</value>
+  </data>
+  <data name="SecurityUserCreateDate" xml:space="preserve">
+    <value> تاریخ ساخت کاربر</value>
+  </data>
+  <data name="SecurityUserEmail" xml:space="preserve">
+    <value> آدرس ایمیل</value>
+  </data>
+  <data name="SecurityUserLastLockoutDate" xml:space="preserve">
+    <value>تاریخی که کاربر تا آن زمان مسدود شده است</value>
+  </data>
+  <data name="SecurityUserLockoutCount" xml:space="preserve">
+    <value>تعداد مسدود شدن</value>
+  </data>
+  <data name="SecurityUserMobile" xml:space="preserve">
+    <value>تلفن همراه</value>
+  </data>
+  <data name="SecurityUserPassword" xml:space="preserve">
+    <value>رمز عبور</value>
+  </data>
+  <data name="SecurityUserUserId" xml:space="preserve">
+    <value> کد کاربری کاربر سازنده</value>
+  </data>
+  <data name="SecurityUserUserName" xml:space="preserve">
+    <value>نام کاربر</value>
+  </data>
+  <data name="ServiceSourceInformationSourceId" xml:space="preserve">
+    <value>شناسه منبع اطلاعاتی</value>
+  </data>
+  <data name="ServiceSourceServiceId" xml:space="preserve">
+    <value>شناسه هر سرویس</value>
+  </data>
+  <data name="StringIntervalLengthError" xml:space="preserve">
+    <value>فیلد {0} باید حداقل {2} و حداکثر {1} کرکتر باشد</value>
+  </data>
+  <data name="StringLengthError" xml:space="preserve">
+    <value>طول  {0}  باید  {1}  کرکتر باشد</value>
+  </data>
+  <data name="StudentSchedulerChapterId" xml:space="preserve">
+    <value>فصل درسی تعیین شده برای مطالعه</value>
+  </data>
+  <data name="StudentSchedulerCreateDate" xml:space="preserve">
+    <value> تاریخ ایجاد برنامه درسی</value>
+  </data>
+  <data name="StudentSchedulerDescription" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="StudentSchedulerEndDate" xml:space="preserve">
+    <value>تاریخ و ساعت پایان</value>
+  </data>
+  <data name="StudentSchedulerFromUserId" xml:space="preserve">
+    <value> شناسه کاربری مشاور</value>
+  </data>
+  <data name="StudentSchedulerSchedulerStatusId" xml:space="preserve">
+    <value> وضعیت انجام برنامه درسی</value>
+  </data>
+  <data name="StudentSchedulerStartDate" xml:space="preserve">
+    <value>تاریخ و ساعت شروع</value>
+  </data>
+  <data name="StudentSchedulerToUserId" xml:space="preserve">
+    <value> شناسه کاربری دانش آموز</value>
+  </data>
+  <data name="StudentSchoolEducationalLevelId" xml:space="preserve">
+    <value>شناسه پایه تحصیلی</value>
+  </data>
+  <data name="StudentSchoolEducationPlaceTitle" xml:space="preserve">
+    <value>نام مدرسه</value>
+  </data>
+  <data name="StudentSchoolEndYear" xml:space="preserve">
+    <value>سال پایان تحصیل در پایه تحصیلی</value>
+  </data>
+  <data name="StudentSchoolFieldStudyId" xml:space="preserve">
+    <value>شناسه رشته تحصیلی</value>
+  </data>
+  <data name="StudentSchoolGrade" xml:space="preserve">
+    <value>معدل</value>
+  </data>
+  <data name="StudentSchoolInstituteId" xml:space="preserve">
+    <value> کد موسسه آموزشی ارائه دهنده خدمات به دانش آموز</value>
+  </data>
+  <data name="StudentSchoolStartYear" xml:space="preserve">
+    <value>سال آغاز تحصیل در پایه تحصیلی </value>
+  </data>
+  <data name="StudentSchoolStudentCode" xml:space="preserve">
+    <value> کد دانش آموزی </value>
+  </data>
+  <data name="StudentSchoolUserId" xml:space="preserve">
+    <value>شناسه دانش آموز</value>
+  </data>
+  <data name="StudentServicePaymentId" xml:space="preserve">
+    <value>شناسه سند پرداخت هزینه برای سرویس</value>
+  </data>
+  <data name="StudentServicePrice" xml:space="preserve">
+    <value>مبلغ پرداختی بابت هزینه سرویس</value>
+  </data>
+  <data name="StudentServiceServiceId" xml:space="preserve">
+    <value> شناسه سرویس درخواستی</value>
+  </data>
+  <data name="StudentServiceStudentId" xml:space="preserve">
+    <value> کد دانش آموز</value>
+  </data>
+  <data name="SystemObjectCommentContent" xml:space="preserve">
+    <value> متن نظر</value>
+  </data>
+  <data name="SystemObjectCommentCreateDate" xml:space="preserve">
+    <value> تاریخ نظردهی</value>
+  </data>
+  <data name="SystemObjectCommentSystemObjectId" xml:space="preserve">
+    <value> شناسه شی سیستمی</value>
+  </data>
+  <data name="SystemObjectCommentUserId" xml:space="preserve">
+    <value> شناسه کاربری فرد نظردهنده</value>
+  </data>
+  <data name="SystemObjectFileFileId" xml:space="preserve">
+    <value>شناسه فایل الصاقی به شی سیستمی</value>
+  </data>
+  <data name="SystemObjectFileSystemObjectId" xml:space="preserve">
+    <value> شناسه شی سیستمی فایل</value>
+  </data>
+  <data name="SystemObjectForbiddenCreateDate" xml:space="preserve">
+    <value>تاریخ کنترل محتوایی</value>
+  </data>
+  <data name="SystemObjectForbiddenSystemObjectId" xml:space="preserve">
+    <value> شناسه شی سیستمی قدغن</value>
+  </data>
+  <data name="SystemObjectForbiddenUserId" xml:space="preserve">
+    <value>شناسه کاربری فرد کنترل کننده</value>
+  </data>
+  <data name="SystemObjectScoreCreateDate" xml:space="preserve">
+    <value> تاریخ امتیازدهی</value>
+  </data>
+  <data name="SystemObjectScoreScoreTypeId" xml:space="preserve">
+    <value> نوع امتیاز داده شده</value>
+  </data>
+  <data name="SystemObjectScoreSystemObjectId" xml:space="preserve">
+    <value>شناسه شی سیستمی امتیاز</value>
+  </data>
+  <data name="SystemObjectScoreUserId" xml:space="preserve">
+    <value> شناسه کاربری فرد امتیازدهنده</value>
+  </data>
+  <data name="SystemObjectTagCreateDate" xml:space="preserve">
+    <value>تاریخ تگ دهی شی سیستمی</value>
+  </data>
+  <data name="SystemObjectTagSystemObjectId" xml:space="preserve">
+    <value>شناسه شی سیستمی که Tag گرفته است</value>
+  </data>
+  <data name="SystemObjectTagTagId" xml:space="preserve">
+    <value>شناسه تگ شی سیستمی</value>
+  </data>
+  <data name="SystemObjectTagUserId" xml:space="preserve">
+    <value>شناسه کاربری فرد تگ دهنده</value>
+  </data>
+  <data name="TeacherCourseCourseId" xml:space="preserve">
+    <value>شناسه درس</value>
+  </data>
+  <data name="TeacherCourseId" xml:space="preserve">
+    <value>شناسه درس معلم</value>
+  </data>
+  <data name="TeacherCourseTeacherId" xml:space="preserve">
+    <value>شناسه مدرس</value>
+  </data>
+  <data name="UserEmailContent" xml:space="preserve">
+    <value> متن پیام الکترونیکی</value>
+  </data>
+  <data name="UserEmailCreateDate" xml:space="preserve">
+    <value> تاریخ ارسال</value>
+  </data>
+  <data name="UserEmailFromUserId" xml:space="preserve">
+    <value> شناسه کاربری فرد پیام دهنده</value>
+  </data>
+  <data name="UserEmailIsDeleted" xml:space="preserve">
+    <value>پیام حذف شده</value>
+  </data>
+  <data name="UserEmailReceiverEmailId" xml:space="preserve">
+    <value>شناسه پیام ارسالی</value>
+  </data>
+  <data name="UserEmailReceiverIsArchived" xml:space="preserve">
+    <value>آرشیو شده؟</value>
+  </data>
+  <data name="UserEmailReceiverIsDeleted" xml:space="preserve">
+    <value>پیام حذف شده</value>
+  </data>
+  <data name="UserEmailReceiverIsRead" xml:space="preserve">
+    <value> پیام خوانده شده؟</value>
+  </data>
+  <data name="UserEmailReceiverToUserId" xml:space="preserve">
+    <value>شناسه کاربری فرد پیام گیرنده</value>
+  </data>
+  <data name="UserEmailSubject" xml:space="preserve">
+    <value> عنوان پیام الکترونیکی</value>
+  </data>
+  <data name="UserJobAddress" xml:space="preserve">
+    <value>نشانی محل کار</value>
+  </data>
+  <data name="UserJobEndDate" xml:space="preserve">
+    <value>تاریخ پایان کار</value>
+  </data>
+  <data name="UserJobJob" xml:space="preserve">
+    <value>نوع کار و سمت</value>
+  </data>
+  <data name="UserJobOrganization" xml:space="preserve">
+    <value>نام اداره یا محل کار</value>
+  </data>
+  <data name="UserJobPhone" xml:space="preserve">
+    <value>تلفن محل کار</value>
+  </data>
+  <data name="UserJobStartDate" xml:space="preserve">
+    <value>تاریخ شروع</value>
+  </data>
+  <data name="UserJobUserId" xml:space="preserve">
+    <value>شناسه متقاضی</value>
+  </data>
+  <data name="UserLockoutLockoutDate" xml:space="preserve">
+    <value>تاریخی که کاربر مسدود شده است</value>
+  </data>
+  <data name="UserLockoutLockoutTypeId" xml:space="preserve">
+    <value> شناسه علت مسدود شدن</value>
+  </data>
+  <data name="UserLockoutUserId" xml:space="preserve">
+    <value>شناسه کاربر</value>
+  </data>
+  <data name="UserLotteryLoteryDate" xml:space="preserve">
+    <value>تاریخ برگزاری قرعه کشی</value>
+  </data>
+  <data name="UserLotteryLotteryTypeId" xml:space="preserve">
+    <value>شناسه نوع قرعه کشی</value>
+  </data>
+  <data name="UserLotteryScore" xml:space="preserve">
+    <value> امتیاز داده شده به ازای برنده شده در قرعه کشی</value>
+  </data>
+  <data name="UserLotteryUserId" xml:space="preserve">
+    <value>شناسه کاربر</value>
+  </data>
+  <data name="UserMedalCreateDate" xml:space="preserve">
+    <value> تاریخ کسب مدال</value>
+  </data>
+  <data name="UserMedalMedalId" xml:space="preserve">
+    <value>شناسه مدال کسب شده</value>
+  </data>
+  <data name="UserMedalUserId" xml:space="preserve">
+    <value>شناسه کاربر</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>نام کاربری</value>
+  </data>
+  <data name="UserProfileAddress" xml:space="preserve">
+    <value>آدرس</value>
+  </data>
+  <data name="UserProfileAvatar" xml:space="preserve">
+    <value>تصویر کاربر</value>
+  </data>
+  <data name="UserProfileBirthday" xml:space="preserve">
+    <value>تاریخ تولد </value>
+  </data>
+  <data name="UserProfileBirthdayCityId" xml:space="preserve">
+    <value>شناسه شهر تولد</value>
+  </data>
+  <data name="UserProfileCertificate" xml:space="preserve">
+    <value>شماره شناسنامه </value>
+  </data>
+  <data name="UserProfileCode" xml:space="preserve">
+    <value>کدشناسایی</value>
+  </data>
+  <data name="UserProfileCredit" xml:space="preserve">
+    <value>میزان اعتبار</value>
+  </data>
+  <data name="UserProfileEmail" xml:space="preserve">
+    <value> آدرس ایمیل</value>
+  </data>
+  <data name="UserProfileFatherFirstName" xml:space="preserve">
+    <value>نام پدر</value>
+  </data>
+  <data name="UserProfileFirstName" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="UserProfileHabitanceCityId" xml:space="preserve">
+    <value>شناسه شهر محل سکونت قعلی</value>
+  </data>
+  <data name="UserProfileIsMale" xml:space="preserve">
+    <value>جنسیت کاربر</value>
+  </data>
+  <data name="UserProfileIsScholarship" xml:space="preserve">
+    <value> بورسیه؟</value>
+  </data>
+  <data name="UserProfileIssuancePlace" xml:space="preserve">
+    <value> محل صدور شناسنامه</value>
+  </data>
+  <data name="UserProfileLastName" xml:space="preserve">
+    <value>نام خانوادگی</value>
+  </data>
+  <data name="UserProfileLastUpdateDate" xml:space="preserve">
+    <value>آخرین تاریخ ویرایش اطلاعات</value>
+  </data>
+  <data name="UserProfileMobile" xml:space="preserve">
+    <value>تلفن همراه</value>
+  </data>
+  <data name="UserProfileMobileOperatorId" xml:space="preserve">
+    <value> اپراتور همراه خدمات دهنده </value>
+  </data>
+  <data name="UserProfileNationalCode" xml:space="preserve">
+    <value>کد ملی</value>
+  </data>
+  <data name="UserProfilePhone" xml:space="preserve">
+    <value> تلفن ثابت</value>
+  </data>
+  <data name="UserProfilePhoneModel" xml:space="preserve">
+    <value> مدل تلفن همراه</value>
+  </data>
+  <data name="UserProfileScore" xml:space="preserve">
+    <value> جمع امتیازات دریافت شده</value>
+  </data>
+  <data name="UserProfileSerial" xml:space="preserve">
+    <value> سریال شناسنامه</value>
+  </data>
+  <data name="UserProfileUserId" xml:space="preserve">
+    <value> کد کاربری دارنده پروفایل</value>
+  </data>
+  <data name="UserProfileZipCode" xml:space="preserve">
+    <value>کدپستی</value>
+  </data>
+  <data name="UserRelationCreateDate" xml:space="preserve">
+    <value> تاریخ ارسال دعوت نامه برقراری رابطه دوستی</value>
+  </data>
+  <data name="UserRelationFriendId" xml:space="preserve">
+    <value> شناسه درخواست شونده در رابطه دوستی</value>
+  </data>
+  <data name="UserRelationRelationTypeId" xml:space="preserve">
+    <value>شناسه نوع دوستی</value>
+  </data>
+  <data name="UserRelationRelativeId" xml:space="preserve">
+    <value> خویشاوندی که کنترل دوستی را انجام داده است</value>
+  </data>
+  <data name="UserRelationRequestStatusId" xml:space="preserve">
+    <value>شناسه وضعیت درخواست دوستی </value>
+  </data>
+  <data name="UserRelationUserId" xml:space="preserve">
+    <value>شناسه درخواست دهنده دوستی</value>
+  </data>
+  <data name="UserStatusText" xml:space="preserve">
+    <value>متن و جمله عمومی کاربر</value>
+  </data>
+  <data name="UserStatusUserId" xml:space="preserve">
+    <value>شناسه کاربر درج کننده</value>
+  </data>
+  <data name="UserTagCreateDate" xml:space="preserve">
+    <value>تاریخ تگ دهی</value>
+  </data>
+  <data name="UserTagIsFavorite" xml:space="preserve">
+    <value>تگ مورد علاقه و پیگیری  و در تخصص</value>
+  </data>
+  <data name="UserTagTagId" xml:space="preserve">
+    <value> شناسه تگ علاقمندی کاربر</value>
+  </data>
+  <data name="UserTagUserId" xml:space="preserve">
+    <value> شناسه کاربری فرد تگ گیرنده</value>
+  </data>
+  <data name="Class" xml:space="preserve">
+    <value>کلاس</value>
+  </data>
+  <data name="EducationalGroup" xml:space="preserve">
+    <value>گروه تحصیلی</value>
+  </data>
+  <data name="Exam" xml:space="preserve">
+    <value>آزمون</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>فایل</value>
+  </data>
+  <data name="Group" xml:space="preserve">
+    <value>گروه</value>
+  </data>
+  <data name="BasicInformationSource" xml:space="preserve">
+    <value>منبع اطلاعاتی</value>
+  </data>
+  <data name="Institute" xml:space="preserve">
+    <value>موسسه آموزشی</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>موقعیت جغرافیایی</value>
+  </data>
+  <data name="Medal" xml:space="preserve">
+    <value>مدال</value>
+  </data>
+  <data name="MobileOperator" xml:space="preserve">
+    <value>اپراتور موبایل</value>
+  </data>
+  <data name="Notification" xml:space="preserve">
+    <value>اطلاعیه</value>
+  </data>
+  <data name="Score" xml:space="preserve">
+    <value>امتیاز</value>
+  </data>
+  <data name="Service" xml:space="preserve">
+    <value>سرویس خدماتی</value>
+  </data>
+  <data name="BasicSystemObject" xml:space="preserve">
+    <value>شی سیستمی</value>
+  </data>
+  <data name="Tag" xml:space="preserve">
+    <value>تگ</value>
+  </data>
+  <data name="ClassMember" xml:space="preserve">
+    <value>اعضای کلاس</value>
+  </data>
+  <data name="ClassMessage" xml:space="preserve">
+    <value>پیام کلاس</value>
+  </data>
+  <data name="ClassQuestion" xml:space="preserve">
+    <value>سوال کلاس</value>
+  </data>
+  <data name="ClassScheduler" xml:space="preserve">
+    <value>زمانبندی کلاس</value>
+  </data>
+  <data name="ClassTeacherAssistant" xml:space="preserve">
+    <value>دانش آموز TA کلاس</value>
+  </data>
+  <data name="CommunityTopic" xml:space="preserve">
+    <value>مبحث اجتماع</value>
+  </data>
+  <data name="CommunityTopicMessage" xml:space="preserve">
+    <value>پیام مبحث اجتماع</value>
+  </data>
+  <data name="EducationalGroupTag" xml:space="preserve">
+    <value>تگ گروه تحصیلی</value>
+  </data>
+  <data name="EducationalGroupType" xml:space="preserve">
+    <value>نوع گروه تحصیلی</value>
+  </data>
+  <data name="ExamMember" xml:space="preserve">
+    <value>اعضای آزمون</value>
+  </data>
+  <data name="ExamTest" xml:space="preserve">
+    <value>سوال آزمون</value>
+  </data>
+  <data name="ExamTestAnswer" xml:space="preserve">
+    <value>جواب تست آزمون</value>
+  </data>
+  <data name="FileType" xml:space="preserve">
+    <value>نوع فایل</value>
+  </data>
+  <data name="FinancialCredit" xml:space="preserve">
+    <value>اعتبار</value>
+  </data>
+  <data name="FinancialPayment" xml:space="preserve">
+    <value>پرداخت</value>
+  </data>
+  <data name="FinancialType" xml:space="preserve">
+    <value>نوع پرداخت</value>
+  </data>
+  <data name="GeneralAnswer" xml:space="preserve">
+    <value>پاسخ</value>
+  </data>
+  <data name="GeneralFollow" xml:space="preserve">
+    <value>پیگیری</value>
+  </data>
+  <data name="GeneralMessage" xml:space="preserve">
+    <value>پیام</value>
+  </data>
+  <data name="GeneralQuestion" xml:space="preserve">
+    <value>سوال</value>
+  </data>
+  <data name="GroupMeeting" xml:space="preserve">
+    <value>قرار ملاقات گروه</value>
+  </data>
+  <data name="GroupMember" xml:space="preserve">
+    <value>اعضای گروه</value>
+  </data>
+  <data name="GroupMessage" xml:space="preserve">
+    <value>پیام گروه</value>
+  </data>
+  <data name="HoldingStatus" xml:space="preserve">
+    <value>وضعیت برگزاری</value>
+  </data>
+  <data name="InformationSourceDownload" xml:space="preserve">
+    <value>دانلود منبع اطلاعاتی</value>
+  </data>
+  <data name="InformationSourceRequest" xml:space="preserve">
+    <value>درخواست منبع اطلاعاتی</value>
+  </data>
+  <data name="InformationSourceRequestPackage" xml:space="preserve">
+    <value>بسته درخواستی</value>
+  </data>
+  <data name="InstituteUser" xml:space="preserve">
+    <value>کاربر موسسه آموزشی</value>
+  </data>
+  <data name="LocationType" xml:space="preserve">
+    <value>نوع موقعیت جغرافیایی</value>
+  </data>
+  <data name="LockoutType" xml:space="preserve">
+    <value>نوع مسدودیت</value>
+  </data>
+  <data name="LotteryType" xml:space="preserve">
+    <value>نوع قرعه کشی</value>
+  </data>
+  <data name="MedalType" xml:space="preserve">
+    <value>نوع مدال</value>
+  </data>
+  <data name="MeetingMember" xml:space="preserve">
+    <value>اعضای قرار ملاقات</value>
+  </data>
+  <data name="MessageSubject" xml:space="preserve">
+    <value>موضوع پیام</value>
+  </data>
+  <data name="NotificationType" xml:space="preserve">
+    <value>نوع اطلاعیه</value>
+  </data>
+  <data name="RelationType" xml:space="preserve">
+    <value>نوع رابطه</value>
+  </data>
+  <data name="RequestStatus" xml:space="preserve">
+    <value>وضعیت درخواست</value>
+  </data>
+  <data name="SchedulerStatus" xml:space="preserve">
+    <value>وضعیت زمانبندی</value>
+  </data>
+  <data name="ScoreType" xml:space="preserve">
+    <value>نوع امتیاز</value>
+  </data>
+  <data name="SecurityRole" xml:space="preserve">
+    <value>نقش</value>
+  </data>
+  <data name="SecurityUser" xml:space="preserve">
+    <value>کاربر</value>
+  </data>
+  <data name="SecurityUserRole" xml:space="preserve">
+    <value>نقش کاربر</value>
+  </data>
+  <data name="ServiceSource" xml:space="preserve">
+    <value>منبع سرویس خدماتی</value>
+  </data>
+  <data name="StudentScheduler" xml:space="preserve">
+    <value>زمان بندی دانش آموز</value>
+  </data>
+  <data name="StudentSchool" xml:space="preserve">
+    <value>سوابق تحصیلی دانش آموز</value>
+  </data>
+  <data name="StudentService" xml:space="preserve">
+    <value>سرویس خدماتی دانش آموز</value>
+  </data>
+  <data name="SystemObjectComment" xml:space="preserve">
+    <value>نظر شی سیستمی</value>
+  </data>
+  <data name="SystemObjectFile" xml:space="preserve">
+    <value>فایل شی سیستمی</value>
+  </data>
+  <data name="SystemObjectForbidden" xml:space="preserve">
+    <value>کنترل شی سیستمی</value>
+  </data>
+  <data name="SystemObjectScore" xml:space="preserve">
+    <value>امتیاز شی سیستمی</value>
+  </data>
+  <data name="SystemObjectTag" xml:space="preserve">
+    <value>تگ شی سیستمی</value>
+  </data>
+  <data name="TeacherCourse" xml:space="preserve">
+    <value>دروس مدرس</value>
+  </data>
+  <data name="UserEmail" xml:space="preserve">
+    <value>پیام الکترونیکی کاربر</value>
+  </data>
+  <data name="UserEmailReceiver" xml:space="preserve">
+    <value>دریافت کنندگاه پیام الکترونیکی</value>
+  </data>
+  <data name="UserJob" xml:space="preserve">
+    <value>سوابق شغلی کاربر</value>
+  </data>
+  <data name="UserLockout" xml:space="preserve">
+    <value>مسدودیت کاربر</value>
+  </data>
+  <data name="UserLottery" xml:space="preserve">
+    <value>قرعه کشی کاربر</value>
+  </data>
+  <data name="UserMedal" xml:space="preserve">
+    <value>مدال کاربر</value>
+  </data>
+  <data name="UserProfile" xml:space="preserve">
+    <value>پروفایل کاربر</value>
+  </data>
+  <data name="UserRelation" xml:space="preserve">
+    <value>رابطه کاربران</value>
+  </data>
+  <data name="UserStatus" xml:space="preserve">
+    <value>وضعیت کاربر</value>
+  </data>
+  <data name="UserTag" xml:space="preserve">
+    <value>تگ کاربر</value>
+  </data>
+  <data name="BasicInformationSourceId" xml:space="preserve">
+    <value>شناسه منبع اطلاعاتی</value>
+  </data>
+  <data name="BasicEducationalGroupIcon" xml:space="preserve">
+    <value>آیکن گروه تحصیلی</value>
+  </data>
+  <data name="BasicEducationalGroupId" xml:space="preserve">
+    <value>شناسه گروه تحصیلی</value>
+  </data>
+  <data name="BasicEducationalGroupIsPresent" xml:space="preserve">
+    <value>ارائه خدمات گروه تحصیلی</value>
+  </data>
+  <data name="EducationalGroupTypeId" xml:space="preserve">
+    <value>شناسه نوع گروه تحصیلی</value>
+  </data>
+  <data name="UserProfileId" xml:space="preserve">
+    <value>شناسه پروفایل</value>
+  </data>
+  <data name="UserProfileFullName" xml:space="preserve">
+    <value>نام و نام خانوادگی</value>
+  </data>
+  <data name="StudentSchoolId" xml:space="preserve">
+    <value>شناسه مدرسه دانش آموز</value>
+  </data>
+  <data name="BasicGroupId" xml:space="preserve">
+    <value>شناسه گروه</value>
+  </data>
+  <data name="StudentSchoolStudentId" xml:space="preserve">
+    <value>شناسه سابقه تحصیل فرد</value>
+  </data>
+  <data name="FinancialCreditId" xml:space="preserve">
+    <value>شناسه اعتبار</value>
+  </data>
+  <data name="FileTypeId" xml:space="preserve">
+    <value>شناسه نوع فایل</value>
+  </data>
+  <data name="FinancialTypeId" xml:space="preserve">
+    <value>شناسه نوع پرداخت</value>
+  </data>
+  <data name="LocationTypeId" xml:space="preserve">
+    <value>شناسه نوع موقعیت جغرافیایی</value>
+  </data>
+  <data name="SchedulerStatusId" xml:space="preserve">
+    <value>شناسه وضعیت برگزاری</value>
+  </data>
+  <data name="UserProfileGender" xml:space="preserve">
+    <value>جنسیت</value>
+  </data>
+  <data name="RelationTypeeId" xml:space="preserve">
+    <value>شناسه رابطه دوستی</value>
+  </data>
+  <data name="BasicClassId" xml:space="preserve">
+    <value>شناسه کلاس</value>
+  </data>
+  <data name="BasicClassTeacherFullName" xml:space="preserve">
+    <value>نام مدرس</value>
+  </data>
+  <data name="BasicServiceId" xml:space="preserve">
+    <value>شناسه سرویس خدماتی</value>
+  </data>
+  <data name="CommunityTopicId" xml:space="preserve">
+    <value>شناسه مبحث</value>
+  </data>
+  <data name="FileTypeEnglishTitle" xml:space="preserve">
+    <value>عنوان انگلیسی نوع فایل</value>
+  </data>
+  <data name="BasicInformationSourceAuthor" xml:space="preserve">
+    <value>نویسنده منبع اطلاعاتی</value>
+  </data>
+  <data name="BasicInformationSourceEducationalGroupId" xml:space="preserve">
+    <value>شناسه منبع اطلاعاتی بر اساس گروه آموزشی</value>
+  </data>
+  <data name="BasicInformationSourcePrice" xml:space="preserve">
+    <value>قیمت منبع اطلاعاتی</value>
+  </data>
+  <data name="BasicInformationSourceTitle" xml:space="preserve">
+    <value>منبع اطلاعاتی </value>
+  </data>
+  <data name="Teacher" xml:space="preserve">
+    <value>نام استاد</value>
+  </data>
+  <data name="GroupMemberId" xml:space="preserve">
+    <value>شناسه عضو گروه</value>
+  </data>
+  <data name="ClassMemberId" xml:space="preserve">
+    <value>شناسه عضویت در کلاس</value>
+  </data>
+  <data name="ServiceMemberMemberId" xml:space="preserve">
+    <value>استفاده کننده سرویس خدماتی</value>
+  </data>
+  <data name="ServiceMemberServiceId" xml:space="preserve">
+    <value>سرویس خدماتی</value>
+  </data>
+  <data name="ServiceMemberId" xml:space="preserve">
+    <value>شناسه استفاده کننده سرویس</value>
+  </data>
+  <data name="ServiceMemberPrice" xml:space="preserve">
+    <value>مبلغ پرداختی</value>
+  </data>
+  <data name="ServiceSourceId" xml:space="preserve">
+    <value>شناسه سرویس منبع اطلاعاتی</value>
+  </data>
+  <data name="ClassSchedulerId" xml:space="preserve">
+    <value>شناسه زمانبندی کلاس</value>
+  </data>
+  <data name="FileTableConnectionString" xml:space="preserve">
+    <value>Data Source=.\sqlexpress;Initial Catalog=ELearning1;Integrated Security=False;Persist Security Info=True;User ID=sa;Password=1;Persist Security Info=True</value>
+  </data>
+  <data name="FinancialPaymentId" xml:space="preserve">
+    <value>شناسه پرداخت دانش آموز</value>
+  </data>
+  <data name="BasicLocationId" xml:space="preserve">
+    <value>شناسه موقعیت جغرافیایی</value>
+  </data>
+</root>

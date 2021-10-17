@@ -1,0 +1,49 @@
+﻿@model Goldoon.Models.Security.ApplicationUser
+
+    <form action="@Url.Action("CreateUpdate", "User")" method="post">
+        @Html.Hidden("returnUrl", (string)ViewBag.returnUrl)
+        @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(x=>x.AccessFailedCount)
+        @Html.HiddenFor(x => x.EmailConfirmed)
+
+        @Html.HiddenFor(x => x.Id)
+
+        @Html.HiddenFor(x => x.LockoutEnabled)
+        @Html.HiddenFor(x => x.LockoutEndDateUtc)
+        @Html.HiddenFor(x => x.PhoneNumber)
+        @Html.HiddenFor(x => x.PhoneNumberConfirmed)
+        @Html.HiddenFor(x => x.SecurityStamp)
+        @Html.HiddenFor(x => x.TwoFactorEnabled)
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <span class="input-icon icon-right">
+                        <input class="form-control" placeholder="نام کاربری" type="text" value="@Model.UserName" disabled="disabled">
+                        <i class="fa fa-user blue"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <span class="input-icon icon-right">
+                        @Html.Bootstrap().TextBoxFor(x => x.PasswordHash).Placeholder("کلمه عبور").Size(InputSize.BlockLevel).AppendIcon(FontAwesome.User).AppendIconStyle("blue")
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <span class="input-icon icon-right">
+                        @Html.Bootstrap().TextBoxFor(x => x.Email).Placeholder("ایمیل").Size(InputSize.BlockLevel).AppendIcon(FontAwesome.User).AppendIconStyle("blue")
+                    </span>
+                </div>
+            </div>
+
+        </div>
+        <button type="submit" class="btn btn-primary">ویرایش</button>
+    </form>

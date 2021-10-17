@@ -1,0 +1,9 @@
+﻿@model ELearning.Utility.Search.TextSearch
+<div class="form-group">
+    @Html.TextBoxFor(m => m.SearchTerm, new { @class = "form-control input-sm" })
+    <div>
+        @Html.HiddenFor(m => m.Property)
+        @Html.HiddenFor(m => m.TargetTypeName)
+        @Html.Hidden("ModelTypeName", this.Model.GetType().AssemblyQualifiedName)
+    </div>
+</div>

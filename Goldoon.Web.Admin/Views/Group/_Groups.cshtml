@@ -1,0 +1,43 @@
+﻿@model PagedSearchViewModel<Goldoon.Models.Basic.Group>
+@using Goldoon.Models.Group;
+<div class="widget-body animated fadeInDown">
+    <div class="basic-container">
+        <div class="basic-header">
+            <ul class="header-buttons pull-right">
+                <li>
+                    <a href="#" onclick="Delete('Group')" id="DeleteGroupButton" class="tooltip-primary" data-toggle="tooltip" data-original-title="حذف" data-placement="bottom"><i class="glyphicon glyphicon-remove"></i></a>
+                </li>
+            </ul>
+            <div>
+                @Html.GetPager(this.Model.Entities, this.Request.RawUrl)
+                <ul class="header-buttons">
+                    <li class="search">
+                        <span class="input-icon tooltip-primary" data-toggle="tooltip" data-placement="bottom" data-original-title="جستجوی عنوان">
+                            @using (Html.BeginForm("Index", "Group", FormMethod.Get))
+                            {
+                                @Html.EditorFor(m => m.SearchCriteria, new { @class = "form-control input-sm", @placeholder = "عنوان" })
+                            }
+                            <i class="glyphicon glyphicon-search lightgray"></i>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="pages">
+                @((Model.Entities.Paging.PageIndex) * @Model.Entities.Paging.PageSize + 1) - @(Math.Min(Model.Entities.TotalNumberOfItems, (Model.Entities.Paging.PageIndex + 1) * @Model.Entities.Paging.PageSize)) از @Model.Entities.TotalNumberOfItems مورد
+            </div>
+        </div>
+    </div>
+    <div class="dataTables_wrapper form-inline no-footer padding-20">
+        @if (this.Model.Entities != null && this.Model.Entities.Any())
+        {
+            @Html.AutoColumn(this.Model.Entities, this.Request.RawUrl)
+            ;
+        }
+    </div>
+</div>
+
+<script>
+    $("#Group_table tr").click(function () {
+        Page('GroupMember','/GroupMember/Index');
+    });
+</script>

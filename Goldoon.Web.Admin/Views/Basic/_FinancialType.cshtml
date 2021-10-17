@@ -1,0 +1,180 @@
+﻿@model IEnumerable<Goldoon.Models.Basic.FinancialType>
+@using ELearning.Utility;
+<div class="animated fadeInDown">
+    <div>
+        <button class="btn btn-circle  btn-xs" data-container="body" data-placement="right" data-toggle="modal" type="button" data-target="#InsertFinancialTypelargeModal"><i class="glyphicon glyphicon-plus"></i></button>
+        @Html.Bootstrap().Button().Color(BootstrapColors.Default).Text("").Size(ButtonSize.Mini).Circular().IconPrepend(GlyphIcons.Remove).Tooltip(new Tooltip("حذف")).Id("FinancialTypeDeleteButton")
+        <div class="pull-left basic-header">
+            <ul class="header-buttons">
+                <li class="search">
+                    <span class="input-icon tooltip-primary" data-tooltip="tooltip" data-placement="bottom" data-original-title="جستجوی عنوان">
+                        <input type="text" class="form-control input-sm" id="title-search" placeholder="عنوان">
+                        <i class="glyphicon glyphicon-search lightgray">
+                        </i>
+                    </span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <br />
+    <ul class="dd-list">
+        @foreach (var item in Model)
+        {
+            <li class="dd-item">
+                <div class="item-check dd-list dd-handle ">
+                    <label>
+                        <input type="checkbox" value="@item.Id">
+                        <span class="text"></span>
+                    </label>
+
+                    <a class="text" data-id="@item.Id" data-title="@item.Title" style="cursor:pointer" onclick="FinancialTypeEdit(this)" data-target="#EditFinancialTypelargeModal" data-toggle="modal">@item.Title</a>
+                    <div class="pull-left"><button class="btn btn-circle btn-xs" onclick="FinancialTypeEdit(this)" data-toggle="modal" data-target="#EditFinancialTypelargeModal" data-id="@item.Id" data-title="@item.Title"><i class="glyphicon glyphicon-edit"></i></button></div>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+
+
+
+@using (var modal = Html.Bootstrap().Begin(new Modal().Id("InsertFinancialTypelargeModal").Closeable().Color(BootstrapColors.Primary).Size(BootstrapSizes.Normal)))
+{
+
+    using (var header = modal.BeginHeader())
+    {
+        <h4 class="modal-title" id="myLargeModalLabel">ایجاد اطلاعات</h4>
+    }
+    using (var body = modal.BeginBody())
+    {
+
+        <div class="form-group">
+            <label for="definpu">عنوان</label>
+            @Html.TextBox("FinancialTypeTitle")
+            @Html.ValidationMessage("FinancialTypeTitle", "*")
+        </div>
+
+    }
+    using (modal.BeginFooter())
+    {
+        <div class="form-group">
+            <button class="btn bt-info" onclick="InsertFinancialTypeItem()">ایجاد</button>
+        </div>
+    }
+}
+
+
+@using (var modal = Html.Bootstrap().Begin(new Modal().Id("EditFinancialTypelargeModal").Closeable().Color(BootstrapColors.Primary).Size(BootstrapSizes.Normal)))
+{
+
+    using (var header = modal.BeginHeader())
+    {
+        <h4 class="modal-title" id="myLargeModalLabel">ویرایش اطلاعات</h4>
+    }
+    using (var body = modal.BeginBody())
+    {
+
+        <div class="form-group">
+            <label for="definpu">عنوان</label>
+            @Html.Hidden("EditFinancialTypeId")
+            @Html.TextBox("EditFinancialTypeTitle")
+        </div>
+
+    }
+    using (modal.BeginFooter())
+    {
+        <div class="form-group">
+            <button class="btn bt-info" onclick="EditFinancialTypeItem()">ویرایش</button>
+        </div>
+    }
+}
+<script src="~/Theme/assets/js/jqueryval/jquery.validate.min.js"></script>
+<script>
+    //----insert
+    function InsertFinancialTypeItem() {
+        var title = $("#FinancialTypeTitle").val()
+        if (title == "") {
+            toastr.warning("مقدار فیلد اجباری می باشد", "", "")
+        }
+        else
+            $.ajax({
+                url: "/Basic/InsertFinancialType",
+                Type: "Post",
+                data: { Title: title },
+                success: function (result) {
+                    $("#FinancialType").html(result)
+                    $(".modal-backdrop").hide();
+                    toastr.success("عملیات با موفقیت انجام شد", "", "");
+                },
+                error: function () {
+                    toastr.error("خطا در سیستم", "", "")
+                }
+            })
+    }
+    //----/insert
+
+    //----delete
+    $("#FinancialTypeDeleteButton").click(function () {
+        var Ids = "";
+        $('#FinancialType table').find('input[type="checkbox"]:checked').each(function (value) {
+            Ids += $(this).val() + ","
+        });
+        if (Ids == "") {
+            toastr.warning("موردی برای حدف انتخاب نشده", "", "")
+        }
+        else
+            $.ajax({
+                url: "/Basic/DeleteFinancialType",
+                Type: "Post",
+                data: { Ids: Ids },
+                success: function (result) {
+                    $("#FinancialType").html(result)
+                    toastr.success("عملیات با موفقیت انجام شد", "", "");
+                },
+                error: function () {
+                    toastr.error("خطا در سیستم", "", "")
+                }
+            })
+    })
+    //----/delete
+
+    //----Edit
+    function FinancialTypeEdit(data) {
+        $("#EditFinancialTypeId").val($(data).data("id"))
+        $("#EditFinancialTypeTitle").val($(data).data("title"))
+    }
+    function EditFinancialTypeItem() {
+        var title = $("#EditFinancialTypeTitle").val()
+        if (title == "") {
+            toastr.warning("مقدار فیلد اجباری می باشد", "", "")
+        }
+        else
+            $.ajax({
+                url: "/Basic/UpdateFinancialType",
+                Type: "Post",
+                data: { Title: title, Id: $("#EditFinancialTypeId").val() },
+                success: function (result) {
+                    $("#FinancialType").html(result)
+                    $(".modal-backdrop").hide()
+                    toastr.success("عملیات با موفقیت انجام شد", "", "");
+                },
+                error: function () {
+                    toastr.error("خطا در سیستم", "", "")
+                }
+            })
+    }
+    //----/Edit
+    //----SEARCH
+    $(function () {
+        $('#FinancialType input[type="text"]').keyup(function () {
+            var searchText = $(this).val();
+            $('#FinancialType  .dd-list  > li').each(function () {
+                var currentLiText = $(this).text(),
+                    showCurrentLi = currentLiText.indexOf(searchText) !== -1;
+                $(this).toggle(showCurrentLi);
+            });
+        });
+    });
+    //----/SEARCH
+</script>
+<script src="~/Theme/assets/js/toastr/toastr.js"></script>

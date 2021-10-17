@@ -1,0 +1,31 @@
+﻿@model TreeViewModel<Goldoon.Models.Basic.Location>
+
+@if (Model.Categories.Any(s => s.ParentId == Model.Seed))
+{
+    <ol class="dd-list">
+        @foreach (var node in Model.Categories)
+        {
+            if (node.ParentId == Model.Seed)
+            {
+                TreeViewModel<Goldoon.Models.Basic.Location> inner = new TreeViewModel<Goldoon.Models.Basic.Location>
+                {
+                    Seed = node.Id,
+                    Categories = Model.Categories
+                };
+                <li class="dd-item dd2-item" data-id="@node.Id">
+                    <button data-action="collapse" type="button">-</button>
+                    <button data-action="expand" type="button" style="display: none;">+</button>
+                    <div class="dd-handle dd2-handle">
+                        <i class="normal-icon fa fa-android"></i>
+                        <i class="drag-icon fa fa-arrows-alt "></i>
+                    </div>
+                    <div class="dd-handle">
+                        <input type="checkbox" value="@node.Id"/><span class="text">@node.Title</span>
+                        @*<a href="?@node.Id">@node.Title</a>*@                        
+                    </div>
+                    @Html.Partial("_Location", inner)
+                </li>
+            }
+        }
+    </ol>
+}

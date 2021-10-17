@@ -1,0 +1,178 @@
+﻿@model IEnumerable<Goldoon.Models.Basic.LocationType>
+@using ELearning.Utility;
+<div class="animated fadeInDown">
+    <div>
+        <button class="btn btn-circle  btn-xs" data-container="body" data-placement="right" data-toggle="modal" type="button" data-target="#InsertLocationTypelargeModal"><i class="glyphicon glyphicon-plus"></i></button>
+        @Html.Bootstrap().Button().Color(BootstrapColors.Default).Text("").Size(ButtonSize.Mini).Circular().IconPrepend(GlyphIcons.Remove).Tooltip(new Tooltip("حذف")).Id("LocationTypeDeleteButton")
+        <div class="pull-left basic-header">
+            <ul class="header-buttons">
+                <li class="search">
+                    <span class="input-icon tooltip-primary" data-tooltip="tooltip" data-placement="bottom" data-original-title="جستجوی عنوان">
+                        <input type="text" class="form-control input-sm" id="title-search" placeholder="عنوان">
+                        <i class="glyphicon glyphicon-search lightgray">
+                        </i>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <br />
+    <ul class="dd-list">
+        @foreach (var item in Model)
+        {
+            <li class="dd-item">
+                <div class="item-check dd-list dd-handle ">
+                    <label>
+                        <input type="checkbox" value="@item.Id">
+                        <span class="text"></span>
+                    </label>
+                    <a class="text" data-id="@item.Id" data-title="@item.Title" style="cursor:pointer" onclick="LocationTypeEdit(this)" data-target="#EditLocationTypelargeModal" data-toggle="modal">@item.Title</a>
+                    <div class="pull-left"><button class="btn btn-circle btn-xs" onclick="LocationTypeEdit(this)" data-toggle="modal" data-target="#EditLocationTypelargeModal" data-id="@item.Id" data-title="@item.Title"><i class="glyphicon glyphicon-edit"></i></button></div>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+
+
+
+@using (var modal = Html.Bootstrap().Begin(new Modal().Id("InsertLocationTypelargeModal").Closeable().Color(BootstrapColors.Primary).Size(BootstrapSizes.Normal)))
+{
+
+    using (var header = modal.BeginHeader())
+    {
+        <h4 class="modal-title" id="myLargeModalLabel">ایجاد اطلاعات</h4>
+    }
+    using (var body = modal.BeginBody())
+    {
+
+        <div class="form-group">
+            <label for="definpu">عنوان</label>
+            @Html.TextBox("LocationTypeTitle")
+            @Html.ValidationMessage("LocationTypeTitle", "*")
+        </div>
+
+    }
+    using (modal.BeginFooter())
+    {
+        <div class="form-group">
+            <button class="btn bt-info" onclick="InsertLocationTypeItem()">ایجاد</button>
+        </div>
+    }
+}
+
+
+@using (var modal = Html.Bootstrap().Begin(new Modal().Id("EditLocationTypelargeModal").Closeable().Color(BootstrapColors.Primary).Size(BootstrapSizes.Normal)))
+{
+
+    using (var header = modal.BeginHeader())
+    {
+        <h4 class="modal-title" id="myLargeModalLabel">ویرایش اطلاعات</h4>
+    }
+    using (var body = modal.BeginBody())
+    {
+
+        <div class="form-group">
+            <label for="definpu">عنوان</label>
+            @Html.Hidden("EditLocationTypeId")
+            @Html.TextBox("EditLocationTypeTitle")
+        </div>
+
+    }
+    using (modal.BeginFooter())
+    {
+        <div class="form-group">
+            <button class="btn bt-info" onclick="EditLocationTypeItem()">ویرایش</button>
+        </div>
+    }
+}
+<script src="~/Theme/assets/js/jqueryval/jquery.validate.min.js"></script>
+<script>
+    //----insert
+    function InsertLocationTypeItem() {
+        var title = $("#LocationTypeTitle").val()
+        if (title == "") {
+            toastr.warning("مقدار فیلد اجباری می باشد", "", "")
+        }
+        else
+            $.ajax({
+                url: "/Basic/InsertLocationType",
+                Type: "Post",
+                data: { Title: title },
+                success: function (result) {
+                    $("#LocationType").html(result)
+                    $(".modal-backdrop").hide()
+                    toastr.success("عملیات با موفقیت انجام شد", "", "");
+                },
+                error: function () {
+                    toastr.error("خطا در سیستم", "", "")
+                }
+            })
+    }
+    //----/insert
+
+    //----delete
+    $("#LocationTypeDeleteButton").click(function () {
+        var Ids = "";
+        $('#LocationType table').find('input[type="checkbox"]:checked').each(function (value) {
+            Ids += $(this).val() + ","
+        });
+        if (Ids == "") {
+            toastr.warning("موردی برای حدف انتخاب نشده", "", "")
+        }
+        else
+            $.ajax({
+                url: "/Basic/DeleteLocationType",
+                Type: "Post",
+                data: { Ids: Ids },
+                success: function (result) {
+                    $("#LocationType").html(result)
+                    toastr.success("عملیات با موفقیت انجام شد", "", "");
+                },
+                error: function () {
+                    toastr.error("خطا در سیستم", "", "")
+                }
+            })
+    })
+    //----/delete
+
+    //----Edit
+    function LocationTypeEdit(data) {
+        $("#EditLocationTypeId").val($(data).data("id"))
+        $("#EditLocationTypeTitle").val($(data).data("title"))
+    }
+    function EditLocationTypeItem() {
+        var title = $("#EditLocationTypeTitle").val()
+        if (title == "") {
+            toastr.warning("مقدار فیلد اجباری می باشد", "", "")
+        }
+        else
+            $.ajax({
+                url: "/Basic/UpdateLocationType",
+                Type: "Post",
+                data: { Title: title, Id: $("#EditLocationTypeId").val() },
+                success: function (result) {
+                    $("#LocationType").html(result)
+                    $(".modal-backdrop").hide()
+                    toastr.success("عملیات با موفقیت انجام شد", "", "");
+                },
+                error: function () {
+                    toastr.error("خطا در سیستم", "", "")
+                }
+            })
+    }
+    //----/Edit
+    //----SEARCH
+    $(function () {
+        $('#LocationType input[type="text"]').keyup(function () {
+            var searchText = $(this).val();
+            $('#LocationType  .dd-list  > li').each(function () {
+                var currentLiText = $(this).text(),
+                    showCurrentLi = currentLiText.indexOf(searchText) !== -1;
+                $(this).toggle(showCurrentLi);
+            });
+        });
+    });
+    //----/SEARCH
+</script>
+<script src="~/Theme/assets/js/toastr/toastr.js"></script>

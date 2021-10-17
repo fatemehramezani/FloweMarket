@@ -1,0 +1,126 @@
+﻿@model ELearning.Web.ViewModels.PagedSearchViewModel<Goldoon.Models.Users.UserProfile>
+
+@{
+    ViewBag.Title = "مدیریت مشاورین";
+}
+<h5 class="row-title"><i class="typcn typcn-th-small"></i>مدیریت @ViewBag.Title</h5>
+@Html.Partial("_UserProfiles", Model)
+
+<h5 class="row-title">
+    <i class="typcn typcn-folder themeprimary"></i>عملیات
+</h5>
+<div class="row">
+    <div class="basictab-body">
+        <div class="col-lg-12">
+            <div class="tabbable">
+                <ul class="nav nav-tabs tabs-flat  nav-justified" id="myTab11">
+                    <li class="tab-pink">
+                        <a data-toggle="tab" href="#edit-tab" onclick="OpenAdvisor('UserProfile')">
+                            <i class="dropdown-icon fa fa-cloud-download"></i>
+                            ویرایش اطلاعات پروفایل مشاور
+                        </a>
+                    </li>
+                    <li class="tab-pink">
+                        <a data-toggle="tab" href="#security-tab" onclick="OpenAdvisor('User')">
+                            <i class="dropdown-icon fa fa-cog"></i>
+                            ویرایش اطلاعات کاربری
+                        </a>
+                    </li>
+
+                    <li class="tab-red">
+                        <a data-toggle="tab" href="#school-tab" onclick="OpenAdvisor('UserRelation')">
+                            <i class="dropdown-icon fa fa-cloud-download"></i>
+                            دانش آموزان تحت نظارت
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content tabs-flat">
+                    <div class="tab-pane active">
+                        لطفا عملیات مورد نظر را انتخاب نمایید
+                    </div>
+                    <!-- Edit -->
+                    <div id="edit-tab" class="tab-pane">
+                        <div id="profile-tab" class="tab-pane">
+                            <div class="dataTables_wrapper form-inline no-footer" id="UserProfile">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ApplicationUser -->
+                    <div id="security-tab" class="tab-pane">
+                        <div class="dataTables_wrapper form-inline no-footer" id="User">
+                            
+                        </div>
+                    </div>
+
+                    <!-- School -->
+                    <div id="school-tab" class="tab-pane">
+                        <div class="dataTables_wrapper form-inline no-footer" id="UserRelation">
+                            
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/Theme/assets/js/jqueryval/jquery.validate.min.js"></script>
+    
+
+
+
+
+<script>
+        function OpenAdvisor(name) {
+            var Id = 0;
+            var redirectURL;
+            var requestType = "POST";
+            var selectedUserId = $("#selectedUserId").val();
+            var selectedUserProfileId = $("#selectedUserId").val();
+            var selectedRelationType = {
+                Id: 1//رابطه مشاور
+            };
+
+
+            if (selectedUserId == "" || selectedUserProfileId == "") {
+                toastr.warning("موردی برای نمایش انتخاب نشده", "", "");
+            } else {
+                var selectedUser = {
+                    Id: selectedUserId
+                };
+                redirectURL = "/" + name + "/GetByUser_RelationType";
+                if (name == "UserProfile") {
+                    requestType = "GET";
+                    redirectURL = "/" + name + "/Update/" + selectedUserProfileId;
+                }
+                if (name == "User") {
+                    requestType = "GET";
+                    redirectURL = "/" + name + "/Update/" + selectedUserId;
+                }
+                $.ajax({
+                    contentType: 'application/json',
+                    type: requestType,
+                    data: JSON.stringify({ 'selectedUser': selectedUser, 'selectedRelationType': selectedRelationType }),
+                    url: redirectURL,
+                    success: function (result) {
+                        $("#" + name).html(result);
+                    },
+                    error: function (xhr) {
+                        try {
+                            var json = $.parseJSON(xhr.responseText);
+                            toastr.error(json.errorMessage, "", "");
+                        }
+                        catch (e) {
+                            toastr.error("عملیات با خطا متوقف شد", "", "");
+                        }
+                    }
+                });
+            };
+        }
+</script>
+    
+}

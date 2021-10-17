@@ -1,0 +1,185 @@
+﻿@model IEnumerable<Goldoon.Models.Basic.RelationType>
+@using ELearning.Utility;
+<div class="animated fadeInDown">
+    <div>
+        <button class="btn btn-circle  btn-xs" data-container="body" data-placement="right" data-title="ویرایش" data-toggle="modal" type="button" data-target="#InsertRelationTypeModal"><i class="glyphicon glyphicon-plus"></i></button>
+        @Html.Bootstrap().Button().Color(BootstrapColors.Default).Text("").Size(ButtonSize.Mini).Circular().IconPrepend(GlyphIcons.Remove).Tooltip(new Tooltip("حذف")).Id("RelationTypeDeleteButton")
+        <div class="pull-left basic-header">
+            <ul class="header-buttons">
+                <li class="search">
+                    <span class="input-icon tooltip-primary" data-tooltip="tooltip" data-placement="bottom" data-original-title="جستجوی عنوان">
+                        <input type="text" class="form-control input-sm" id="title-search" placeholder="عنوان">
+                        <i class="glyphicon glyphicon-search lightgray">
+                        </i>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <br />
+    <ul class="dd-list">
+        @foreach (var item in Model)
+        {
+            <li class="dd-item">
+                <div class="item-check dd-list dd-handle ">
+                    <label>
+                        <input type="checkbox" value="@item.Id">
+                        <span class="text"></span>
+                    </label>
+                    <a class="text" data-id="@item.Id" data-title="@item.Title" style="cursor:pointer" onclick="RelationTypeEdit(this)" data-target="#EditRelationTypelargeModal" data-toggle="modal">@item.Title</a>
+                    <div class="pull-left">
+                        <button class="btn btn-circle btn-xs" onclick="RelationTypeEdit(this)" data-toggle="modal" data-target="#EditRelationTypelargeModal" data-id="@item.Id" data-title="@item.Title"><i class="glyphicon glyphicon-edit"></i></button>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+
+
+
+@using (var modal = Html.Bootstrap().Begin(new Modal().Id("InsertRelationTypeModal").Closeable().Color(BootstrapColors.Primary).Size(BootstrapSizes.Normal)))
+{
+
+    using (var header = modal.BeginHeader())
+    {
+        <h4 class="modal-title" id="myLargeModalLabel">ایجاد اطلاعات</h4>
+    }
+    using (var body = modal.BeginBody())
+    {
+
+        <div class="form-group">
+            <label for="definpu">عنوان</label>
+            @Html.TextBox("RelationTypeTitle")
+            @Html.ValidationMessage("RelationTypeTitle", "*")
+        </div>
+
+    }
+    using (modal.BeginFooter())
+    {
+        <div class="form-group">
+            <button class="btn bt-info" onclick="RelationTypeTitle()">ایجاد</button>
+        </div>
+    }
+}
+
+
+@using (var modal = Html.Bootstrap().Begin(new Modal().Id("EditRelationTypelargeModal").Closeable().Color(BootstrapColors.Primary).Size(BootstrapSizes.Normal)))
+{
+
+    using (var header = modal.BeginHeader())
+    {
+        <h4 class="modal-title" id="myLargeModalLabel">ویرایش اطلاعات</h4>
+    }
+    using (var body = modal.BeginBody())
+    {
+
+        <div class="form-group">
+            <label for="definpu">عنوان</label>
+            @Html.Hidden("EditRelationTypeId")
+            @Html.TextBox("EditRelationTypeTitle")
+        </div>
+
+    }
+    using (modal.BeginFooter())
+    {
+        <div class="form-group">
+            <button class="btn bt-info" onclick="EditRelationTypeItem()">ویرایش</button>
+        </div>
+    }
+}
+
+
+
+<script src="~/Theme/assets/js/jqueryval/jquery.validate.min.js"></script>
+<script>
+    //----insert
+    function RelationTypeTitle() {
+        var title = $("#RelationTypeTitle").val()
+        if (title == "") {
+            toastr.warning("مقدار فیلد اجباری می باشد", "", "")
+        }
+        else
+            $.ajax({
+                url: "/Basic/InsertRelationType",
+                Type: "Post",
+                data: { Title: title },
+                success: function (result) {
+
+                    $("#RelationType").html(result)
+                    $(".modal-backdrop").hide()
+                    toastr.success("عملیات با موفقیت انجام شد", "", "");
+                },
+                error: function () {
+                    toastr.error("خطا در سیستم", "", "")
+                }
+            })
+    }
+    //----/insert
+
+    //----delete
+    $("#RelationTypeDeleteButton").click(function () {
+        var Ids = "";
+        $('#RelationType table').find('input[type="checkbox"]:checked').each(function (value) {
+            Ids += $(this).val() + ","
+        });
+        if (Ids == "") {
+            toastr.warning("موردی برای حدف انتخاب نشده", "", "")
+        }
+        else
+            $.ajax({
+                url: "/Basic/DeleteRelationType",
+                Type: "Post",
+                data: { Ids: Ids },
+                success: function (result) {
+                    $("#RelationType").html(result)
+                    toastr.success("عملیات با موفقیت انجام شد", "", "");
+                },
+                error: function () {
+                    toastr.error("خطا در سیستم", "", "")
+                }
+            })
+    })
+    //----/delete
+
+    //----Edit
+    function RelationTypeEdit(data) {
+
+        $("#EditRelationTypeId").val($(data).data("id"))
+        $("#EditRelationTypeTitle").val($(data).data("title"))
+    }
+    function EditRelationTypeItem() {
+        var title = $("#EditRelationTypeTitle").val()
+        if (title == "") {
+            toastr.warning("مقدار فیلد اجباری می باشد", "", "")
+        }
+        else
+            $.ajax({
+                url: "/Basic/UpdateRelationType",
+                Type: "Post",
+                data: { Title: title, Id: $("#EditRelationTypeId").val() },
+                success: function (result) {
+                    $("#RelationType").html(result)
+                    $(".modal-backdrop").hide()
+                    toastr.success("عملیات با موفقیت انجام شد", "", "");
+                },
+                error: function () {
+                    toastr.error("خطا در سیستم", "", "")
+                }
+            })
+    }
+    //----/Edit
+    //----SEARCH
+    $(function () {
+        $('#RelationType input[type="text"]').keyup(function () {
+            var searchText = $(this).val();
+            $('#RelationType  .dd-list  > li').each(function () {
+                var currentLiText = $(this).text(),
+                    showCurrentLi = currentLiText.indexOf(searchText) !== -1;
+                $(this).toggle(showCurrentLi);
+            });
+        });
+    });
+    //----/SEARCH
+</script>
+<script src="~/Theme/assets/js/toastr/toastr.js"></script>
